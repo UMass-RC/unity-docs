@@ -140,11 +140,13 @@
 <p>SRUN is a so-called <em>blocking</em> command, as in it will not let you execute other commands until this command is finished (not necessarily the job, just the allocation). For example, if you run <code>srun /bin/hostname</code> and resources are available right away, the job will be sent out and the result saved into a file. If resources are not available, you will be stuck in the command while you are pending in the queue.</p>
 <p>Please note that like sbatch, you can run a batch file using srun.</p>
 <p>The command syntax is <code>srun &lt;options&gt; [executable] &lt;args&gt;</code></p>
-<p>Options is where you can specify the resources you want for the executable, or define. The following are some of the options available; to see all available parameters run <code>man srun</code>.
-* <code>-c &lt;num&gt;</code> Number of CPUs (threads) to allocate to the job
-* <code>-G &lt;num&gt;</code> Number of GPUs to allocate to the job
-* <code>--mem &lt;num&gt;</code> Memory to allocate to the job (in MB by default)
-* <code>-p &lt;partition&gt;</code> Partition to submit the job to</p>
+<p>Options is where you can specify the resources you want for the executable, or define. The following are some of the options available; to see all available parameters run <code>man srun</code>.</p>
+<ul>
+<li><code>-c &lt;num&gt;</code> Number of CPUs (threads) to allocate to the job</li>
+<li><code>-G &lt;num&gt;</code> Number of GPUs to allocate to the job</li>
+<li><code>--mem &lt;num&gt;</code> Memory to allocate to the job (in MB by default)</li>
+<li><code>-p &lt;partition&gt;</code> Partition to submit the job to</li>
+</ul>
 <p>To run an interacitve job (in this case a bash prompt), the command might look like this (<code>--pty</code> is the important option):</p>
 <pre><code>srun -c 6 -p cpu-short --pty bash
 </code></pre>
