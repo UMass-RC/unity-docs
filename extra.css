@@ -1,20 +1,3 @@
 div.wy-side-nav-search {
     background: #881c1c;
 }
-
-a {
-    color: #881c1c;
-}
-
-a:visited {
-    color: #881c1c;
-}
-
-a:hover {
-    color: #881c1c;
-    text-decoration: underline;
-}
-
-a.icon {
-    color: #ffffff;
-}
