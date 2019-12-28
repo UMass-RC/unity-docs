@@ -1,1 +1,19 @@
-site_name: My Docs
+site_name: Unity Cluster
+extra_css: [extra.css]
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+markdown_extensions:
+    - admonition
+nav:
+- Home: "index.md"
+- Connecting:
+    - "Console - SSH": "connecting/ssh.md"
+    - "Web - Jupyter Lab": "connecting/jupyter.md"
+- Submitting Jobs - Slurm:
+    - "Description": "slurm/index.md"
+    - "SRUN Jobs": "slurm/srun.md"
+    - "SBATCH Jobs": "slurm/sbatch.md"

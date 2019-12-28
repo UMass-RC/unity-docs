@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - Unity Cluster</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Unity Cluster</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#introduction-to-unity">Introduction to Unity</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#defining-some-terms">Defining some Terms</a></li>
+        
+            <li><a class="toctree-l3" href="#how-unity-works">How Unity Works</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Connecting</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="connecting/ssh/">Console - SSH</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="connecting/jupyter/">Web - Jupyter Lab</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Submitting Jobs - Slurm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="slurm/">Description</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="slurm/srun/">SRUN Jobs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="slurm/sbatch/">SBATCH Jobs</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Unity Cluster</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction-to-unity">Introduction to Unity</h1>
+<p>This introductory tutorial will help you build an understanding of what an HPC, or high performance computing cluster is, and how to most effectively utilize it.</p>
+<h3 id="defining-some-terms">Defining some Terms</h3>
+<p>At its most basic level, you are learning how to use a <strong>cluster</strong>. A cluster is many servers (or computers) joined together in an effort to work together, where a single server is known as a <strong>node</strong>. Unity is an <strong>HPC</strong>, or High Performance Computing cluster. This means we focus most on computational power and efficiency, as the name entails. The primary use case of Unity is by researchers wanting more computational power than what is available on their own.</p>
+<p>Think about your personal laptop/desktop: when you use your computer, the system decides the resources on your computer to use (cpu, ram, etc.) based on what you are doing at that time. When you scale this process up to a cluster, what is known as a <strong>scheduler</strong> determines what resources to give you, but this time across many computers, not just one. You can picture the cluster as a scaled-up version of a single personal computer. An operation you run on the cluster is referred to as a <strong>job</strong>.</p>
+<h3 id="how-unity-works">How Unity Works</h3>
+<p>While you may not need to master every bit of the operation here at the Unity Cluster, it is important that you generally know how the cluster operates, because it can help your troubleshooting in the future. Below is a simplified diagram of the structure of Unity. The process in which you use the cluster:
+1. The client connects to Unity using SSH, or the Jupyter portal.
+1. Once connected, a job is requested through the scheduler, and your job is placed in the appropriate queue.
+1. Once resources are available (cores, gpu, memory, etc.), the scheduler starts your job.
+1. Once your job completes, the result returns to the client.</p>
+<p>The above process can be viewed below:</p>
+<p><img alt="Unity Diagram" src="res/unity.png" /></p>
+<h4 id="1-connecting-to-the-cluster">1. Connecting to the cluster</h4>
+<p>You can connect to Unity in two ways, an SSH connection (the standard linux console), and an instance of JupyterLab. JupyterLab is the easiest to get up and going. When connecting the portal, you will be asked to select one of a few preset resources to allocate for your jupter notebook. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterLab as if it is running on your own computer.</p>
+<p>SSH is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible to starting your own jobs. This can be more useful than jupyter for jobs that last a long time that must be left unattended, or to have much more refined control over the resources allocated for your job.</p>
+<p>Connecting the cluster is discussed in more detail <a href="">here</a>.</p>
+<h4 id="2-requesting-resources">2. Requesting Resources</h4>
+<p>If you are on an SSH connection, you will have to manually request resources. Once you decide on what resources you want, you will submit that information to the scheduler, which will place you in a queue. If your resources are available immediately, your request will return right away, if not, you will be held in the queue until your requested resources become available.</p>
+<p>Requesting resources in the cluster and all parameters allowed is discussed in more detail <a href="">here</a>.</p>
+<h4 id="3-starting-job">3. Starting Job</h4>
+<p>Once the scheduler has started your job, it will run on some node in the cluster, using some resources that were defined by your parameters. It is not important what node the job runs on from the point of view of the client.</p>
+<h4 id="4-ending-job">4. Ending Job</h4>
+<p>Once the job has finished, the scheduler will return whatever info you requested in your parameters.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="connecting/ssh/" class="btn btn-neutral float-right" title="Console - SSH">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="connecting/ssh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2019-12-28 18:37:28
+-->

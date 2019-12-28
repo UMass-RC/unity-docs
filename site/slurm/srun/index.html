@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>SRUN Jobs - Unity Cluster</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "SRUN Jobs";
+    var mkdocs_page_input_path = "slurm/srun.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Unity Cluster</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Connecting</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../connecting/ssh/">Console - SSH</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../connecting/jupyter/">Web - Jupyter Lab</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Submitting Jobs - Slurm</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../">Description</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">SRUN Jobs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#using-srun-to-submit-jobs">Using SRUN to Submit Jobs</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../sbatch/">SBATCH Jobs</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Unity Cluster</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Submitting Jobs - Slurm &raquo;</li>
+        
+      
+    
+    <li>SRUN Jobs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="using-srun-to-submit-jobs">Using SRUN to Submit Jobs</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually, if you have to run a single application multiple times, or if you are trying to run a non-interactive application, you should use <a href="../sbatch/">sbatch</a> instead of srun, since sbatch allows you to specify parameters in the file, and is <em>non-blocking</em> (see below).</p>
+</div>
+<p>SRUN is a so-called <em>blocking</em> command, as in it will not let you execute other commands until this command is finished (not necessarily the job, just the allocation). For example, if you run <code>srun /bin/hostname</code> and resources are available right away, the job will be sent out and the result saved into a file. If resources are not available, you will be stuck in the command while you are pending in the queue.</p>
+<p>Please note that like sbatch, you can run a batch file using srun.</p>
+<p>The command syntax is <code>srun &lt;options&gt; [executable] &lt;args&gt;</code></p>
+<p>Options is where you can specify the resources you want for the executable, or define. The following are some of the options available; to see all available parameters run <code>man srun</code>.</p>
+<ul>
+<li><code>-c &lt;num&gt;</code> Number of CPUs (threads) to allocate to the job</li>
+<li><code>-G &lt;num&gt;</code> Number of GPUs to allocate to the job</li>
+<li><code>--mem &lt;num&gt;</code> Memory to allocate to the job (in MB by default)</li>
+<li><code>-p &lt;partition&gt;</code> Partition to submit the job to</li>
+</ul>
+<p>To run an interacitve job (in this case a bash prompt), the command might look like this (<code>--pty</code> is the important option):</p>
+<pre><code>srun -c 6 -p cpu-short --pty bash
+</code></pre>
+
+<p>To run an application on the cluster that uses a GUI, you <strong>must</strong> use an interactive job, in addition to the <code>--x11</code> argument:</p>
+<pre><code>srun -c 6 -p cpu-short --pty --x11 xclock
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot run an interactive/gui job using the <code>sbatch</code> command, you must use <code>srun</code>.</p>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sbatch/" class="btn btn-neutral float-right" title="SBATCH Jobs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../" class="btn btn-neutral" title="Description"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../sbatch/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
