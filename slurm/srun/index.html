@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Web - Jupyter Lab - Unity Cluster</title>
+  <title>SRUN Jobs - Unity Cluster</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Web - Jupyter Lab";
-    var mkdocs_page_input_path = "connecting/jupyter.md";
+    var mkdocs_page_name = "SRUN Jobs";
+    var mkdocs_page_input_path = "slurm/srun.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -67,17 +67,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../ssh/">Console - SSH</a>
+    <a class="" href="../../connecting/ssh/">Console - SSH</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Web - Jupyter Lab</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#jupyterhub-portal">JupyterHub Portal</a></li>
-    
-
-    </ul>
+    <a class="" href="../../connecting/jupyter/">Web - Jupyter Lab</a>
                 </li>
     </ul>
 	    </li>
@@ -88,11 +82,14 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../slurm/">Description</a>
+    <a class="" href="../">Description</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../slurm/srun/">SRUN Jobs</a>
+    <a class="current" href="./">SRUN Jobs</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -119,11 +116,11 @@
     
       
         
-          <li>Connecting &raquo;</li>
+          <li>Submitting Jobs - Slurm &raquo;</li>
         
       
     
-    <li>Web - Jupyter Lab</li>
+    <li>SRUN Jobs</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -133,9 +130,10 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="jupyterhub-portal">JupyterHub Portal</h1>
-<p>The simplest method of using the cluster is using the Jupyter portal.</p>
-<p>You can access the jupyter portal <a href="" title="/jhub">here</a> and simply select the resources you want and get started right away. Comprehensive documentation for JupyterLab can be found <a href="https://jupyterlab.readthedocs.io/en/stable/">here</a>.</p>
+                <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Usually, if you have to run a single application multiple times, or if you are trying to run a non-interactive application, you should use <a href="sbatch.md">sbatch</a> instead of srun, since sbatch allows you to specify parameters in the file.</p>
+</div>
               
             </div>
           </div>
@@ -143,10 +141,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../slurm/" class="btn btn-neutral float-right" title="Description">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../ssh/" class="btn btn-neutral" title="Console - SSH"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../" class="btn btn-neutral" title="Description"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -172,10 +168,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ssh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../../slurm/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
