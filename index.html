@@ -56,23 +56,18 @@
     <a class="current" href=".">Home</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#welcome-to-mkdocs">Welcome to MkDocs</a></li>
+    <li class="toctree-l2"><a href="#introduction-to-unity">Introduction to Unity</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#commands">Commands</a></li>
+            <li><a class="toctree-l3" href="#defining-some-terms">Defining some Terms</a></li>
         
-            <li><a class="toctree-l3" href="#project-layout">Project layout</a></li>
+            <li><a class="toctree-l3" href="#how-unity-works">How Unity Works</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="intro/">Introduction</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -141,21 +136,30 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="http://mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
-<ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs help</code> - Print this help message.</li>
-</ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+                <h1 id="introduction-to-unity">Introduction to Unity</h1>
+<p>This introductory tutorial will help you build an understanding of what an HPC, or high performance computing cluster is, and how to most effectively utilize it.</p>
+<h3 id="defining-some-terms">Defining some Terms</h3>
+<p>At its most basic level, you are learning how to use a <strong>cluster</strong>. A cluster is many servers (or computers) joined together in an effort to work together, where a single server is known as a <strong>node</strong>. Unity is an <strong>HPC</strong>, or High Performance Computing cluster. This means we focus most on computational power and efficiency, as the name entails. The primary use case of Unity is by researchers wanting more computational power than what is available on their own.</p>
+<p>Think about your personal laptop/desktop: when you use your computer, the system decides the resources on your computer to use (cpu, ram, etc.) based on what you are doing at that time. When you scale this process up to a cluster, what is known as a <strong>scheduler</strong> determines what resources to give you, but this time across many computers, not just one. You can picture the cluster as a scaled-up version of a single personal computer. An operation you run on the cluster is referred to as a <strong>job</strong>.</p>
+<h3 id="how-unity-works">How Unity Works</h3>
+<p>While you may not need to master every bit of the operation here at the Unity Cluster, it is important that you generally know how the cluster operates, because it can help your troubleshooting in the future. Below is a simplified diagram of the structure of Unity. The process in which you use the cluster:
+1. The client connects to Unity using SSH, or the Jupyter portal.
+1. Once connected, a job is requested through the scheduler, and your job is placed in the appropriate queue.
+1. Once resources are available (cores, gpu, memory, etc.), the scheduler starts your job.
+1. Once your job completes, the result returns to the client.</p>
+<p>The above process can be viewed below:</p>
+<p><img src="/res/docs/unity.png" width="1000"></p>
+<h4 id="1-connecting-to-the-cluster">1. Connecting to the cluster</h4>
+<p>You can connect to Unity in two ways, an SSH connection (the standard linux console), and an instance of JupyterLab. JupyterLab is the easiest to get up and going. When connecting the portal, you will be asked to select one of a few preset resources to allocate for your jupter notebook. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterLab as if it is running on your own computer.</p>
+<p>SSH is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible to starting your own jobs. This can be more useful than jupyter for jobs that last a long time that must be left unattended, or to have much more refined control over the resources allocated for your job.</p>
+<p>Connecting the cluster is discussed in more detail <a href="">here</a>.</p>
+<h4 id="2-requesting-resources">2. Requesting Resources</h4>
+<p>If you are on an SSH connection, you will have to manually request resources. Once you decide on what resources you want, you will submit that information to the scheduler, which will place you in a queue. If your resources are available immediately, your request will return right away, if not, you will be held in the queue until your requested resources become available.</p>
+<p>Requesting resources in the cluster and all parameters allowed is discussed in more detail <a href="">here</a>.</p>
+<h4 id="3-starting-job">3. Starting Job</h4>
+<p>Once the scheduler has started your job, it will run on some node in the cluster, using some resources that were defined by your parameters. It is not important what node the job runs on from the point of view of the client.</p>
+<h4 id="4-ending-job">4. Ending Job</h4>
+<p>Once the job has finished, the scheduler will return whatever info you requested in your parameters.</p>
               
             </div>
           </div>
@@ -163,7 +167,7 @@ docs/
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="intro/" class="btn btn-neutral float-right" title="Introduction">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="connecting/ssh/" class="btn btn-neutral float-right" title="Console - SSH">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -191,7 +195,7 @@ docs/
       
       
       
-        <span style="margin-left: 15px"><a href="intro/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="connecting/ssh/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
@@ -204,5 +208,5 @@ docs/
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2019-12-28 18:24:30
+Build Date UTC : 2019-12-28 18:26:43
 -->
