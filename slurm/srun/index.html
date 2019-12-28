@@ -26,7 +26,7 @@
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -147,11 +147,11 @@
 <li><code>-p &lt;partition&gt;</code> Partition to submit the job to</li>
 </ul>
 <p>To run an interacitve job (in this case a bash prompt), the command might look like this (<code>--pty</code> is the important option):</p>
-<pre><code>srun -c 6 -p cpu-short --pty bash
+<pre><code class="shell">srun -c 6 -p cpu-short --pty bash
 </code></pre>
 
 <p>To run an application on the cluster that uses a GUI, you <strong>must</strong> use an interactive job, in addition to the <code>--x11</code> argument:</p>
-<pre><code>srun -c 6 -p cpu-short --pty --x11 xclock
+<pre><code class="shell">srun -c 6 -p cpu-short --pty --x11 xclock
 </code></pre>
 
 <div class="admonition note">

@@ -26,7 +26,7 @@
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -135,7 +135,7 @@
 <p>SBATCH is a <em>non-blocking</em> command, meaning there is not a circumstance where running the command will cause it to hold. Even if the resources requested are not available, the job will be thrown into the queue and will start to run once resources become available. The status of a job can be seen using <code>squeue</code>.</p>
 <p>SBATCH is based around running a single file. That being said, you shouldn't need to specify any parameters in the command other than <code>sbatch &lt;batch file&gt;</code>, because you can specify all parameters in the command inside the file itself.</p>
 <p>The following is an example of a batch script. Please note that the top of the script <strong>must</strong> start with <code>#!/bin/bash</code> (or whatever shell, if you don't know just use bash), and then immediately follow with <code>#SBATCH &lt;param&gt;</code> parameters. An example of common SBATCH parameters and a simple script is below, this script will allocate 4 CPUs and one GPU in the GPU partition.</p>
-<pre><code>#!/bin/bash
+<pre><code class="shell">#!/bin/bash
 #SBATCH -n 4  # Number of Cores per Node
 #SBATCH --mem=8192  # Requested Memory
 #SBATCH -p gpu  # Partition
