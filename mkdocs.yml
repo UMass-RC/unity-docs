@@ -10,6 +10,7 @@ markdown_extensions:
     - admonition
 nav:
 - Home: "index.md"
+- Roadmap: "roadmap.md"
 - Connecting:
     - "Console - SSH": "connecting/ssh.md"
     - "Web - Jupyter Lab": "connecting/jupyter.md"
