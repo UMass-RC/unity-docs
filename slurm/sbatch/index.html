@@ -20,13 +20,14 @@
     // Current page data
     var mkdocs_page_name = "SBATCH Jobs";
     var mkdocs_page_input_path = "slurm/sbatch.md";
-    var mkdocs_page_url = "/panel/slurm/sbatch/";
+    var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -100,11 +101,6 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../../modules/">Modules</a>
-	    </li>
-          
         </ul>
       </div>
       &nbsp;
@@ -145,7 +141,7 @@
 <p>SBATCH is a <em>non-blocking</em> command, meaning there is not a circumstance where running the command will cause it to hold. Even if the resources requested are not available, the job will be thrown into the queue and will start to run once resources become available. The status of a job can be seen using <code>squeue</code>.</p>
 <p>SBATCH is based around running a single file. That being said, you shouldn't need to specify any parameters in the command other than <code>sbatch &lt;batch file&gt;</code>, because you can specify all parameters in the command inside the file itself.</p>
 <p>The following is an example of a batch script. Please note that the top of the script <strong>must</strong> start with <code>#!/bin/bash</code> (or whatever shell, if you don't know just use bash), and then immediately follow with <code>#SBATCH &lt;param&gt;</code> parameters. An example of common SBATCH parameters and a simple script is below, this script will allocate 4 CPUs and one GPU in the GPU partition.</p>
-<pre><code class="shell">#!/bin/bash
+<pre><code>#!/bin/bash
 #SBATCH -n 4  # Number of Cores per Node
 #SBATCH --mem=8192  # Requested Memory
 #SBATCH -p gpu  # Partition
@@ -164,8 +160,6 @@ module load cuda
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../../modules/" class="btn btn-neutral float-right" title="Modules">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../srun/" class="btn btn-neutral" title="SRUN Jobs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -196,8 +190,6 @@ module load cuda
       
         <span><a href="../srun/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../../modules/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

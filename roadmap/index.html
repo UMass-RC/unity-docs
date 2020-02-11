@@ -20,13 +20,14 @@
     // Current page data
     var mkdocs_page_name = "Roadmap";
     var mkdocs_page_input_path = "roadmap.md";
-    var mkdocs_page_url = "/panel/roadmap/";
+    var mkdocs_page_url = null;
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/shell.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/rust.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -110,11 +111,6 @@
     </ul>
 	    </li>
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../modules/">Modules</a>
-	    </li>
-          
         </ul>
       </div>
       &nbsp;
@@ -148,30 +144,24 @@
             <div class="section">
               
                 <h1 id="unity-cluster-roadmap">Unity Cluster Roadmap</h1>
-<p>The Unity Cluster is currently in <strong>alpha</strong> phase of development. During the alpha phase, expect unexpected downtime, instability, and general frustration once in a while. Here is our development plans for the remainder of the alpha phase:</p>
-<h4 id="general">General</h4>
+<p>The Unity Cluster is currently in alpha phase of development. During the alpha phase, expect unexpected downtime, instability, and general frustration once in a while. Here is our development plans for the remainder of the alpha phase and beyond:</p>
+<h3 id="general">General</h3>
 <ul>
-<li>Addition of Java 8,10,11 as environment modules</li>
-<li>Addition of any other common environment modules requested</li>
-<li>Containerized jobs (Using lxc/lxd)</li>
-<li>Support for docker/singularity</li>
-<li>VNC sessions within JupyterLab for GUI applications</li>
-<li>MPI setup for jobs running on multiple nodes.</li>
+<li>Wider support for common application (or specific application on request)</li>
+<li>Containerized jobs (lxc/lxd, and docker/singularity)</li>
+<li>VNC sessions from within jupyterhub for running GUI applications</li>
+<li>Infiniband and MPI support</li>
+<li>Graphical usage accounting</li>
 </ul>
-<h4 id="website">Website</h4>
+<h3 id="website">Website</h3>
 <ul>
-<li>About Us Page</li>
-<li>Finish User Documentation</li>
+<li>Fill out the landing page</li>
+<li>Finish documentation</li>
 </ul>
-<h4 id="hardware">Hardware</h4>
+<h3 id="hardware">Hardware</h3>
 <ul>
-<li>Addition of a flash storage node</li>
-</ul>
-<p>Once the above are completed and we are able to test many scenarios to make sure the cluster is stable, we will start the public launch. The cluster will then enter <strong>beta</strong> phase. </p>
-<p>In beta phase you should expect <em>expected</em> downtime (emails sent out), with unexpected downtime occuring only on the rarest of occasions (usually a mistake). The cluster should be stable enough to actively use in a research environment. We will work on the following during the beta phase:</p>
-<ul>
-<li>Proper Slurm Accounting</li>
-<li>Redundant hardware encase of failures</li>
+<li>Multiple service nodes for reliability</li>
+<li>A high-speed flash storage node</li>
 </ul>
               
             </div>

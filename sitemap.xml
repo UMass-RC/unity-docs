@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://unity.rc.umass.edu/panel/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/roadmap/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/connecting/ssh/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/connecting/jupyter/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/slurm/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/slurm/srun/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://unity.rc.umass.edu/panel/slurm/sbatch/</loc>
-     <lastmod>2019-12-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://unity.rc.umass.edu/panel/modules/</loc>
-     <lastmod>2019-12-28</lastmod>
+     <loc>None</loc>
+     <lastmod>2020-02-10</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
