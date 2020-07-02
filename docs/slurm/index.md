@@ -1,13 +1,12 @@
-# Instruction to Slurm: The Job Scheduler #
+# Introduction to Slurm: The Job Scheduler #
 Slurm is the job scheduler we use in our cluster. More info about what a job scheduler is can be found in the [introduction](../index.md). Here we will go more into depth about some elements of the scheduler. There are many more features of Slurm that go beyond the scope of this guide, but all that you as a user needs to know should be available.
 
 ### Partitions / Queues ###
-Our cluster has a number of slurm **partitions** defined, each of which corresponds to a job **queue**:
-* cpu-short
-* cpu-long
+Our cluster has a number of slurm **partitions** defined, also known as a **queue**:
+* cpu
 * gpu
 
-As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. *cpu-short* has a 4 hour runtime limit to facilitate more efficient queuing for those wishing to run shorter jobs. The other partitions have no runtime limit.
+As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. All above partitions have a default 4 hour runtime limit. The maximum time a job can run is infinite, but it is the responsibility of the user to set the job's max time to override the default value.
 
 To view all available partitions in Slurm, you can run the command `sinfo`.
 

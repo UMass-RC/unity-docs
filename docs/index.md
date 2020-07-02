@@ -22,12 +22,12 @@ You can connect to Unity in two ways, an SSH connection (the standard linux cons
 
 SSH is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible to starting your own jobs. This can be more useful than jupyter for jobs that last a long time that must be left unattended, or to have much more refined control over the resources allocated for your job.
 
-Connecting the cluster is discussed in more detail [here]().
+Connecting to the cluster is discussed in more detail [here](connecting/ssh.md).
 
 #### 2. Requesting Resources ####
 If you are on an SSH connection, you will have to manually request resources. Once you decide on what resources you want, you will submit that information to the scheduler, which will place you in a queue. If your resources are available immediately, your request will return right away, if not, you will be held in the queue until your requested resources become available.
 
-Requesting resources in the cluster and all parameters allowed is discussed in more detail [here]().
+Requesting resources in the cluster and all parameters allowed is discussed in more detail [here](slurm/index.md).
 
 #### 3. Starting Job ####
 Once the scheduler has started your job, it will run on some node in the cluster, using some resources that were defined by your parameters. It is not important what node the job runs on from the point of view of the client.

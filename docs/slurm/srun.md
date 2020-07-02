@@ -11,18 +11,19 @@ The command syntax is `srun <options> [executable] <args>`
 
 Options is where you can specify the resources you want for the executable, or define. The following are some of the options available; to see all available parameters run `man srun`.
 
-* `-c <num>` Number of CPUs (threads) to allocate to the job
+* `-c <num>` Number of CPUs (threads) to allocate to the job per task
+* `-n <num>` The number of tasks to allocate (for MPI)
 * `-G <num>` Number of GPUs to allocate to the job
 * `--mem <num>` Memory to allocate to the job (in MB by default)
 * `-p <partition>` Partition to submit the job to
 
 To run an interacitve job (in this case a bash prompt), the command might look like this (`--pty` is the important option):
 ```
-srun -c 6 -p cpu-short --pty bash
+srun -c 6 -p cpu --pty bash
 ```
 To run an application on the cluster that uses a GUI, you **must** use an interactive job, in addition to the `--x11` argument:
 ```
-srun -c 6 -p cpu-short --pty --x11 xclock
+srun -c 6 -p cpu --pty --x11 xclock
 ```
 !!! note
     You cannot run an interactive/gui job using the `sbatch` command, you must use `srun`.

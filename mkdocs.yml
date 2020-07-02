@@ -1,9 +1,11 @@
 site_name: Unity Cluster
+extra_css: [extra.css]
 theme:
     name: windmill
     highlightjs: true
-    hljs_languages:
-        - bash
+extra:
+    logo: 'res/logo.png'
+copyright: "Copyright &copy;2020 UMass Amherst"
 markdown_extensions:
     - admonition
 nav:
@@ -18,4 +20,4 @@ nav:
         - "SBATCH Jobs": "slurm/sbatch.md"
     - Applications:
         - "JupyterLab":
-            - "Custom Conda Environments": "apps/jupyter/conda.md"
+            - "Conda Environments": "apps/jupyter/conda.md"
