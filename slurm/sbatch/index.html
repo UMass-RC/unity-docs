@@ -16,6 +16,7 @@
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -64,7 +65,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../../apps/jupyter/conda/" class="btn btn-xs btn-link">
-        Custom Conda Environments
+        Conda Environments
       </a>
     </div>
     
@@ -83,16 +84,16 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="using-sbatch-to-submit-jobs">Using SBATCH to Submit Jobs</h1>
 <p>SBATCH is a <em>non-blocking</em> command, meaning there is not a circumstance where running the command will cause it to hold. Even if the resources requested are not available, the job will be thrown into the queue and will start to run once resources become available. The status of a job can be seen using <code>squeue</code>.</p>
 <p>SBATCH is based around running a single file. That being said, you shouldn't need to specify any parameters in the command other than <code>sbatch &lt;batch file&gt;</code>, because you can specify all parameters in the command inside the file itself.</p>
-<p>The following is an example of a batch script. Please note that the top of the script <strong>must</strong> start with <code>#!/bin/bash</code> (or whatever shell, if you don't know just use bash), and then immediately follow with <code>#SBATCH &lt;param&gt;</code> parameters. An example of common SBATCH parameters and a simple script is below, this script will allocate 4 CPUs and one GPU in the GPU partition.</p>
+<p>The following is an example of a batch script. Please note that the top of the script <strong>must</strong> start with <code>#!/bin/bash</code> (or whatever interpreter you need, if you don't know, use bash), and then immediately follow with <code>#SBATCH &lt;param&gt;</code> parameters. An example of common SBATCH parameters and a simple script is below, this script will allocate 4 CPUs and one GPU in the GPU partition.</p>
 <pre><code>#!/bin/bash
-#SBATCH -n 4  # Number of Cores per Node
+#SBATCH -c 4  # Number of Cores per Task
 #SBATCH --mem=8192  # Requested Memory
 #SBATCH -p gpu  # Partition
 #SBATCH -G 1  # Number of GPUs
 #SBATCH -t 01:00:00  # Job time limit
 #SBATCH -o slurm-%j.out  # %j = job ID
 
-module load cuda
+module load cuda/10
 /modules/apps/cuda/10.1.243/samples/bin/x86_64/linux/release/deviceQuery
 </code></pre>
 
@@ -114,7 +115,7 @@ module load cuda
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
       <a href="../../apps/jupyter/conda/" class="btn btn-xs btn-link">
-        Custom Conda Environments
+        Conda Environments
       </a>
     </div>
     
@@ -131,7 +132,7 @@ module load cuda
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

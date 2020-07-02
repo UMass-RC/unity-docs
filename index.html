@@ -16,6 +16,7 @@
     <link href="./css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="./css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/highlight.css">
+    <link href="extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -81,6 +82,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
     <a href="" class="wm-top-brand wm-top-link wm-vcenter">
       
+        <img class="wm-top-logo" src="./res/logo.png"/>
+      
       <div class="wm-top-title">
         Unity Cluster<br>
         
@@ -130,7 +133,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
 <li class="wm-toc-li-nested collapse">
   <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev3 "><a href="apps/jupyter/conda/" class="wm-article-link wm-toc-text">Custom Conda Environments</a>
+      <li class="wm-toc-li wm-toc-lev3 "><a href="apps/jupyter/conda/" class="wm-article-link wm-toc-text">Conda Environments</a>
 </li>
   </ul>
 </li>
@@ -187,10 +190,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h4 id="1-connecting-to-the-cluster">1. Connecting to the cluster</h4>
 <p>You can connect to Unity in two ways, an SSH connection (the standard linux console), and an instance of JupyterLab. JupyterLab is the easiest to get up and going. When connecting the portal, you will be asked to select one of a few preset resources to allocate for your jupter notebook. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterLab as if it is running on your own computer.</p>
 <p>SSH is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible to starting your own jobs. This can be more useful than jupyter for jobs that last a long time that must be left unattended, or to have much more refined control over the resources allocated for your job.</p>
-<p>Connecting the cluster is discussed in more detail <a href="">here</a>.</p>
+<p>Connecting to the cluster is discussed in more detail <a href="connecting/ssh/">here</a>.</p>
 <h4 id="2-requesting-resources">2. Requesting Resources</h4>
 <p>If you are on an SSH connection, you will have to manually request resources. Once you decide on what resources you want, you will submit that information to the scheduler, which will place you in a queue. If your resources are available immediately, your request will return right away, if not, you will be held in the queue until your requested resources become available.</p>
-<p>Requesting resources in the cluster and all parameters allowed is discussed in more detail <a href="">here</a>.</p>
+<p>Requesting resources in the cluster and all parameters allowed is discussed in more detail <a href="slurm/">here</a>.</p>
 <h4 id="3-starting-job">3. Starting Job</h4>
 <p>Once the scheduler has started your job, it will run on some node in the cluster, using some resources that were defined by your parameters. It is not important what node the job runs on from the point of view of the client.</p>
 <h4 id="4-ending-job">4. Ending Job</h4>
@@ -221,7 +224,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
@@ -229,5 +232,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </html>
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-07-02 01:38:46.514863+00:00
+Build Date UTC : 2020-07-02 03:11:40.918627+00:00
 -->

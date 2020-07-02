@@ -1,7 +1,31 @@
-div.wy-side-nav-search {
-    background: #881c1c;
+.navbar, .wm-top-tool-expanded, .wm-toc-li.wm-current, .wm-toc-li.wm-current:hover {
+    background-color: #881c1c;
 }
 
-nav.wy-nav-top {
-    background: #881c1c;
+.wm-toctree a, .wm-toctree a:hover, .wm-toctree a:focus, .wm-toctree a:visited {
+    color: #333;
+}
+
+.wm-toc-li.wm-current a {
+    color: #fff;
+}
+
+.wm-toc-li-nested.wm-page-toc {
+    border-left: 1px solid #ccc;
+}
+
+.wm-article-nav {
+    color: #333;
+}
+
+.wm-article-nav > a, .wm-article-nav > a:visited, .wm-article-nav > a:hover, .wm-article-nav > a:focus {
+    color: #333;
+}
+
+.wm-top-logo {
+    padding: 8px;
+}
+
+.wm-top-title {
+    display: none;
 }

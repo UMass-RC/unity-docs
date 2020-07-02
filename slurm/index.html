@@ -16,6 +16,7 @@
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -32,7 +33,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Instruction to Slurm: The Job Scheduler", url: "#_top", children: [
+          {title: "Introduction to Slurm: The Job Scheduler", url: "#_top", children: [
               {title: "Partitions / Queues", url: "#partitions-queues" },
               {title: "Jobs", url: "#jobs" },
           ]},
@@ -82,14 +83,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="instruction-to-slurm-the-job-scheduler">Instruction to Slurm: The Job Scheduler</h1>
+    <h1 id="introduction-to-slurm-the-job-scheduler">Introduction to Slurm: The Job Scheduler</h1>
 <p>Slurm is the job scheduler we use in our cluster. More info about what a job scheduler is can be found in the <a href="..">introduction</a>. Here we will go more into depth about some elements of the scheduler. There are many more features of Slurm that go beyond the scope of this guide, but all that you as a user needs to know should be available.</p>
 <h3 id="partitions-queues">Partitions / Queues</h3>
-<p>Our cluster has a number of slurm <strong>partitions</strong> defined, each of which corresponds to a job <strong>queue</strong>:
-* cpu-short
-* cpu-long
+<p>Our cluster has a number of slurm <strong>partitions</strong> defined, also known as a <strong>queue</strong>:
+* cpu
 * gpu</p>
-<p>As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. <em>cpu-short</em> has a 4 hour runtime limit to facilitate more efficient queuing for those wishing to run shorter jobs. The other partitions have no runtime limit.</p>
+<p>As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. All above partitions have a default 4 hour runtime limit. The maximum time a job can run is infinite, but it is the responsibility of the user to set the job's max time to override the default value.</p>
 <p>To view all available partitions in Slurm, you can run the command <code>sinfo</code>.</p>
 <p>For those that purchase hardware for Unity and choose to have priority/sole access to a partition, that parition will be listed but if you are not a member of that group you will not be able to use it.</p>
 <h3 id="jobs">Jobs</h3>
@@ -130,7 +130,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

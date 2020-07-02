@@ -16,6 +16,7 @@
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -90,17 +91,18 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>The command syntax is <code>srun &lt;options&gt; [executable] &lt;args&gt;</code></p>
 <p>Options is where you can specify the resources you want for the executable, or define. The following are some of the options available; to see all available parameters run <code>man srun</code>.</p>
 <ul>
-<li><code>-c &lt;num&gt;</code> Number of CPUs (threads) to allocate to the job</li>
+<li><code>-c &lt;num&gt;</code> Number of CPUs (threads) to allocate to the job per task</li>
+<li><code>-n &lt;num&gt;</code> The number of tasks to allocate (for MPI)</li>
 <li><code>-G &lt;num&gt;</code> Number of GPUs to allocate to the job</li>
 <li><code>--mem &lt;num&gt;</code> Memory to allocate to the job (in MB by default)</li>
 <li><code>-p &lt;partition&gt;</code> Partition to submit the job to</li>
 </ul>
 <p>To run an interacitve job (in this case a bash prompt), the command might look like this (<code>--pty</code> is the important option):</p>
-<pre><code>srun -c 6 -p cpu-short --pty bash
+<pre><code>srun -c 6 -p cpu --pty bash
 </code></pre>
 
 <p>To run an application on the cluster that uses a GUI, you <strong>must</strong> use an interactive job, in addition to the <code>--x11</code> argument:</p>
-<pre><code>srun -c 6 -p cpu-short --pty --x11 xclock
+<pre><code>srun -c 6 -p cpu --pty --x11 xclock
 </code></pre>
 
 <div class="admonition note">
@@ -141,7 +143,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

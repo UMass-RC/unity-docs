@@ -16,6 +16,7 @@
     <link href="../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/highlight.css">
+    <link href="../extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -84,24 +85,28 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="unity-cluster-roadmap">Unity Cluster Roadmap</h1>
-<p>The Unity Cluster is currently in alpha phase of development. During the alpha phase, expect unexpected downtime, instability, and general frustration once in a while. Here is our development plans for the remainder of the alpha phase and beyond:</p>
+<p>Unity is in Beta! With the addition of additional service hardware and storage devices, we are more confident in the stability of the cluster, and thus are ready to call it in "beta" state. In beta phase expect planned downtime more frequently than production research clusters, but you can expect the downtime periods to be shorter and more informative.</p>
 <h3 id="general">General</h3>
 <ul>
-<li>Wider support for common application (or specific application on request)</li>
-<li>Containerized jobs (lxc/lxd, and docker/singularity)</li>
+<li>Wider support for common applications</li>
+<li>Support for singularity containers within Slurm</li>
 <li>VNC sessions from within jupyterhub for running GUI applications</li>
-<li>Infiniband and MPI support</li>
-<li>Graphical usage accounting</li>
+<li>Infiniband support for inter-node MPI</li>
+<li>Graphical usage report</li>
+<li>Support for multiple PIs attached to one user</li>
+<li>Support for dynamic creation of shared drives</li>
 </ul>
 <h3 id="website">Website</h3>
 <ul>
-<li>Fill out the landing page</li>
-<li>Finish documentation</li>
+<li>Finish writing user documenation.</li>
+<li>Add content to the landing page(s)</li>
 </ul>
 <h3 id="hardware">Hardware</h3>
 <ul>
 <li>Multiple service nodes for reliability</li>
-<li>A high-speed flash storage node</li>
+<li>High-speed flash storage node for scratch space</li>
+<li>600+ TB spinning disk NAS for general storage</li>
+<li>32 GPU nodes with 8 2080TIs each inside</li>
 </ul>
 
   <br>
@@ -137,7 +142,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 

@@ -11,11 +11,12 @@
     
     <link rel="shortcut icon" href="../../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Custom Conda Environments - Unity Cluster</title>
+    <title>Conda Environments - Unity Cluster</title>
     <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../../css/base.css" rel="stylesheet">
     <link rel="stylesheet" href="../../../css/highlight.css">
+    <link href="../../../extra.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -34,9 +35,10 @@
         var pageToc = [
           {title: "Introduction", url: "#_top", children: [
           ]},
-          {title: "Creating/Activating an Environment", url: "#creatingactivating-an-environment", children: [
-          ]},
-          {title: "Adding Packages to your Environment", url: "#adding-packages-to-your-environment", children: [
+          {title: "Environment Setup", url: "#environment-setup", children: [
+              {title: "Creating an Environment", url: "#creating-an-environment" },
+              {title: "Activating an Environment", url: "#activating-an-environment" },
+              {title: "Adding Packages to your Environment", url: "#adding-packages-to-your-environment" },
           ]},
           {title: "Adding your Environment to JupyterLab", url: "#adding-your-environment-to-jupyterlab", children: [
           ]},
@@ -88,52 +90,61 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h2 id="introduction">Introduction</h2>
 <p>It is possible to create unlimited custom conda environments and use them within JupyterLab. Some CLI commands are required, but they can all be done through the JupyterLab interface.</p>
 <p>The Conda package manager does not require any compiling during package install, which is why it is favorable in a cluster environment where users don't have admin right to install dependent libraries.</p>
-<h2 id="creatingactivating-an-environment">Creating/Activating an Environment</h2>
-<ol>
-<li>Open a Terminal from within JupyterLab (or use SSH access)</li>
-<li>Load the miniconda environment module in order to have access to the <code>conda</code> command. 
-   <code>module load miniconda</code></li>
-<li>Create an environment, name it whatever you wish. Use the necessary python version. You only have to run this once, this command is not necessary to reactivate your environment in the future.<br />
-<code>conda create --name testName python=3.7</code><br />
-   !!! note
-       Replace <code>testName</code> with a name of your choosing. You can also change the python version to something other than <code>3.7</code>.</li>
-<li>Activate the environment
-   <code>conda activate testName</code>
-   !!! tip
-       Your currently active conda environment will appear left of your prompt in the format <code>(testName)</code>.</li>
-</ol>
-<h2 id="adding-packages-to-your-environment">Adding Packages to your Environment</h2>
-<ol>
-<li>Install Conda packages, numpy as an example
-   <code>conda install numpy</code>
-   !!! note
-       The install will ask you to confirm installing numpy as well as any other additional required packages, you will need to repond with a <code>y</code> then press enter.</li>
-<li>Add any other required packages using step #5.</li>
-</ol>
+<h2 id="environment-setup">Environment Setup</h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This guide uses the <code>conda</code> command often. Thie command needs to be loaded before using it using the command <code>module load miniconda</code>. This guide assumes you have done this.</p>
+</div>
+<h3 id="creating-an-environment">Creating an Environment</h3>
+<p>Create an environment using this command. You can create as many discrete environment as you want.</p>
+<pre><code>conda create --name testName python=3.7
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Replace <code>testName</code> with the name of your choice for the environment, and replace <code>3.7</code> with whatever python version you want.</p>
+</div>
+<h3 id="activating-an-environment">Activating an Environment</h3>
+<p>Use this command to activate your environment. This step is required any time you'd like to modify that specific environment.</p>
+<pre><code>conda activate testName
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Your currently active conda environment will appear left of your prompt in the format <code>(testName)</code>.</p>
+</div>
+<h3 id="adding-packages-to-your-environment">Adding Packages to your Environment</h3>
+<p>Install Conda packages of your choosing. We are using numpy as an example.</p>
+<pre><code class="bash">conda install numpy
+</code></pre>
+
+<p>The install will ask you to confirm installing numpy as well as any other additional required packages, you will need to repond with a <code>y</code> then press enter.</p>
 <h2 id="adding-your-environment-to-jupyterlab">Adding your Environment to JupyterLab</h2>
-<ol>
-<li>Make sure your environment is active.</li>
-<li>The <code>ipykernel</code> package has to be installed within your environment for JupyterLab to be able to talk to it. Other kernels are supported.
-   <code>conda install ipykernel</code></li>
-<li>Add a kernelspec (Kernel Specification) to your JupyterLab
-   <code>python -m ipykernel install --user --name testName --display-name="Display Name Within JupyterLab"</code></li>
-<li>Step #3 was done within JupyterLab, your JupyterLab instance must be restarted.</li>
-</ol>
+<p><strong>Make sure your environment is active.</strong><br />
+The <code>ipykernel</code> package has to be installed within your environment for JupyterLab to be able to talk to it. Other kernels are supported, since conda can run languages other than python.</p>
+<pre><code class="bash">conda install ipykernel
+</code></pre>
+
+<p>Add a kernelspec (Kernel Specification) to your JupyterLab.</p>
+<pre><code class="bash">python -m ipykernel install --user --name testName --display-name=&quot;Display Name Within JupyterLab&quot;
+</code></pre>
+
+<p>If the above was done within JupyterLab, your JupyterLab instance must be restarted.</p>
 <h2 id="other-operations">Other Operations</h2>
 <h3 id="list-available-environments">List Available Environments</h3>
-<pre><code>conda env list
+<pre><code class="bash">conda env list
 </code></pre>
 
 <h3 id="list-packages-currently-installed-in-the-activated-environment">List Packages Currently Installed in the Activated Environment</h3>
-<pre><code>conda list
+<pre><code class="bash">conda list
 </code></pre>
 
 <h3 id="deleteing-an-environment">Deleteing an Environment</h3>
-<pre><code>conda remove --name testName --all
+<pre><code class="bash">conda remove --name testName --all
 </code></pre>
 
 <p>You may also need to remove the kernelspec within JupyterLab seperately.</p>
-<pre><code>rm -rf ~/.local/share/jupyter/kernels/testName
+<pre><code class="bash">rm -rf ~/.local/share/jupyter/kernels/testName
 </code></pre>
 
   <br>
@@ -159,7 +170,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <br>
 </div>
 
-<footer class="container-fluid wm-page-content">
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
   <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
 </footer>
 
