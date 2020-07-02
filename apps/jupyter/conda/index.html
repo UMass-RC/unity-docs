@@ -33,19 +33,11 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "Introduction", url: "#_top", children: [
-          ]},
-          {title: "Environment Setup", url: "#environment-setup", children: [
-              {title: "Creating an Environment", url: "#creating-an-environment" },
-              {title: "Activating an Environment", url: "#activating-an-environment" },
-              {title: "Adding Packages to your Environment", url: "#adding-packages-to-your-environment" },
-          ]},
-          {title: "Adding your Environment to JupyterLab", url: "#adding-your-environment-to-jupyterlab", children: [
-          ]},
-          {title: "Other Operations", url: "#other-operations", children: [
-              {title: "List Available Environments", url: "#list-available-environments" },
-              {title: "List Packages Currently Installed in the Activated Environment", url: "#list-packages-currently-installed-in-the-activated-environment" },
-              {title: "Deleteing an Environment", url: "#deleteing-an-environment" },
+          {title: "Conda Environments within JupyterLab", url: "#_top", children: [
+              {title: "Introduction", url: "#introduction" },
+              {title: "Environment Setup", url: "#environment-setup" },
+              {title: "Adding your Environment to JupyterLab", url: "#adding-your-environment-to-jupyterlab" },
+              {title: "Other Operations", url: "#other-operations" },
           ]},
         ];
 
@@ -72,10 +64,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../../../slurm/sbatch/" class="btn btn-xs btn-default pull-left">
+      <a href="../../../modules/using/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../../slurm/sbatch/" class="btn btn-xs btn-link">
-        SBATCH Jobs
+        Previous</a><a href="../../../modules/using/" class="btn btn-xs btn-link">
+        Using Modules
       </a>
     </div>
     
@@ -83,7 +75,8 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <div class="admonition note">
+    <h1 id="conda-environments-within-jupyterlab">Conda Environments within JupyterLab</h1>
+<div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Currently, there is no GUI implementation within JupyterLab of the below processes. This is a planned feature for the future.</p>
 </div>
@@ -158,10 +151,10 @@ The <code>ipykernel</code> package has to be installed within your environment f
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav">
-      <a href="../../../slurm/sbatch/" class="btn btn-xs btn-default pull-left">
+      <a href="../../../modules/using/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../../slurm/sbatch/" class="btn btn-xs btn-link">
-        SBATCH Jobs
+        Previous</a><a href="../../../modules/using/" class="btn btn-xs btn-link">
+        Using Modules
       </a>
     </div>
     
