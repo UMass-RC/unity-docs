@@ -1,4 +1,5 @@
 # Conda Environments within JupyterLab #
+
 !!! note
     Currently, there is no GUI implementation within JupyterLab of the below processes. This is a planned feature for the future.
 
