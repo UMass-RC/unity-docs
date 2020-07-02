@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Custom Conda Environments - Unity Cluster</title>
+    <link href="../../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
+          {title: "Creating/Activating an Environment", url: "#creatingactivating-an-environment", children: [
+          ]},
+          {title: "Adding Packages to your Environment", url: "#adding-packages-to-your-environment", children: [
+          ]},
+          {title: "Adding your Environment to JupyterLab", url: "#adding-your-environment-to-jupyterlab", children: [
+          ]},
+          {title: "Other Operations", url: "#other-operations", children: [
+              {title: "List Available Environments", url: "#list-available-environments" },
+              {title: "List Packages Currently Installed in the Activated Environment", url: "#list-packages-currently-installed-in-the-activated-environment" },
+              {title: "Deleteing an Environment", url: "#deleteing-an-environment" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../../../slurm/sbatch/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../../slurm/sbatch/" class="btn btn-xs btn-link">
+        SBATCH Jobs
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Currently, there is no GUI implementation within JupyterLab of the below processes. This is a planned feature for the future.</p>
+</div>
+<h2 id="introduction">Introduction</h2>
+<p>It is possible to create unlimited custom conda environments and use them within JupyterLab. Some CLI commands are required, but they can all be done through the JupyterLab interface.</p>
+<p>The Conda package manager does not require any compiling during package install, which is why it is favorable in a cluster environment where users don't have admin right to install dependent libraries.</p>
+<h2 id="creatingactivating-an-environment">Creating/Activating an Environment</h2>
+<ol>
+<li>Open a Terminal from within JupyterLab (or use SSH access)</li>
+<li>Load the miniconda environment module in order to have access to the <code>conda</code> command. 
+   <code>module load miniconda</code></li>
+<li>Create an environment, name it whatever you wish. Use the necessary python version. You only have to run this once, this command is not necessary to reactivate your environment in the future.
+   <code>conda create --name testName python=3.7</code>
+   !!! note
+       Replace <code>testName</code> with a name of your choosing. You can also change the python version to something other than <code>3.7</code>.</li>
+<li>Activate the environment
+   <code>conda activate testName</code>
+   !!! tip
+       Your currently active conda environment will appear left of your prompt in the format <code>(testName)</code>.</li>
+</ol>
+<h2 id="adding-packages-to-your-environment">Adding Packages to your Environment</h2>
+<ol>
+<li>Install Conda packages, numpy as an example
+   <code>conda install numpy</code>
+   !!! note
+       The install will ask you to confirm installing numpy as well as any other additional required packages, you will need to repond with a <code>y</code> then press enter.</li>
+<li>Add any other required packages using step #5.</li>
+</ol>
+<h2 id="adding-your-environment-to-jupyterlab">Adding your Environment to JupyterLab</h2>
+<ol>
+<li>Make sure your environment is active.</li>
+<li>The <code>ipykernel</code> package has to be installed within your environment for JupyterLab to be able to talk to it. Other kernels are supported.
+   <code>conda install ipykernel</code></li>
+<li>Add a kernelspec (Kernel Specification) to your JupyterLab
+   <code>python -m ipykernel install --user --name testName --display-name="Display Name Within JupyterLab"</code></li>
+<li>Step #3 was done within JupyterLab, your JupyterLab instance must be restarted.</li>
+</ol>
+<h2 id="other-operations">Other Operations</h2>
+<h3 id="list-available-environments">List Available Environments</h3>
+<pre><code>conda env list
+</code></pre>
+
+<h3 id="list-packages-currently-installed-in-the-activated-environment">List Packages Currently Installed in the Activated Environment</h3>
+<pre><code>conda list
+</code></pre>
+
+<h3 id="deleteing-an-environment">Deleteing an Environment</h3>
+<pre><code>conda remove --name testName --all
+</code></pre>
+
+<p>You may also need to remove the kernelspec within JupyterLab seperately.</p>
+<pre><code>rm -rf ~/.local/share/jupyter/kernels/testName
+</code></pre>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../../../slurm/sbatch/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../../slurm/sbatch/" class="btn btn-xs btn-link">
+        SBATCH Jobs
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content">
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
