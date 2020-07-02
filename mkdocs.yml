@@ -1,20 +1,21 @@
 site_name: Unity Cluster
-extra_css: [extra.css]
 theme:
-    name: readthedocs
+    name: windmill
     highlightjs: true
     hljs_languages:
-        - yaml
-        - rust
+        - bash
 markdown_extensions:
     - admonition
 nav:
-- Home: "index.md"
-- Roadmap: "roadmap.md"
-- Connecting:
-    - "Console - SSH": "connecting/ssh.md"
-    - "Web - Jupyter Lab": "connecting/jupyter.md"
-- Submitting Jobs - Slurm:
-    - "Description": "slurm/index.md"
-    - "SRUN Jobs": "slurm/srun.md"
-    - "SBATCH Jobs": "slurm/sbatch.md"
+    - Home: index.md
+    - Roadmap: "roadmap.md"
+    - Connecting:
+        - "Console - SSH": "connecting/ssh.md"
+        - "Web - Jupyter Lab": "connecting/jupyter.md"
+    - Submitting Jobs - Slurm:
+        - "Description": "slurm/index.md"
+        - "SRUN Jobs": "slurm/srun.md"
+        - "SBATCH Jobs": "slurm/sbatch.md"
+    - Applications:
+        - "JupyterLab":
+            - "Custom Conda Environments": "apps/jupyter/conda.md"
