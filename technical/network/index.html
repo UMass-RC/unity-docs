@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Web - JupyterLab - Unity Cluster</title>
+    <title>Network Info - Unity Cluster</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -33,7 +33,7 @@
       var is_top_frame = false;
         
         var pageToc = [
-          {title: "JupyterHub Portal", url: "#_top", children: [
+          {title: "Network Info", url: "#_top", children: [
           ]},
         ];
 
@@ -60,20 +60,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../jupyter/conda/" class="btn btn-xs btn-default pull-right">
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../jupyter/conda/" class="btn btn-xs btn-link">
-        Conda Environments
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-link">
+        Console - SSH
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../ssh/" class="btn btn-xs btn-default pull-left">
+      <a href="../nodelist/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../ssh/" class="btn btn-xs btn-link">
-        Console - SSH
+        Previous</a><a href="../nodelist/" class="btn btn-xs btn-link">
+        Node List
       </a>
     </div>
     
@@ -81,9 +81,13 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="jupyterhub-portal">JupyterHub Portal</h1>
-<p>The simplest method of using the cluster is using the Jupyter portal.</p>
-<p>You can access the jupyter portal <a href="" title="/jhub">here</a> and simply select the resources you want and get started right away. Comprehensive documentation for JupyterLab can be found <a href="https://jupyterlab.readthedocs.io/en/stable/">here</a>.</p>
+    <h1 id="network-info">Network Info</h1>
+<p>All nodes are interconnected with 10Gb links, some being passive DACs, and others being fiber.</p>
+<p>All nodes have a 10Gb connection to network-mounted storage.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We plan to add infiniband support for a at least a section of the cluster in the future.</p>
+</div>
 
   <br>
     
@@ -96,20 +100,20 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../../jupyter/conda/" class="btn btn-xs btn-default pull-right">
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../../jupyter/conda/" class="btn btn-xs btn-link">
-        Conda Environments
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-link">
+        Console - SSH
       </a>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../ssh/" class="btn btn-xs btn-default pull-left">
+      <a href="../nodelist/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../ssh/" class="btn btn-xs btn-link">
-        Console - SSH
+        Previous</a><a href="../nodelist/" class="btn btn-xs btn-link">
+        Node List
       </a>
     </div>
     

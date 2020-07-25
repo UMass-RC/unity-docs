@@ -101,6 +101,17 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
         <li class="wm-toc-li wm-toc-lev1 "><a href="roadmap/" class="wm-article-link wm-toc-text">Roadmap</a>
 </li>
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Technical Info</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="technical/nodelist/" class="wm-article-link wm-toc-text">Node List</a>
+</li>
+      <li class="wm-toc-li wm-toc-lev2 "><a href="technical/network/" class="wm-article-link wm-toc-text">Network Info</a>
+</li>
+  </ul>
+</li>
+
         <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Connecting</span>
 </li>
 <li class="wm-toc-li-nested collapse">
@@ -108,6 +119,15 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
       <li class="wm-toc-li wm-toc-lev2 "><a href="connecting/ssh/" class="wm-article-link wm-toc-text">Console - SSH</a>
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="connecting/jupyter/" class="wm-article-link wm-toc-text">Web - JupyterLab</a>
+</li>
+  </ul>
+</li>
+
+        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">JupyterLab</span>
+</li>
+<li class="wm-toc-li-nested collapse">
+  <ul class="wm-toctree">
+      <li class="wm-toc-li wm-toc-lev2 "><a href="jupyter/conda/" class="wm-article-link wm-toc-text">Conda Environments</a>
 </li>
   </ul>
 </li>
@@ -133,22 +153,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </li>
       <li class="wm-toc-li wm-toc-lev2 "><a href="modules/using/" class="wm-article-link wm-toc-text">Using Modules</a>
 </li>
-  </ul>
-</li>
-
-        <li class="wm-toc-li wm-toc-lev1 wm-toc-opener"><span class="wm-toc-text">Applications</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev2 wm-toc-opener"><span class="wm-toc-text">JupyterLab</span>
-</li>
-<li class="wm-toc-li-nested collapse">
-  <ul class="wm-toctree">
-      <li class="wm-toc-li wm-toc-lev3 "><a href="apps/jupyter/conda/" class="wm-article-link wm-toc-text">Conda Environments</a>
-</li>
-  </ul>
-</li>
-
   </ul>
 </li>
 
@@ -185,7 +189,11 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     
 
-    <h1 id="introduction-to-unity">Introduction to Unity</h1>
+    <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Unity docs are still a work-in-progress. Some docs may be missing, or incomplete. If you would like to contribute to these docs, please submit PRs to the upstream repository <a href="https://github.com/UMass-RC/unity-docs">here</a>.</p>
+</div>
+<h1 id="introduction-to-unity">Introduction to Unity</h1>
 <p>This introductory tutorial will help you build an understanding of what an HPC, or high performance computing cluster is, and how to most effectively utilize it.</p>
 <h3 id="defining-some-terms">Defining some Terms</h3>
 <p>At its most basic level, you are learning how to use a <strong>cluster</strong>. A cluster is many servers (or computers) joined together in an effort to work together, where a single server is known as a <strong>node</strong>. Unity is an <strong>HPC</strong>, or High Performance Computing cluster. This means we focus most on computational power and efficiency, as the name entails. The primary use case of Unity is by researchers wanting more computational power than what is available on their own.</p>
@@ -243,5 +251,5 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </html>
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-07-02 06:17:02.649072+00:00
+Build Date UTC : 2020-07-25 06:29:36.131934+00:00
 -->

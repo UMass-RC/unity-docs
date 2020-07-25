@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Node List - Unity Cluster</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <link href="../../extra.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Info", url: "#_top", children: [
+          ]},
+          {title: "CPU Partition", url: "#cpu-partition", children: [
+              {title: "Nodes 1-8", url: "#nodes-1-8" },
+              {title: "Nodes 13-25", url: "#nodes-13-25" },
+              {title: "Nodes 26-32 Priority Hardware", url: "#nodes-26-32-priority-hardware" },
+          ]},
+          {title: "GPU Partition", url: "#gpu-partition", children: [
+              {title: "Nodes 9-10", url: "#nodes-9-10" },
+              {title: "Nodes 11-12", url: "#nodes-11-12" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../network/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../network/" class="btn btn-xs btn-link">
+        Network Info
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../roadmap/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../roadmap/" class="btn btn-xs btn-link">
+        Roadmap
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Unity cluster is a heterogeneous cluster. We plan to support a number of varying system hardware.</p>
+</div>
+<h2 id="info">Info</h2>
+<p>This page will be updated when cluster hardware changes. It will reflect the nodes available in each slurm partition.  </p>
+<p><strong>Note</strong> Nodes labeled with <em>Priority Hardware</em> are generally buy-in nodes which are available for general use, but your job may be temporarily suspended in favor of priority users, if running on those nodes. Nodes labeled with <em>Not Available</em> are not available for general use, but are still listed for reference.</p>
+<h2 id="cpu-partition">CPU Partition</h2>
+<h4 id="nodes-1-8">Nodes 1-8</h4>
+<p><strong>Type</strong> Lenovo ThinkSystem SD530<br />
+<strong>CPU</strong> 2x Intel Xeon Gold 6126 (12 Cores, 24 Threads)<br />
+<strong>RAM</strong> 192 GiB (Node(s) 1,5-8), 384 GiB (Nodes 2-4)  </p>
+<h4 id="nodes-13-25">Nodes 13-25</h4>
+<p><strong>Type</strong> Dell Poweredge R640<br />
+<strong>CPU</strong> 2x Intel Xeon Gold 6148 (20 Cores, 40 Threads)<br />
+<strong>RAM</strong> 192 GiB  </p>
+<h4 id="nodes-26-32-priority-hardware">Nodes 26-32 <em>Priority Hardware</em></h4>
+<p><strong>Type</strong> Lenovo ThinkSystem SR635<br />
+<strong>CPU</strong> 1x AMD EPYC-Rome 7402 (24 Cores, 48 Threads)<br />
+<strong>RAM</strong> 128 GiB  </p>
+<h2 id="gpu-partition">GPU Partition</h2>
+<h4 id="nodes-9-10">Nodes 9-10</h4>
+<p><strong>Type</strong> Lenovo ThinkSystem SR650<br />
+<strong>CPU</strong> 2x Intel Xeon Silver 4110 (8 Cores, 16 Threads)<br />
+<strong>GPU</strong> 2x nVidia Tesla V100 - Driver 440.1<br />
+<strong>RAM</strong> 192 GiB  </p>
+<h4 id="nodes-11-12">Nodes 11-12</h4>
+<p><strong>Type</strong> Dell Poweredge R740<br />
+<strong>CPU</strong> 2x Intel Xeon Gold 6140 (18 Cores, 36 Threads)<br />
+<strong>GPU</strong> 2x nVidia Tesla V100 - Driver 440.1<br />
+<strong>RAM</strong> 192 GiB</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../network/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../network/" class="btn btn-xs btn-link">
+        Network Info
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../roadmap/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../roadmap/" class="btn btn-xs btn-link">
+        Roadmap
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="container-fluid wm-page-content"><p>Copyright &copy;2020 UMass Amherst</p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
