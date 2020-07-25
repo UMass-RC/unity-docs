@@ -1,3 +1,6 @@
+!!! note
+    The Unity docs are still a work-in-progress. Some docs may be missing, or incomplete. If you would like to contribute to these docs, please submit PRs to the upstream repository [here](https://github.com/UMass-RC/unity-docs).
+
 # Introduction to Unity #
 This introductory tutorial will help you build an understanding of what an HPC, or high performance computing cluster is, and how to most effectively utilize it.
 

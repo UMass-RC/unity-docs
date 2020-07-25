@@ -11,9 +11,14 @@ markdown_extensions:
 nav:
     - Home: index.md
     - Roadmap: "roadmap.md"
+    - Technical Info:
+       - "Node List": "technical/nodelist.md"
+       - "Network Info": "technical/network.md"
     - Connecting:
         - "Console - SSH": "connecting/ssh.md"
         - "Web - JupyterLab": "connecting/jupyter.md"
+    - JupyterLab:
+        - "Conda Environments": "jupyter/conda.md"
     - Job Scheduling - Slurm:
         - "Introduction": "slurm/index.md"
         - "SRUN Jobs": "slurm/srun.md"
@@ -21,6 +26,4 @@ nav:
     - Environment Modules:
         - "Introduction": "modules/index.md"
         - "Using Modules": "modules/using.md"
-    - Applications:
-        - "JupyterLab":
-            - "Conda Environments": "apps/jupyter/conda.md"
+    #- Applications:
