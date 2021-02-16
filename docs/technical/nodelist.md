@@ -51,16 +51,16 @@ This page will be updated with new additions to the cluster.
 **RAM** 192 GiB  
 **Contraints** len_sr650_2018,intel
 
-#### Nodes 35-67 *Priority Hardware* ####
-**Type** ASRock  
-**CPU** AMD Ryzen Threadripper 1900X (8 Cores, 12 Threads)  
-**GPU** 2x Nvidia GeForce RTX 2080  
-**RAM** 32 GiB  
-**Constraints** astro_asrock_x399_2020,amd  
-
 #### Nodes 35-67 ####
 **Type** Gigabyte  
 **CPU** 2x Intel Xeon Silver 4214R (12 Cores, 12 Threads)  
 **GPU** 8x Nvidia GeForce RTX 2080ti  
 **RAM** 192 GiB  
 **Constraints** ials_gbyte_g291280_2021,intel  
+
+#### Nodes 76-78 *Priority Hardware* ####
+**Type** ASRock  
+**CPU** AMD Ryzen Threadripper 1900X (8 Cores, 16 Threads)  
+**GPU** 2x Nvidia GeForce RTX 2080  
+**RAM** 32 GiB  
+**Constraints** astro_asrock_x399_2020,amd  
