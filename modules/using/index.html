@@ -80,11 +80,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="using-modulefiles">Using Modulefiles</h1>
 <p>Using modulefiles is very simple. Keep in mind that the below commands will work anywhere on the cluster, so you can load/unload modules within your slurm submission scripts or during interactive jobs. This is what they are intended for.</p>
 <h3 id="list-all-available-modules">List All Available Modules</h3>
-<pre><code class="bash">module av
+<pre><code class="language-bash">module av
 </code></pre>
-
 <p>which will return an output that looks something like this:</p>
-<pre><code class="bash">------------------------------------------------- /modules/modulefiles -------------------------------------------------
+<pre><code class="language-bash">------------------------------------------------- /modules/modulefiles -------------------------------------------------
    R/3.6.2             cuda/10.1.243 (D)    gcc/9.2.0               julia/1.1.1         openmpi/4.0.4
    cmake/3.7.2         cuda/11.0.1          glxgears/1.0            jupyter/3.6.8       python/2.7.16
    cmake/3.15.0 (D)    fd3dspher/1.0        gmsh/4.4.1              mathematica/12.0    python/3.7.4  (D)
@@ -92,35 +91,30 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
    cuda/9.0.176        gcc/6.5.0            gromacs/2020.2C         miniconda/3.7       stress/1.0.4
    cuda/9.2.148        gcc/7.4.0     (D)    gromacs/2020.2G  (D)    opencl/2.2.11       vtk/8.2.0
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The output above is subject to change.</p>
 </div>
 <h3 id="searching-for-modules">Searching for Modules</h3>
-<pre><code class="bash">module av gcc
+<pre><code class="language-bash">module av gcc
 </code></pre>
-
 <p>That will only show you the available gcc modules.</p>
 <h3 id="loading-modules">Loading Modules</h3>
-<pre><code class="bash">module load gcc/9.2.0
+<pre><code class="language-bash">module load gcc/9.2.0
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The convention is <code>&lt;app name&gt;/&lt;app version&gt;</code>.</p>
 </div>
 <p>After loading a module, you can test is out by running <code>whereis gcc</code>, which will show you which <code>gcc</code> will be executed.</p>
 <h3 id="unloading-modules">Unloading Modules</h3>
-<pre><code class="bash">module unload gcc
+<pre><code class="language-bash">module unload gcc
 </code></pre>
-
 <h3 id="unloading-all-modules">Unloading All Modules</h3>
-<pre><code class="bash">module purge
+<pre><code class="language-bash">module purge
 </code></pre>
-
 <h3 id="list-currently-loaded-modules">List Currently Loaded Modules</h3>
-<pre><code class="bash">module list
+<pre><code class="language-bash">module list
 </code></pre>
 
   <br>

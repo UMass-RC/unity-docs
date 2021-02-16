@@ -100,11 +100,9 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>To run an interacitve job (in this case a bash prompt), the command might look like this (<code>--pty</code> is the important option):</p>
 <pre><code>srun -c 6 -p cpu --pty bash
 </code></pre>
-
 <p>To run an application on the cluster that uses a GUI, you <strong>must</strong> use an interactive job, in addition to the <code>--x11</code> argument:</p>
 <pre><code>srun -c 6 -p cpu --pty --x11 xclock
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You cannot run an interactive/gui job using the <code>sbatch</code> command, you must use <code>srun</code>.</p>

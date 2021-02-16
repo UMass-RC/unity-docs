@@ -35,14 +35,17 @@
         var pageToc = [
           {title: "Info", url: "#_top", children: [
           ]},
-          {title: "CPU Partition", url: "#cpu-partition", children: [
+          {title: "Compute Nodes", url: "#compute-nodes", children: [
               {title: "Nodes 1-8", url: "#nodes-1-8" },
               {title: "Nodes 13-25", url: "#nodes-13-25" },
               {title: "Nodes 26-32 Priority Hardware", url: "#nodes-26-32-priority-hardware" },
+              {title: "Nodes 68-75 Priority Hardware", url: "#nodes-68-75-priority-hardware" },
           ]},
-          {title: "GPU Partition", url: "#gpu-partition", children: [
+          {title: "GPU Nodes", url: "#gpu-nodes", children: [
               {title: "Nodes 9-10", url: "#nodes-9-10" },
               {title: "Nodes 11-12", url: "#nodes-11-12" },
+              {title: "Nodes 35-67 Priority Hardware", url: "#nodes-35-67-priority-hardware" },
+              {title: "Nodes 35-67", url: "#nodes-35-67" },
           ]},
         ];
 
@@ -69,12 +72,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../network/" class="btn btn-xs btn-default pull-right">
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../network/" class="btn btn-xs btn-link">
-        Network Info
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-link">
+        Console - SSH
       </a>
     </div>
     
@@ -92,35 +95,64 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 
     <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Unity cluster is a heterogeneous cluster. We plan to support a number of varying system hardware.</p>
+<p>The Unity cluster is a heterogeneous cluster. We plan to keep it a heterogeneous cluster. To clear confusion, a node list is below, with slurm constraints to refine your node selection.</p>
 </div>
 <h2 id="info">Info</h2>
-<p>This page will be updated when cluster hardware changes. It will reflect the nodes available in each slurm partition.  </p>
-<p><strong>Note</strong> Nodes labeled with <em>Priority Hardware</em> are generally buy-in nodes which are available for general use, but your job may be temporarily suspended in favor of priority users, if running on those nodes. Nodes labeled with <em>Not Available</em> are not available for general use, but are still listed for reference.</p>
-<h2 id="cpu-partition">CPU Partition</h2>
+<p>This page will be updated with new additions to the cluster.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nodes labeled with <em>Priority Hardware</em> are generally buy-in nodes which are available for general use using a partition flagged with <code>-preempt</code>, such as <code>cpu-preempt</code>, but your job may be temporarily suspended in favor of priority users. Your job's state will be saved in memory and will be automatically resumed when there is room on the allocated nodes once again.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use the <code>-C</code> flag in your slurm jobs to batch your jobs to a specific set of nodes. If you don't include a constraint, your job may land in any number of nodes in the partition.</p>
+</div>
+<h2 id="compute-nodes">Compute Nodes</h2>
 <h4 id="nodes-1-8">Nodes 1-8</h4>
 <p><strong>Type</strong> Lenovo ThinkSystem SD530<br />
 <strong>CPU</strong> 2x Intel Xeon Gold 6126 (12 Cores, 24 Threads)<br />
-<strong>RAM</strong> 192 GiB (Node(s) 1,5-8), 384 GiB (Nodes 2-4)  </p>
+<strong>RAM</strong> 192 GiB (Node(s) 1,5-8), 384 GiB (Nodes 2-4)<br />
+<strong>Contraints</strong> len_sd530_2018,intel</p>
 <h4 id="nodes-13-25">Nodes 13-25</h4>
 <p><strong>Type</strong> Dell Poweredge R640<br />
 <strong>CPU</strong> 2x Intel Xeon Gold 6148 (20 Cores, 40 Threads)<br />
-<strong>RAM</strong> 192 GiB  </p>
+<strong>RAM</strong> 192 GiB<br />
+<strong>Contraints</strong> dell_r640_2020,intel</p>
 <h4 id="nodes-26-32-priority-hardware">Nodes 26-32 <em>Priority Hardware</em></h4>
 <p><strong>Type</strong> Lenovo ThinkSystem SR635<br />
 <strong>CPU</strong> 1x AMD EPYC-Rome 7402 (24 Cores, 48 Threads)<br />
-<strong>RAM</strong> 128 GiB  </p>
-<h2 id="gpu-partition">GPU Partition</h2>
+<strong>RAM</strong> 128 GiB<br />
+<strong>Contraints</strong> cee_len_sr635_2020,amd</p>
+<h4 id="nodes-68-75-priority-hardware">Nodes 68-75 <em>Priority Hardware</em></h4>
+<p><strong>Type</strong> SuperMicro SBI-4429P<br />
+<strong>CPU</strong> 2x Xeon Silver 4215R (8 Cores, 16 Threads)<br />
+<strong>RAM</strong> 192 GiB<br />
+<strong>Contraints</strong> astro_smicro_sbi4429pt2n_2021,intel</p>
+<h2 id="gpu-nodes">GPU Nodes</h2>
 <h4 id="nodes-9-10">Nodes 9-10</h4>
 <p><strong>Type</strong> Lenovo ThinkSystem SR650<br />
 <strong>CPU</strong> 2x Intel Xeon Silver 4110 (8 Cores, 16 Threads)<br />
 <strong>GPU</strong> 2x nVidia Tesla V100 - Driver 440.1<br />
-<strong>RAM</strong> 192 GiB  </p>
+<strong>RAM</strong> 192 GiB<br />
+<strong>Contraints</strong> len_sr650_2018,intel</p>
 <h4 id="nodes-11-12">Nodes 11-12</h4>
 <p><strong>Type</strong> Dell Poweredge R740<br />
 <strong>CPU</strong> 2x Intel Xeon Gold 6140 (18 Cores, 36 Threads)<br />
 <strong>GPU</strong> 2x nVidia Tesla V100 - Driver 440.1<br />
-<strong>RAM</strong> 192 GiB</p>
+<strong>RAM</strong> 192 GiB<br />
+<strong>Contraints</strong> len_sr650_2018,intel</p>
+<h4 id="nodes-35-67-priority-hardware">Nodes 35-67 <em>Priority Hardware</em></h4>
+<p><strong>Type</strong> ASRock
+<strong>CPU</strong> AMD Ryzen Threadripper 1900X (8 Cores, 12 Threads)
+<strong>GPU</strong> 2x Nvidia GeForce RTX 2080
+<strong>RAM</strong> 32 GiB
+<strong>Constraints</strong> astro_asrock_x399_2020,amd</p>
+<h4 id="nodes-35-67">Nodes 35-67</h4>
+<p><strong>Type</strong> Gigabyte<br />
+<strong>CPU</strong> 2x Intel Xeon Silver 4214R (12 Cores, 12 Threads)<br />
+<strong>GPU</strong> 8x Nvidia GeForce RTX 2080ti<br />
+<strong>RAM</strong> 192 GiB<br />
+<strong>Constraints</strong> ials_gbyte_g291280_2021,intel  </p>
 
   <br>
     
@@ -133,12 +165,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
   <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
     
     <div class="wm-article-nav pull-right">
-      <a href="../network/" class="btn btn-xs btn-default pull-right">
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-default pull-right">
         Next
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </a>
-      <a href="../network/" class="btn btn-xs btn-link">
-        Network Info
+      <a href="../../connecting/ssh/" class="btn btn-xs btn-link">
+        Console - SSH
       </a>
     </div>
     

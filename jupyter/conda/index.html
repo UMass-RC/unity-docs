@@ -11,7 +11,7 @@
     
     <link rel="shortcut icon" href="../../img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>Conda Environments - Unity Cluster</title>
+    <title>Conda Environments within JupyterLab # - Unity Cluster</title>
     <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
     <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
     <link href="../../css/base.css" rel="stylesheet">
@@ -57,33 +57,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     
-    
-      
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../../slurm/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../../slurm/" class="btn btn-xs btn-link">
-        Introduction
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../../connecting/jupyter/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../connecting/jupyter/" class="btn btn-xs btn-link">
-        Web - JupyterLab
-      </a>
-    </div>
-    
-  </div>
-
-    
 
     <h1 id="conda-environments-within-jupyterlab">Conda Environments within JupyterLab</h1>
 <div class="admonition note">
@@ -102,7 +75,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Create an environment using this command. You can create as many discrete environment as you want.</p>
 <pre><code>conda create --name testName python=3.7
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Replace <code>testName</code> with the name of your choice for the environment, and replace <code>3.7</code> with whatever python version you want.</p>
@@ -111,74 +83,40 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <p>Use this command to activate your environment. This step is required any time you'd like to modify that specific environment.</p>
 <pre><code>conda activate testName
 </code></pre>
-
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Your currently active conda environment will appear left of your prompt in the format <code>(testName)</code>.</p>
 </div>
 <h3 id="adding-packages-to-your-environment">Adding Packages to your Environment</h3>
 <p>Install Conda packages of your choosing. We are using numpy as an example.</p>
-<pre><code class="bash">conda install numpy
+<pre><code class="language-bash">conda install numpy
 </code></pre>
-
 <p>The install will ask you to confirm installing numpy as well as any other additional required packages, you will need to repond with a <code>y</code> then press enter.</p>
 <h2 id="adding-your-environment-to-jupyterlab">Adding your Environment to JupyterLab</h2>
 <p><strong>Make sure your environment is active.</strong><br />
 The <code>ipykernel</code> package has to be installed within your environment for JupyterLab to be able to talk to it. Other kernels are supported, since conda can run languages other than python.</p>
-<pre><code class="bash">conda install ipykernel
+<pre><code class="language-bash">conda install ipykernel
 </code></pre>
-
 <p>Add a kernelspec (Kernel Specification) to your JupyterLab.</p>
-<pre><code class="bash">python -m ipykernel install --user --name testName --display-name=&quot;Display Name Within JupyterLab&quot;
+<pre><code class="language-bash">python -m ipykernel install --user --name testName --display-name=&quot;Display Name Within JupyterLab&quot;
 </code></pre>
-
 <p>If the above was done within JupyterLab, your JupyterLab instance must be restarted.</p>
 <h2 id="other-operations">Other Operations</h2>
 <h3 id="list-available-environments">List Available Environments</h3>
-<pre><code class="bash">conda env list
+<pre><code class="language-bash">conda env list
 </code></pre>
-
 <h3 id="list-packages-currently-installed-in-the-activated-environment">List Packages Currently Installed in the Activated Environment</h3>
-<pre><code class="bash">conda list
+<pre><code class="language-bash">conda list
 </code></pre>
-
 <h3 id="deleteing-an-environment">Deleteing an Environment</h3>
-<pre><code class="bash">conda remove --name testName --all
+<pre><code class="language-bash">conda remove --name testName --all
 </code></pre>
-
 <p>You may also need to remove the kernelspec within JupyterLab seperately.</p>
-<pre><code class="bash">rm -rf ~/.local/share/jupyter/kernels/testName
+<pre><code class="language-bash">rm -rf ~/.local/share/jupyter/kernels/testName
 </code></pre>
 
   <br>
     
-
-    
-    
-      
-    
-
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../../slurm/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../../slurm/" class="btn btn-xs btn-link">
-        Introduction
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../../connecting/jupyter/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../../connecting/jupyter/" class="btn btn-xs btn-link">
-        Web - JupyterLab
-      </a>
-    </div>
-    
-  </div>
 
     <br>
 </div>
