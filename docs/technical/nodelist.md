@@ -52,11 +52,11 @@ This page will be updated with new additions to the cluster.
 **Contraints** len_sr650_2018,intel
 
 #### Nodes 35-67 *Priority Hardware* ####
-**Type** ASRock
-**CPU** AMD Ryzen Threadripper 1900X (8 Cores, 12 Threads)
-**GPU** 2x Nvidia GeForce RTX 2080
-**RAM** 32 GiB
-**Constraints** astro_asrock_x399_2020,amd
+**Type** ASRock  
+**CPU** AMD Ryzen Threadripper 1900X (8 Cores, 12 Threads)  
+**GPU** 2x Nvidia GeForce RTX 2080  
+**RAM** 32 GiB  
+**Constraints** astro_asrock_x399_2020,amd  
 
 #### Nodes 35-67 ####
 **Type** Gigabyte  
