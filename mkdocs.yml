@@ -1,5 +1,7 @@
 site_name: Unity Cluster
 extra_css: [extra.css]
+site_url: ""
+use_directory_urls: false
 theme:
     name: windmill
     highlightjs: true
@@ -22,4 +24,8 @@ nav:
     - Software:
         - "Introduction": "modules/index.md"
         - "Using Modules": "modules/using.md"
+    - PI Guide:
+        - "Buy-In Model": "pi/buyin.md"
+        - "Priority Queues": "pi/priority.md"
+        - "Storage": "pi/storage.md"
     #- Applications:
