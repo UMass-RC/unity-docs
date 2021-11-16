@@ -46,7 +46,11 @@ Here is a general step by step process that governs how the Unity Cluster works:
 #### 1. Connecting to the cluster ####
 You can connect to Unity in two ways, an SSH connection (the standard linux console), or an instance of JupyterLab:
 
-[JupyterLab](connecting/jupyter.md) is the easiest to get up and going. When connecting the portal, click on JupyterLab tab at the bottom of the options list on the left side of the window. This will take you to the JupyterHub for Unity. From there, you will be asked to select what computer resources you want/need for the job you want to upload. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterLab as if it is running on your own computer.
+[JupyterLab](connecting/jupyter.md) is the easiest to get up and going. When connecting the portal, click on JupyterLab tab at the bottom of the options list on the left side of the window. This will take you to the JupyterHub for Unity, which looks like this: 
+
+![JupyterHub](res/JupyterHub Image.png)
+
+You will be asked to select what computer resources you want/need for the job you want to upload. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterLab as if it is running on your own computer.
 
 [SSH](connecting/ssh.md) is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible for starting your own jobs. This can be more useful than jupyter for jobs that last a long time that must be left unattended, or to have much more refined control over the resources allocated for your job.
 
