@@ -11,7 +11,6 @@ markdown_extensions:
     - admonition
 nav:
     - Home: index.md
-    - Roadmap: "roadmap.md"
     - Cluster Information:
         - Node List: "technical/nodelist.md"
         - Partition List: "technical/partitionlist.md"
