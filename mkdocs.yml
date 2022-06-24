@@ -16,6 +16,7 @@ nav:
     - Cluster Information:
         - Node List: "technical/nodelist.md"
         - Partition List: "technical/partitionlist.md"
+        - Storage: "technical/storage.md"
     - Connecting:
         - "Console - SSH": "connecting/ssh.md"
         - "Web - JupyterLab": "connecting/jupyter.md"
