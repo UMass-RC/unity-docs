@@ -1,66 +1,33 @@
-# Node List #
-!!! note
-    The Unity cluster is a heterogeneous cluster. We plan to keep it a heterogeneous cluster. To clear confusion, a node list is below, with slurm constraints to refine your node selection.
+# Node List
 
-## Info ##
-This page will be updated with new additions to the cluster.
-
-!!! note
-    Nodes labeled with *Priority Hardware* are generally buy-in nodes which are available for general use using a partition flagged with `-preempt`, such as `cpu-preempt`, but your job may be temporarily suspended in favor of priority users. Your job's state will be saved in memory and will be automatically resumed when there is room on the allocated nodes once again.
+The Unity cluster is a heterogeneous cluster. We plan to keep it a heterogeneous cluster. To clear confusion, a node list is below, with slurm constraints to refine your node selection.
 
 !!! note
     You can use the `-C` flag in your slurm jobs to batch your jobs to a specific set of nodes. If you don't include a constraint, your job may land in any number of nodes in the partition.
 
-## Compute Nodes ##
-#### Nodes 1-8 ####
-**Type** Lenovo ThinkSystem SD530  
-**CPU** 2x Intel Xeon Gold 6126 (12 Cores, 24 Threads)  
-**RAM** 192 GiB (Node(s) 1,5-8), 384 GiB (Nodes 2-4)  
-**Contraints** len_sd530_2018,intel
+### CPU Nodes
 
-#### Nodes 13-25 ####
-**Type** Dell Poweredge R640  
-**CPU** 2x Intel Xeon Gold 6148 (20 Cores, 40 Threads)  
-**RAM** 192 GiB  
-**Contraints** dell_r640_2020,intel
+| Name                  | Model                    | CPU                                                | RAM                                          | Priority Partitions                                                                               | General Partitions                     | Constraints                                                                                                                                |
+| --------------------- | ------------------------ | -------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| cpu[001-008]          | Lenovo ThinkSystem SD530 | 2x Intel Xeon Gold 6126 (12 Cores, 24 Threads)     | 192 GiB (Node(s) 1,5-8), 384 GiB (Nodes 2-4) | None                                                                                              | <ul><li>cpu</li><li>cpu-long</li></ul> | <ul><li>len-sd530_2018</li><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-skylake_avx512</li></ul>            |
+| cpu[013-025]          | Dell Poweredge R640      | 2x Intel Xeon Gold 6148 (20 Cores, 40 Threads)     | 192 GiB                                      | None                                                                                              | <ul><li>cpu</li><li>cpu-long</li></ul> | <ul><li>dell-r640_2020</li><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-skylake_avx512</li></ul>            |
+| ceewater-cpu[001-007] | Lenovo ThinkSystem SR635 | 1x AMD EPYC-Rome 7402 (24 Cores, 48 Threads)       | 128 GiB                                      | <ul><li>ceewater_cjgleason-cpu</li><li>ceewater_casey-cpu</li><li>ceewater_kandread-cpu</li></ul> | <ul><li>cpu-preempt</li></ul>          | <ul><li>ceewater_len-sr635_2020</li><li>avx</li><li>avx2</li><li>amd</li><li>linux-ubuntu20.04-zen2</li></ul>                              |
+| astroth-cpu[001-008]  | SuperMicro SBI-4429P     | 2x Xeon Silver 4215R (8 Cores, 16 Threads)         | 192 GiB                                      | <ul><li>astroth-cpu</li></ul>                                                                     | <ul><li>cpu-preempt</li></ul>          | <ul><li>astroth_smicro-sbi4429p_2021</li><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-cascadelake</li></ul> |
+| zhoulin-cpu[001-006]  | Lenovo SR645             | 2x AMD EPYC 7702 (128 Cores, 256 Threads)          | 512 GiB                                      | <ul><li>zhoulin-cpu</li></ul>                                                                     | <ul><li>cpu-preempt</li></ul>          | <ul><li>zhoulin_len-sr645_2021</li><li>avx</li><li>avx2</li><li>amd</li><li>linux-ubuntu20.04-zen2</li></ul>                               |
+| toltec-cpu[001-006]   | Dell R640                | 2x Intel Xeon Gold 5218 CPU (32 Cores, 64 Threads) | 383 GiB                                      | <ul><li>toltec-cpu</li></ul>                                                                      | <ul><li>cpu-preempt</li></ul>          | <ul><li>toltec_dell-r640_2021</li><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-cascadelake</li></ul>        |
 
-#### Nodes 26-32 *Priority Hardware* ####
-**Type** Lenovo ThinkSystem SR635  
-**CPU** 1x AMD EPYC-Rome 7402 (24 Cores, 48 Threads)  
-**RAM** 128 GiB  
-**Contraints** cee_len_sr635_2020,amd
+### GPU Nodes
 
-#### Nodes 68-75 *Priority Hardware* ####
-**Type** SuperMicro SBI-4429P  
-**CPU** 2x Xeon Silver 4215R (8 Cores, 16 Threads)  
-**RAM** 192 GiB  
-**Contraints** astro_smicro_sbi4429pt2n_2021,intel
-
-## GPU Nodes ##
-#### Nodes 9-10 ####
-**Type** Lenovo ThinkSystem SR650  
-**CPU** 2x Intel Xeon Silver 4110 (8 Cores, 16 Threads)  
-**GPU** 2x nVidia Tesla V100 - Driver 440.1  
-**RAM** 192 GiB  
-**Contraints** len_sr650_2018,intel
-
-#### Nodes 11-12 ####
-**Type** Dell Poweredge R740  
-**CPU** 2x Intel Xeon Gold 6140 (18 Cores, 36 Threads)  
-**GPU** 2x nVidia Tesla V100 - Driver 440.1  
-**RAM** 192 GiB  
-**Contraints** len_sr650_2018,intel
-
-#### Nodes 35-67 ####
-**Type** Gigabyte  
-**CPU** 2x Intel Xeon Silver 4214R (12 Cores, 12 Threads)  
-**GPU** 8x Nvidia GeForce RTX 2080ti  
-**RAM** 192 GiB  
-**Constraints** ials_gbyte_g291280_2021,intel  
-
-#### Nodes 76-78 *Priority Hardware* ####
-**Type** ASRock  
-**CPU** AMD Ryzen Threadripper 1900X (8 Cores, 16 Threads)  
-**GPU** 2x Nvidia GeForce RTX 2080  
-**RAM** 32 GiB  
-**Constraints** astro_asrock_x399_2020,amd  
+| Name | Model | CPU | GPU | RAM | Priority Partitions | General Partitions | Constraints |
+| ---- | ----- | --- | --- | --- | ------------------- | ------------------ | ----------- |
+| gpu[001-002] | Lenovo ThinkSystem SR650 | 2x Intel Xeon Silver 4110 (8 Cores, 16 Threads) | 2x NVIDIA Tesla V100 (16GB VRAM) | 192 GiB | None | <ul><li>gpu</li><li>gpu-long</li></ul> | <ul><li>len-sr650_2018</li><li>avx</li><li>avx2</li><li>avx512</li><li>v100</li><li>intel</li><li>linux-ubuntu20.04-skylake_avx512</li></ul> |
+| gpu[003-004] | Dell Poweredge R740 | 2x Intel Xeon Gold 6140 (18 Cores, 36 Threads) | 2x NVIDIA Tesla V100 (16GB VRAM) | 192 GiB | None | <ul><li>gpu</li><li>gpu-long</li></ul> | <ul><li>len-sr650_2018</li><li>avx</li><li>avx2</li><li>avx512</li><li>v100</li><li>intel</li><li>linux-ubuntu20.04-skylake_avx512</li></ul> |
+| ials-gpu[001-033] | Atipa | 2x Intel Xeon Silver 4214R (12 Cores, 12 Threads) | 8x NVIDIA RTX 2080ti (12GB VRAM) | 192 GiB | <ul><li>ials-gpu</li></ul> | <ul><li>gpu</li><li>gpu-long</li></ul> | <ul><li>ials_gigabyte_2020</li><li>avx</li><li>avx2</li><li>avx512</li><li>2080ti</li><li>intel</li><li>linux-ubuntu20.04-cascadelake</li></ul> |
+| astroth-gpu[001-003] | ASRock | AMD Ryzen Threadripper 1900X (8 Cores, 16 Threads) | 2x NVIDIA RTX 2080 (8GB VRAM) | 32 GiB | <ul><li>astroth-gpu</li></ul> | None | <ul><li>astro_asrock_x399_2020</li><li>avx</li><li>avx2</li></li>2080</li><li>amd</li><li>linux-ubuntu20.04-zen</li></ul> |
+| ece-gpu[001-002] | Lenovo SR670 | 2x Intel Xeon Gold 6226R CPU (64 Cores, 128 Threads) | 4x NVIDIA Tesla A100 | 384 GiB | <ul><li>ece-gpu</li></ul> | None | <ul><li>ece_len-sr670_2021</li><li>avx</li><li>avx2</li><li>avx512</li><li>a100</li><li>intel</li></ul> |
+| gypsum-gpu[001-025] | ASUSTeK ESC4000 G3 Series | 2x Intel Xeon E5-2620 v3 (12 Cores, 24 Threads) | 4x NVIDIA Tesla M40 | 256 GiB | <ul><li>gypsum-m40-phd</li><li>gypsum-m40-ms</li><li>gypsum-m40-course</li></ul> | <ul><li>gpu-preempt</li></ul> | <ul><li>linux-ubuntu20.04-haswell</li></ul> |
+| gypsum-gpu[026-099] | ASUSTeK ESC4000 G3 Series | 2x Intel Xeon E5-2620 v3 (12 Cores, 24 Threads) | 4x NVIDIA GeForce GTX TITAN X | | <ul><li>gypsum-titanx-phd</li><li>gypsum-titanx-ms</li><li>gypsum-titanx-course</li></ul> | <ul><li>gpu-preempt</li></ul> | <ul><li>linux-ubuntu20.04-haswell</li></ul> |
+| gypsum-gpu[104-156] | TYAN B7109F77DV14HR-2T-N | 2x Intel Xeon Silver 4116 (24 Cores, 48 Threads) | 8x NVIDIA GeForce GTX 1080 Ti | 384 GiB | <ul><li>gypsum-1080ti-phd</li><li>gypsum-1080ti-ms</li><li>gypsum-1080ti-course</li></ul> | <ul><li>gpu-preempt</li></ul> | <ul><li>linux-ubuntu20.04-skylake_avx512</li></ul> |
+| gypsum-gpu[157-181] | TYAN B7109F77DV14HR-2T-N | 2x Intel Xeon Silver 4116 (24 Cores, 48 Threads) | 8x NVIDIA GeForce GTX 2080 Ti | 384 GiB | <ul><li>gypsum-2080ti-phd</li><li>gypsum-2080ti-ms</li><li>gypsum-2080ti-course</li></ul> | <ul><li>gpu-preempt</li></ul> | |
+| gypsum-gpu[182-189] | Supermicro SYS-4029GP-TRT2 | 2x Intel Xeon Silver 4116 (24 Cores, 48 Threads) | 8x NVIDIA Quadro RTX 8000 | 384 GiB | <ul><li>gypsum-rtx8000-phd</li><li>gypsum-rtx8000-ms</li><li>gypsum-rtx8000-course</li></ul> | <ul><li>gpu-preempt</li></ul> |
+| gypsum-gpu[190-192] | Supermicro SYS-4029GP-TRT2 | 2x Intel Xeon Silver 4116 (24 Cores, 48 Threads) | 8x NVIDIA GeForce GTX 2080 Ti | 384 GiB | <ul><li>gypsum-2080ti-phd</li><li>gypsum-2080ti-ms</li><li>gypsum-2080ti-course</li></ul> | <ul><li>gpu-preempt</li></ul> |
