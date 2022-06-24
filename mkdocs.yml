@@ -1,12 +1,10 @@
-site_name: Unity Cluster
+site_name: Unity Cluster Documentation
 extra_css: [extra.css]
 site_url: ""
 use_directory_urls: false
 theme:
-    name: windmill
-    highlightjs: true
-extra:
-    logo: 'res/logo.png'
+    name: material
+    logo: res/logo.png
 copyright: "Copyright &copy;2020 UMass Amherst"
 markdown_extensions:
     - admonition
@@ -20,15 +18,13 @@ nav:
     - Connecting:
         - "Console - SSH": "connecting/ssh.md"
         - "Web - JupyterLab": "connecting/jupyter.md"
-    - Job Scheduling - Slurm:
-        - "Introduction": "slurm/index.md"
-        - "SRUN Jobs": "slurm/srun.md"
-        - "SBATCH Jobs": "slurm/sbatch.md"
+    - Job Scheduling:
+        - Introduction: "slurm/index.md"
+        - SRUN Jobs: "slurm/srun.md"
+        - SBATCH Jobs: "slurm/sbatch.md"
     - Software:
-        - "Introduction": "modules/index.md"
-        - "Using Modules": "modules/using.md"
-    - PI Guide:
-        - "Buy-In Model": "pi/buyin.md"
-        - "Priority Queues": "pi/priority.md"
-        - "Storage": "pi/storage.md"
-    #- Applications:
+        - Introduction: "modules/index.md"
+        - Using Modules: "modules/using.md"
+    - Buy-In Hardware:
+        - Types of Priority: "buy-in/types.md"
+        - Hardware Requirements: "buy-in/requirements.md"
