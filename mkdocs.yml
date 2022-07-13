@@ -1,30 +1,33 @@
 site_name: Unity Cluster Documentation
 extra_css: [extra.css]
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
 site_url: ""
 use_directory_urls: false
 theme:
-    name: material
-    logo: res/logo.png
+  name: material
+  logo: res/logo.png
 copyright: "Copyright &copy;2020 UMass Amherst"
 repo_url: https://github.com/UMass-RC/unity-docs
 markdown_extensions:
-    - admonition
+  - admonition
 nav:
-    - Home: index.md
-    - Cluster Information:
-        - Node List: "technical/nodelist.md"
-        - Partition List: "technical/partitionlist.md"
-        - Storage: "technical/storage.md"
-    - Connecting:
-        - "Console - SSH": "connecting/ssh.md"
-        - "Web - JupyterLab": "connecting/jupyter.md"
-    - Job Scheduling:
-        - Introduction: "slurm/index.md"
-        - SRUN Jobs: "slurm/srun.md"
-        - SBATCH Jobs: "slurm/sbatch.md"
-    - Software:
-        - Introduction: "modules/index.md"
-        - Using Modules: "modules/using.md"
-    - Buy-In Hardware:
-        - Types of Priority: "buy-in/types.md"
-        - Hardware Requirements: "buy-in/requirements.md"
+  - Home: index.md
+  - Cluster Information:
+      - Node List: "technical/nodelist.md"
+      - Partition List: "technical/partitionlist.md"
+      - Storage: "technical/storage.md"
+  - Connecting:
+      - "Console - SSH": "connecting/ssh.md"
+      - "Web - JupyterLab": "connecting/jupyter.md"
+  - Job Scheduling:
+      - Introduction: "slurm/index.md"
+      - SRUN Jobs: "slurm/srun.md"
+      - SBATCH Jobs: "slurm/sbatch.md"
+  - Software:
+      - Introduction: "modules/index.md"
+      - Using Modules: "modules/using.md"
+  - Buy-In Hardware:
+      - Types of Priority: "buy-in/types.md"
+      - Hardware Requirements: "buy-in/requirements.md"
