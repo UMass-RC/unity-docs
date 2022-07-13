@@ -7,5 +7,9 @@
 }
 
 .md-ellipsis {
-    display: none;
+  display: none;
+}
+
+.md-sidebar--secondary {
+  display: none !important;
 }
