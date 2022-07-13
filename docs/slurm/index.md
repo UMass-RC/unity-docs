@@ -6,7 +6,7 @@ Our cluster has a number of slurm **partitions** defined, also known as a **queu
 * cpu
 * gpu
 
-As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. All above partitions have a default 4 hour runtime limit. The maximum time a job can run is infinite, but it is the responsibility of the user to set the job's max time to override the default value.
+As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. Partitions marked -long and -preempt have a maximum runtime of 14 days, and stanard cpu/gpu partitions have a max runtime of one day.
 
 To view all available partitions in Slurm, you can run the command `sinfo`.
 
