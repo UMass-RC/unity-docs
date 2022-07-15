@@ -4,7 +4,7 @@
 # Frequently Asked Questions #
 
 ### How do I connect to, and start using the cluster? ###
-Refer to connection instructions on connecting [here](https://unity.rc.umass.edu/connecting/ssh.html).
+Refer to connection instructions on connecting [here](https://unity.rc.umass.edu/docs/connecting/ssh.html).
 You can connect with Putty, SSH in your terminal, or JupyterLab in your browser.
 
 ### When I connect over SSH I get a message saying "permission denied (public key)" ### 
@@ -30,7 +30,7 @@ If the software you want is licensed, we may be able to help since the campus of
 Yes! We support singularity containers, which are fully compatible with docker images. Run "module load singularity" to access it.
 
 ### How much storage do I get on Unity and is it backed up? ###
-Refer to storage information [here](https://unity.rc.umass.edu/technical/storage.html).
+Refer to storage information [here](https://unity.rc.umass.edu/docs/technical/storage.html).
 We do not provide backup solutions by default.
 We take a snapshot of all storage at 1 AM every day for the past 48 hours.
 This way, if you accidentally deleted something it wouldn't be difficult to get it back within that time frame.
