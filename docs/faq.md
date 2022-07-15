@@ -9,6 +9,7 @@ You can connect with Putty, SSH in your terminal, or JupyterLab in your browser.
 
 ### When I connect over SSH I get a message saying "permission denied (public key)" ### 
 This can be due one of these common reasons:
+
 * You have not provided your private key while connecting. `ssh -i <private_key_location> <user>@unity.rc.umass.edu`
 * You are not assigned to at least one PI group. We require at least one PI to endorse your account before you can use the cluster. Request to join a PI on the My PIs page.
 * You have not added a public key to your account on Unity yet. You can do this on the Account Settings page.
