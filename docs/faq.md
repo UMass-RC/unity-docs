@@ -16,14 +16,16 @@ This can be due one of these common reasons:
 * You are a PI, and you are trying to use your PI group name to log in. Your login username should not start with 'pi_'.
 
 ### Where can I find software to use on the cluster? ###
-Refer to storage information here. TODO link to docs\
 Most of our software is package installed and is available by default. Many other software which have different versions are available as modules. The command "module av" will print all available modules. Then you can use "module load <name>" to load a module and have access to its binaries.
 
 ### I'm looking for xyz software, could you install it? ###
-Most software that is requested is free for use. If this is the case we will install it for you, just send us an email at hpc@umass.edu. If the software you want is licensed, we may be able to help since the campus often has site-wide licenses for many applications.
+Most software that is requested is free for use. If this is the case we will install it for you, just send us an email at hpc@umass.edu.
+If the software you want is licensed, we may be able to help since the campus often has site-wide licenses for many applications.
 
 ### How much storage do I get on Unity and is it backed up? ###
-We do not provide backup solutions by default. We take a snapshot of all storage at 1 AM every day for the past 48 hours. This way, if you accidentally deleted something it wouldn't be difficult to get it back within that time frame.
+Refer to storage information here. TODO link to docs\
+We do not provide backup solutions by default. We take a snapshot of all storage at 1 AM every day for the past 48 hours.
+This way, if you accidentally deleted something it wouldn't be difficult to get it back within that time frame.
 
 ### I'm a PI and I would like to purchase hardware to buy-in to Unity. ###
 Great! Send us an email and we'll be happy to help. We are very flexible when it comes to the needs of research labs.
