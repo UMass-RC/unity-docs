@@ -26,11 +26,14 @@ jobs:
           echo "docs.unity.uri.edu" > ${GITHUB_WORKSPACE}/docs/CNAME
       - name: set URI colors
         run: |
-          sed -i '/--md-typeset-a-color/c\--md-typeset-a-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
-          sed -i '/--md-primary-fg-color/c\--md-primary-fg-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
-          sed -i '/--md-primary-fg-color--light/c\--md-primary-fg-color--light: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
-          sed -i '/--md-primary-fg-color--dark/c\--md-primary-fg-color--dark: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
-          sed -i '/--md-accent-fg-color/c\--md-accent-fg-color: #002b56;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-typeset-a-color/c\  --md-typeset-a-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color/c\  --md-primary-fg-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color--light/c\  --md-primary-fg-color--light: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color--dark/c\  --md-primary-fg-color--dark: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-accent-fg-color/c\  --md-accent-fg-color: #002b56;' ${GITHUB_WORKSPACE}/docs/extra.css
+      - name: update readme
+        run: |
+          printf "# Unity URI Docs Mirror\nThis is a mirror of https://github.com/UMass-RC/unity-docs. **DO NOT WRITE TO THIS REPO**"
       - name: commit changes
         run: |
           git config user.name "hakasapl"
