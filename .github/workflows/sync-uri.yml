@@ -8,7 +8,7 @@ jobs:
         uses: wei/git-sync@v3
         with:
           source_repo: "UMass-RC/unity-docs"
-          source_branch: "master"
+          source_branch: "main"
           destination_repo: "git@github.com:UMass-RC/unity-uri-docs.git"
           destination_branch: "main"
           destination_ssh_private_key: ${{ secrets.URI_MIRROR_KEY }}
