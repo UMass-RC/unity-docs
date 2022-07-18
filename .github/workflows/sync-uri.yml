@@ -13,6 +13,7 @@ jobs:
           destination_branch: "main"
           destination_ssh_private_key: ${{ secrets.URI_MIRROR_KEY }}
   set-uri-branding:
+    needs: [git-sync]
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -23,7 +24,6 @@ jobs:
       - name: update cname file
         run: |
           echo "docs.unity.uri.edu" > ${GITHUB_WORKSPACE}/docs/CNAME
-          ls -la ${GITHUB_WORKSPACE}
       - name: set URI colors
         run: |
           sed -i '/--md-typeset-a-color/c\--md-typeset-a-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
