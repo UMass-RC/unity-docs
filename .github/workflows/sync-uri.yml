@@ -9,5 +9,6 @@ jobs:
         with:
           source_repo: "UMass-RC/unity-docs"
           source_branch: "master"
-          destination_repo: "UMass-RC/unity-uri-docs"
+          destination_repo: "git@github.com:UMass-RC/unity-uri-docs.git"
           destination_branch: "main"
+          destination_ssh_private_key: ${{ secrets.MIRROR_KEY }}
