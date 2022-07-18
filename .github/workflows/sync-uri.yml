@@ -8,6 +8,6 @@ jobs:
         uses: wei/git-sync@v3
         with:
           source_repo: "UMass-RC/unity-docs"
-          source_branch: "main"
+          source_branch: "master"
           destination_repo: "UMass-RC/unity-uri-docs"
           destination_branch: "main"
