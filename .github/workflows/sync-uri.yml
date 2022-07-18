@@ -33,7 +33,7 @@ jobs:
           sed -i '/--md-accent-fg-color/c\  --md-accent-fg-color: #002b56;' ${GITHUB_WORKSPACE}/docs/extra.css
       - name: update readme
         run: |
-          printf "# Unity URI Docs Mirror\nThis is a mirror of https://github.com/UMass-RC/unity-docs. **DO NOT WRITE TO THIS REPO**"
+          printf "# Unity URI User Docs Mirror\nThis is a mirror of https://github.com/UMass-RC/unity-docs. **DO NOT WRITE TO THIS REPO**" > ${GITHUB_WORKSPACE}/README.md
       - name: commit changes
         run: |
           git config user.name "hakasapl"
