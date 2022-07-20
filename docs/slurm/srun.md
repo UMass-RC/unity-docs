@@ -14,7 +14,7 @@ Options is where you can specify the resources you want for the executable, or d
 * `-c <num>` Number of CPUs (threads) to allocate to the job per task
 * `-n <num>` The number of tasks to allocate (for MPI)
 * `-G <num>` Number of GPUs to allocate to the job
-* `--mem <num>` Memory to allocate to the job (in MB by default, suffix [K|M|G|T] to change) 
+* `--mem <num>[K|M|G|T] Memory to allocate to the job (in MB by default)
 * `-p <partition>` Partition to submit the job to
 
 To run an interacitve job (in this case a bash prompt), the command might look like this (`--pty` is the important option):
