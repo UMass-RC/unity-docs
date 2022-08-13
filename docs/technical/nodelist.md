@@ -16,6 +16,7 @@ The Unity cluster is a heterogeneous cluster. We plan to keep it a heterogeneous
 | zhoulin-cpu[001-006]  | Lenovo SR645             | 2x AMD EPYC 7702 (128 Cores, 256 Threads)          | 512 GiB                                      | <ul><li>zhoulin-cpu</li></ul>                                                                     | <ul><li>cpu-preempt</li></ul>          | <ul><li>zhoulin_len-sr645_2021</li><li>avx</li><li>avx2</li><li>amd</li><li>linux-ubuntu20.04-zen2</li></ul>                               |
 | toltec-cpu[001-006]   | Dell R640                | 2x Intel Xeon Gold 5218 CPU (32 Cores, 64 Threads) | 383 GiB                                      | <ul><li>toltec-cpu</li></ul>                                                                      | <ul><li>cpu-preempt</li></ul>          | <ul><li>toltec_dell-r640_2021</li><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-cascadelake</li></ul>        |
 | gaoseismolab-cpu[001-005] | Lenovo SR630 v2 | 2x Intel Xeon Platinum 8358 (32 Cores, 64 Threads) | 512 GiB | <ul><li>gaoseismolab-cpu</li></ul> | <ul><li>cpu-preempt</li></ul> | <ul><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-icelake</li></ul> |
+| uri-cpu[001-005] | Intel S2600BPB | 2x Intel Xeon Gold 6238R (28 Cores, 56 Threads) | 512 GiB | <ul><li>uri-cpu</li></ul> | <ul><li>cpu</li><li>cpu-long</li></ul> | <ul><li>avx</li><li>avx2</li><li>avx512</li><li>intel</li><li>linux-ubuntu20.04-cascadelake</li></ul> |
 
 ### GPU Nodes
 
