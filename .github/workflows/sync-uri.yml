@@ -1,0 +1,44 @@
+on: push
+
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "UMass-RC/unity-docs"
+          source_branch: "main"
+          destination_repo: "git@github.com:UMass-RC/unity-uri-docs.git"
+          destination_branch: "main"
+          destination_ssh_private_key: ${{ secrets.URI_MIRROR_KEY }}
+  set-uri-branding:
+    needs: [git-sync]
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          repository: UMass-RC/unity-uri-docs
+          ssh-key: ${{ secrets.URI_MIRROR_KEY }}
+      - name: update cname file
+        run: |
+          echo "docs.unity.uri.edu" > ${GITHUB_WORKSPACE}/docs/CNAME
+      - name: set URI colors
+        run: |
+          sed -i '/--md-typeset-a-color/c\  --md-typeset-a-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color/c\  --md-primary-fg-color: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color--light/c\  --md-primary-fg-color--light: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-primary-fg-color--dark/c\  --md-primary-fg-color--dark: #002147;' ${GITHUB_WORKSPACE}/docs/extra.css
+          sed -i '/--md-accent-fg-color/c\  --md-accent-fg-color: #002b56;' ${GITHUB_WORKSPACE}/docs/extra.css
+      - name: update readme
+        run: |
+          printf "# Unity URI User Docs Mirror\nThis is a mirror of https://github.com/UMass-RC/unity-docs. **DO NOT WRITE TO THIS REPO**" > ${GITHUB_WORKSPACE}/README.md
+      - name: commit changes
+        run: |
+          git config user.name "hakasapl"
+          git config user.email "hakansaplakog@gmail.com"
+
+          git add -A
+          git commit -m "AUTOMATION-updated uri branding"
+          git push
