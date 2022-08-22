@@ -38,7 +38,7 @@ There are two commands for this, `srun` and `sbatch`. `srun` is tied to your cur
 #### SRUN ####
 An `srun` job is tied to your ssh session. If you break (ctrl+C) or close your ssh session during an `srun` job, **the job will be killed**.
 
-You can also make an **interactive** job, which will allow your job to take input from your keyboard. You can run `bash` in an interactive `srun` job to resume your work on a compute node just as you would on a login node. **This is highly recommended.**
+You can also make an **interactive** job, which will allow your job to take input from your keyboard. You can run `bash` in an interactive job to resume your work on a compute node just as you would on a login node. **This is highly recommended.**
 
 see [SRUN Jobs](../srun.md) for more information.
 
