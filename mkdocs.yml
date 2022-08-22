@@ -22,6 +22,7 @@ nav:
   - Connecting:
       - "Console - SSH": "connecting/ssh.md"
       - "Web - JupyterLab": "connecting/jupyter.md"
+  - Uploading Files: "uploading-files/index.md"
   - Job Scheduling:
       - Introduction: "slurm/index.md"
       - SRUN Jobs: "slurm/srun.md"

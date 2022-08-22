@@ -40,12 +40,12 @@ An `srun` job is tied to your ssh session. If you break (ctrl+C) or close your s
 
 You can also make an **interactive** job, which will allow your job to take input from your keyboard. You can run `bash` in an interactive job to resume your work on a compute node just as you would on a login node. **This is highly recommended.**
 
-See [SRUN Jobs](../srun.md) for more information.
+See [SRUN Jobs](../slurm/srun.md) for more information.
 
 #### SBATCH ####
 An `sbatch` job is submitted to the cluster with no information returned to the user other than a Job ID. An `sbatch` job will try to create a file in your current working directory that contains the results of your job.
 
-See [SBATCH Jobs](../sbatch.md) for more information.
+See [SBATCH Jobs](../slurm/sbatch.md) for more information.
 
 #### TMUX SRUN ####
 ```

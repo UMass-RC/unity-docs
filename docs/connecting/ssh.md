@@ -7,6 +7,9 @@ The authentication method we use to allow users to connect to SSH is using SSH k
 For the purposes of this guide, you should know that there is a public key, which is stored on the server, and a private key, which you keep on your local computer. In very basic terms, you authenticate the public key with your private key and that allows you to login to the cluster.
 
 You must save your SSH public key on the cluster by adding it in [account settings](https://unity.rc.umass.edu/panel/account.php). If you are unsure how to generate a public/private key pair. Simply click on `generate key` to add the public key. The private key will be downloaded.
+!!! note
+    It's recommended that you place this downloaded private key in your home directory's `.ssh` folder.
+    This is `C://Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in Mac.
 
 ### Connection Details ###
 If you know what to do with this information already, you can skip reading everything below that.
@@ -36,7 +39,7 @@ Finally, in the main screen again, save the profile you created so you don't hav
 ![PuTTY Save](res/putty-save.png)
 
 ### Linux/Mac Users ###
-Most distributions of linux come with the openssh client, which you can use to connect to the cluster.
+Most distributions of linux come with the OpenSSH client, which you can use to connect to the cluster.
 
 If the file `~/.ssh/config` doesn't exist, create it. Append the following contents:
 ```
