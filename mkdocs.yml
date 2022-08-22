@@ -26,7 +26,7 @@ nav:
       - Introduction: "slurm/index.md"
       - SRUN Jobs: "slurm/srun.md"
       - SBATCH Jobs: "slurm/sbatch.md"
-      - MPI: mpi.md
+      - MPI: "mpi.md"
   - Software:
       - Introduction: "modules/index.md"
       - Using Modules: "modules/using.md"
