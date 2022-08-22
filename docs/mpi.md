@@ -13,13 +13,13 @@
 ```
 module load openmpi
 mpicc /modules/admin-resources/mpi_testing/mpi_array.c -o mpi_array
-srun --pty -N 2 srun mpi_array
+srun --pty -N 2 mpi_array
 ```
 #### sbatch ####
 ```
 module load openmpi
 mpicc /modules/admin-resources/mpi_testing/mpi_array.c -o mpi_array
-sbatch -N 2 srun mpi_script
+sbatch -N 2 mpi_script
 ```
 Where `mpi_script` is a file containing the following:
 ```
@@ -29,9 +29,6 @@ srun mpi_array
 
 
 ## Frequently Asked Questions ##
-
-### Why did you use `srun ... srun` above? ###
-`srun` is a substitute for `mpirun`. See below. (`legacylaunchers`)
 
 ### Why can't I use `mpirun`/`mpiexec`? ###
 ```
@@ -43,7 +40,12 @@ If you understand the potential consequences of a misconfigured mpirun, you can
 use spack to install 'openmpi+legacylaunchers' to restore the executables.
 Otherwise, use srun to launch your MPI executables.
 ```
-The community of HPC admins at Spack have agreed that using `mpirun` with slurm is a bad idea. `srun` is capable of doing all that `mpirun` is, and having the two fight over control is reported to cause poor performance. We currently have a version of openmpi called `openmpi+mpirun`, which was installed in Spack with `+legacylaunchers`, enabling you to use the wrappers as you please.
+The community of HPC admins at Spack have agreed that using `mpirun` with slurm is a bad idea.
+`srun` is capable of doing all that `mpirun` is, and having the two fight over control
+is reported to cause poor performance.
+We currently have a version of openmpi called `openmpi+mpirun`,
+which was installed in Spack with `+legacylaunchers`,
+enabling you to use the wrappers as you please.
 
 ### Why do I get multiple outputs from my mpi aware binaries? ###
 This is because memory sharing is not working.
@@ -65,4 +67,7 @@ used on a specific port.  As such, the openib BTL (OpenFabrics
 support) will be disabled for this port."
 ```
 We do not currently have infiniband hardware in our network, and openmpi would like us to.
-You can simply add `^openib` to your `mpirun` command and disable the infiniband feature. We will likely recompile openmpi to disable this sitewide.
+You can simply add `-mca btl ^ofi` to your `mpirun` command and disable the infiniband feature. We will likely recompile openmpi to disable this sitewide.
+```
+mpirun -mca btl ^ofi ...
+```
