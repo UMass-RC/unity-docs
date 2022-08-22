@@ -2,8 +2,8 @@
 
 SBATCH is a *non-blocking* command, meaning there is not a circumstance where running the command will cause it to hold. Even if the resources requested are not available, the job will be thrown into the queue and will start to run once resources become available. The status of a job can be seen using `squeue`.
 ```
-squeue -u $(whoami)
-squeue -j JOBID
+squeue -u $USER
+squeue -j YOUR_JOBID
 ```
 
 SBATCH is based around running a single file. That being said, you shouldn't need to specify any parameters in the command other than `sbatch <batch file>`, because you can specify all parameters in the command inside the file itself.
