@@ -2,7 +2,7 @@
 
 SBATCH is a *non-blocking* command, meaning there is not a circumstance where running the command will cause it to hold. Even if the resources requested are not available, the job will be thrown into the queue and will start to run once resources become available. The status of a job can be seen using `squeue`.
 ```
-squeue -u $USER
+squeue --me
 squeue -j YOUR_JOBID
 ```
 
