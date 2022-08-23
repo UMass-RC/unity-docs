@@ -2,7 +2,7 @@
 The only way to add files to the Unity filesystem is through an SSL encrypted connection. It can be done with FileZilla (recommended), in JupyterLab, or in the command line.
 
 !!! note
-    Uploading files using American residential internet is typically painfully slow.
+    Uploading files using American residential internet is typically very slow.
     UMass Amherst has a fibre line going directly to MGHPCC to improve speeds.
 
 ## Your Key File ##
@@ -12,11 +12,9 @@ When you set up your Unity account, you chose between PuTTY (`.ppk`) and OpenSSH
 
 Depending on which software you use, you can generate one of each. You can also convert between these keys using a program like PuttyGEN.
 
-[Account Settings](https://unity.rc.umass.edu/panel/account.php)
+[Configuring SSH Keys](../connecting/ssh.md)
 
-!!! note
-    It's recommended that you place this downloaded private key in your home directory's `.ssh` folder.
-    This is `C://Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in Mac.
+[Account Settings](https://unity.rc.umass.edu/panel/account.php)
 
 ## FileZilla ##
 FileZilla can use either an `.rsa` or a `.ppk` private key, but the 'Browse' button will show only `.ppk` files. To use an `.rsa` key, type in the path to the keyfile by hand.
@@ -29,9 +27,11 @@ You can install FileZilla [here](https://filezilla-project.org/download.php?type
 * The FileZilla installer executable can be sometimes marked as a virus, it isn't.
 
 Select the Site Manager in FileZilla:
+
 ![Select the Site Manager in FileZilla](res/select-site-manager.png)
 
 Create a New Site:
+
 ![Create a New Site](res/select-new-site.png)
 
 Fill in the Fields:
@@ -48,10 +48,12 @@ This configuration is saved automatically.
 You can use the 'Connect' button in the bottom right to open an explorer on the Unity Filesystem,and you can drag and drop your files across the two panels.
 
 Properly connected, FileZilla should look like this:
+
 ![FileZilla](res/done.png)
 
 ## JupyterLab ##
 Start a session in JupyterLab. Navigate to your home directory, and click the upload button.
+
 ![JupyterLab Start Page](res/jupyter-start.png)
 
 ## CLI ##
@@ -81,25 +83,28 @@ scp FILE_NAME unity:~
 # entire directory
 scp -r DIRECTORY_NAME unity:~
 ```
+This will copy the files in question to your Unity home directory.
+You could also upload to elsewhere on the Unity filesystem, wherever you have permissions.
 !!! note
     `-r` in many commands is short for 'recursive'.
-    It tells the `scp` command to recursively open DIRECTORY_NAME
-    and any other directories contained within to ensure that all files are copied.
+    It means to recursively open directories to ensure that all contained files are accounted for.
 
 !!! note
     `~` in the terminal represents your home directory.
 
-This will copy the files in question to your Unity home directory.
-You could also upload to elsewhere on the Unity filesystem, wherever you have permissions.
+    This is `C://Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in [Mac](https://www.cnet.com/tech/computing/how-to-find-your-macs-home-folder-and-add-it-to-finder/).
 
 ### RSYNC ###
 `rsync` can be installed on Linux and Mac. The syntax is the same as `scp`.
+It also references the OpenSSH config file.
+
+It's recommended to use the `-tlp` flags so that timestamps, relative links, and permissions are preserved, respectively.
 ```
 # single file
-rsync FILE_NAME unity:~
+rsync -tlp FILE_NAME unity:~
 
 # entire directory
-rsync -r DIRECTORY_NAME unity:~
+rsync -rtlp DIRECTORY_NAME unity:~
 ```
 
 

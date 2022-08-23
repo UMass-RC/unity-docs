@@ -1,6 +1,3 @@
-!!! note
-    The Unity docs are still a work-in-progress. Some docs may be missing, or incomplete. If you would like to contribute to these docs, please submit PRs to the upstream repository [here](https://github.com/UMass-RC/unity-docs).
-
 # Running Jobs with Shared Memory Using MPI
 
 #### This is the (simplified) sanity check that the Unity admins used to verify openmpi: ####

@@ -1,5 +1,4 @@
 # Introduction to Slurm: The Job Scheduler #
-
 Slurm is the job scheduler we use in our cluster. More info about what a job scheduler is can be found in the [introduction](../index.md). Here we will go more into depth about some elements of the scheduler. There are many more features of Slurm that go beyond the scope of this guide, but all that you as a user needs to know should be available.
 
 !!! note
@@ -21,14 +20,12 @@ Our cluster has a number of slurm **partitions** defined, also known as a **queu
 | gpu-preempt       | short                 | 14 days (see below)
 
 #### Non-Standard Partitions ####
-
 Access to non-standard partitions (not listed above) is typically limited to those who purchased the hardware.
 
 #### Preempt ####
-
 Jobs can be killed and re-queued after two hours in the `-preempt` partition.
 
-If you don't want your job re-queued, you can specify `--no-requeue` in your job.
+If you don't want your job re-queued (but still killed), you can specify `--no-requeue` in your job.
 
 
 ## Jobs ##
