@@ -10,7 +10,7 @@ When you set up your Unity account, you chose between PuTTY (`.ppk`) and OpenSSH
 
 `scp` and `rsync` use OpenSSH, and FileZilla prefers `.ppk` but can work with `.rsa`.
 
-Depending on which software you use, you can generate one of each.
+Depending on which software you use, you can generate one of each. You can also convert between these keys using a program like PuttyGEN.
 
 [Account Settings](https://unity.rc.umass.edu/panel/account.php)
 
