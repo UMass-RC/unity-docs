@@ -37,7 +37,7 @@ We take a snapshot of all storage at 1 AM every day for the past 48 hours.
 This way, if you accidentally deleted something it wouldn't be difficult to get it back within that time frame.
 
 ### When I try to queue a job I get denied for MaxCpuPerAccount.
-This is part of our QoS configuration, we have a maximum number of cpu cores on a PI basis.
+Resource limits are set per lab. Currently, they are 300 CPUs, and 64 GPUs. This allocation is shared across your entire PI group.
 
 ### I'm a PI and I would like to purchase hardware to buy-in to Unity. 
 Great! Send us an email and we'll be happy to help. We are very flexible when it comes to the needs of research labs.
