@@ -9,7 +9,7 @@ For the purposes of this guide, you should know that there is a public key which
 You must save your public key on Unity by adding it in your [account settings](https://unity.rc.umass.edu/panel/account.php). If you are unsure how to generate a public/private key pair, simply click on 'Generate Key'. The public key will be added to our database, and the private key will be downloaded to your computer.
 
 !!! note
-    It's recommended that you place this downloaded private key in your home directory's `.ssh` folder. This is `C://Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in [Mac](https://www.cnet.com/tech/computing/how-to-find-your-macs-home-folder-and-add-it-to-finder/). In the terminal, a shortcut for this directory is the `~` symbol.
+    It's recommended that you place this downloaded private key in your home directory's `.ssh` folder. This is `C:/Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in [Mac](https://www.cnet.com/tech/computing/how-to-find-your-macs-home-folder-and-add-it-to-finder/). In the terminal, a shortcut for this directory is the `~` symbol.
 
     This command will make the move on any operating system:
 
@@ -71,7 +71,7 @@ Host unity
 
     In Windows Notepad, you can save a file with no extension in the 'All Files' category, and windows will add the `.txt` extension regardless, which won't work.
 
-    The Mac TextEdit doesn't even have the option to save as `.txt`, which is tremendously unhelpful. [This can be changed in the TextEdit config.](https://www.techyuga.com/how-to-save-files-in-txt-format-in-textedit-on-mac/)
+    The Mac TextEdit doesn't even have the option to save as `.txt`, which is tremendously unhelpful. You can make your current file plain-text formatted using ⌘-⇧-T, and [you can add plain-text as a 'Save as' option in the config.](https://macreports.com/how-to-create-a-text-txt-file-on-a-mac/)
 
     The most reliable way to put your OpenSSH config file in the correct location is to open the terminal and use the `mv` (move) command, which will rename files with no fuss.
 

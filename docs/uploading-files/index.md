@@ -62,7 +62,7 @@ It's best to try this after you have already successfully connected to Unity wit
 As these are CLI procedures, the first thing you need to do is open your terminal and navigate to the directory (folder) where the files you want to upload are located. Alternatively you can use [absolute paths](https://networkencyclopedia.com/absolute-path/) in your command and skip this step.
 ```
 # Windows
-cd C://Users/YOUR_NAME/Desktop
+cd C:/Users/YOUR_NAME/Desktop
 # Linux
 cd /home/$USER/Desktop
 # Mac
@@ -92,7 +92,7 @@ You could also upload to elsewhere on the Unity filesystem, wherever you have pe
 !!! note
     `~` in the terminal represents your home directory.
 
-    This is `C://Users/YOUR_NAME/.ssh` in Windows, `/home/YOUR_NAME/.ssh` in Linux, and `/Users/YOUR_NAME` in [Mac](https://www.cnet.com/tech/computing/how-to-find-your-macs-home-folder-and-add-it-to-finder/).
+    This is `C:/Users/YOUR_NAME` in Windows, `/home/YOUR_NAME` in Linux, and `/Users/YOUR_NAME` in [Mac](https://www.cnet.com/tech/computing/how-to-find-your-macs-home-folder-and-add-it-to-finder/).
 
 ### RSYNC ###
 `rsync` can be installed on Linux and Mac. The syntax is the same as `scp`.
