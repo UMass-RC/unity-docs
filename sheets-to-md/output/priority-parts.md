@@ -8,4 +8,4 @@
 | toltec-cpu             | Unlimited    | toltec CPU partition                       |
 | gaoseismolab-cpu       | Unlimited    | gaoseismolab CPU partition                 |
 | uri-cpu                | Unlimited    | URI CPU partition                          |
-| ece-gpu                | 5 DAYS       | ece partition for ECE courses only         |
+| ece-gpu                | 5 days       | ece partition for ECE courses only         |

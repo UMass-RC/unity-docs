@@ -8,6 +8,9 @@ User Documentation for Unity Cluster at UMass Amherst
 
 ### Updating the nodelist/partitionlist Tables
 edit the tables [here](https://docs.google.com/spreadsheets/d/1kEieN7qKY-iiSJc18SVZdyRnJ4NArIhZY_or_WKnIAI/edit?usp=sharing)
+
+get the [private key](https://drive.google.com/file/d/1Q9fJ0QSi3AjLq3vb4e-1kRQgM1NR7eaA/view?usp=sharing) into the same directory as sheets-to-md.py
+
 ```
 cd unity-docs/sheets-to-md
 ./sheets-to-md.py

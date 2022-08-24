@@ -6,9 +6,13 @@ Slurm is the job scheduler we use in our cluster. More info about what a job sch
     We have disincentivized this by setting limits on cpu and memory.
     Learn how to use `srun` interactive sessions to switch from a login node to a compute node.
 
+#### Core Limits ####
+There is currently a 300 CPU core, 64 GPU limit to be shared by the users of each lab.
+
+When you try to go over this limit, you will be denied for `MaxCpuPerAccount`.
 
 ## Partitions / Queues ##
-Our cluster has a number of slurm **partitions** defined, also known as a **queue**. As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. Find out which partition is best for your job [here](../technical/partitionlist.md)
+Our cluster has a number of slurm **partitions** defined, also known as a **queue**. As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. Find out which partition is best for your job [here](../technical/partitionlist.md).
 
 ## Jobs ##
 A job is an operation which the user submits to the cluster to run under allocated resources.

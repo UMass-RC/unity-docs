@@ -1,3 +1,3 @@
 | Name     | Time Limit   | Comments               |
 |:---------|:-------------|:-----------------------|
-| ials-gpu | 14 DAYS      | GPU partition for IALS |
+| ials-gpu | 14 days      | GPU partition for IALS |
