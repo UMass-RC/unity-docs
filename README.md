@@ -25,4 +25,3 @@ Generate the tables
 cd unity-docs/sheets-to-md
 ./sheets-to-md.py
 ```
-# comment
