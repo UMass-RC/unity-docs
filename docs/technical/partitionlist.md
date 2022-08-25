@@ -9,7 +9,7 @@ These are the only partitions that are open to use by all users of Unity.
 #### Preempt ####
 Jobs can be killed and re-queued after two hours in the `-preempt` partition.
 
-To avoid losing progress, it's a good idea to use software that supports checkpointing. Checkpointing in a nutshell is periodically saving the job's state to a file (usually called `state`), and having the capability to read this file and resume work from said state.
+To avoid losing progress, it's a good idea to use software that supports checkpointing. Checkpointing in a nutshell is periodically saving the job's state to a file, and having the capability to read this file and resume work from said state.
 
 If you don't want your job re-queued (but still killed), you can specify `--no-requeue` in your job.
 
