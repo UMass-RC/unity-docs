@@ -25,10 +25,3 @@ Generate the tables
 cd unity-docs/sheets-to-md
 ./sheets-to-md.py
 ```
-this generates a markdown file for each table in `unity-docs/sheets-to-md/output/`.
-
-copy paste the markdown into the following files:
-
-`*-nodes.md` go into technical/nodelist
-
-`*-parts.md` go into technical/partitionlist
