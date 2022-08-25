@@ -11,6 +11,14 @@ edit the tables [here](https://docs.google.com/spreadsheets/d/1kEieN7qKY-iiSJc18
 
 get the [private key](https://drive.google.com/file/d/1Q9fJ0QSi3AjLq3vb4e-1kRQgM1NR7eaA/view?usp=sharing) into the same directory as sheets-to-md.py
 
+Install Python modules
+```
+pip install gspread
+pip install tabulate
+pip install oauth2client
+pip install pandas
+```
+
 ```
 cd unity-docs/sheets-to-md
 ./sheets-to-md.py
