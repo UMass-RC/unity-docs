@@ -13,6 +13,4 @@ jobs:
           python-version: 3.x
       - run: pip install mkdocs-material
       - run: pip install mkdocs-include-markdown-plugin
-      # test access to private repos
-      - run: wget https://github.com/UMass-RC/unity-mgmt/blob/master/README.md
       - run: mkdocs gh-deploy --force
