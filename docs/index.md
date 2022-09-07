@@ -2,7 +2,7 @@
     The Unity docs are still a work-in-progress. Some docs may be missing, or incomplete. If you would like to contribute to these docs, please submit PRs to the upstream repository [here](https://github.com/UMass-RC/unity-docs).
 
 # Introduction to Unity #
-This introductory tutorial will help you build an understanding of what an HPC Cluster, or **High Performance Computing Cluster** is, and how to most effectively utilize it.
+This introductory tutorial will help you build an understanding of what an HPC Cluster, or **High Performance Computing Cluster** is, and how to most effectively utilize it BECAUSE I AM GOING TO REWRITE THIS DOCUMENTATION SO THAT IT IS EASIER TO UNDERSTAND.
 
 ### Defining some Terms ###
 <!--At its most basic level, you are learning how to use a **cluster**. A cluster is many servers (or computers) joined together in an effort to work together, where a single server is known as a **node**. Unity is an **HPC**, or High Performance Computing cluster. This means we focus most on computational power and efficiency, as the name entails. The primary use case of Unity is by researchers wanting more computational power than what is available on their own. -->
