@@ -1,7 +1,7 @@
 # Uploading Files to the Unity Filesystem
 The only way to add files to the Unity filesystem is through an SSL encrypted connection. It can be done with FileZilla, Globus, or in the command line.
 
-* FileZilla is the recommended method for most because it strikes a balance between user friendliness and reliability.
+* FileZilla is the recommended method for most because it strikes a balance between user friendliness and customizability.
 * Globus is recommended for those who already have access to other Globus resources.
 * `scp` and `rsync` are recommended for those who are comfortable in the command line and want to work quickly.
 
