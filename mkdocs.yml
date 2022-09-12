@@ -32,6 +32,4 @@ nav:
       - Node List: "technical/nodelist.md"
       - Partition List: "technical/partitionlist.md"
       - Storage: "technical/storage.md"
-  - Buy-In Hardware:
-      - Types of Priority: "buy-in/types.md"
-      - Hardware Requirements: "buy-in/requirements.md"
+  - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
