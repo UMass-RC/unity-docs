@@ -10,6 +10,8 @@ SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/au
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
 
 def main():
+    if not os.path.exists("unity-sheets-key.json"):
+        raise Exception("you don't have the private key! see README.md")
     creds = ServiceAccountCredentials.from_json_keyfile_name("unity-sheets-key.json", SCOPE)
     client = gspread.authorize(creds)
     sheet = client.open("unity-docs-tables")
