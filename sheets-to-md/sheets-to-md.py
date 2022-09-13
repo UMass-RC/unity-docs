@@ -47,6 +47,7 @@ def main():
         df = pd.read_csv(csv_name)
         df.fillna('', inplace=True) # remove NaN's
         with open(md_name, 'w', encoding="utf-8") as md:
+            print(md_name)
             df.to_markdown(buf=md, index=False)
 
         os.remove(csv_name)
