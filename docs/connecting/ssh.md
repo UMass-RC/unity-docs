@@ -62,6 +62,8 @@ ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek
 
 ![PuTTY Fingerprint](res/putty_fingerprint.PNG)
 
+If this key matches what is on your terminal, go ahead and click "Accept".
+
 ### [CLI](https://www.w3schools.com/whatis/whatis_cli.asp) Users ###
 Windows, Mac, and most distributions of linux come with the OpenSSH client, which you can use to connect to Unity in your terminal.
 
