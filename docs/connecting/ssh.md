@@ -56,6 +56,11 @@ Finally, in the main screen again, save the profile you created so you don't hav
 
 ![PuTTY Save](res/putty-save.png)
 
+The server's ssh-ed25519 key fingerprint is:
+ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek
+
+![PuTTY Fingerprint](res/putty_fingerprint.PNG)
+
 ### [CLI](https://www.w3schools.com/whatis/whatis_cli.asp) Users ###
 Windows, Mac, and most distributions of linux come with the OpenSSH client, which you can use to connect to Unity in your terminal.
 
