@@ -58,7 +58,7 @@ Finally, in the main screen again, save the profile you created so you don't hav
 
 The server's ssh-ed25519 key fingerprint is:
 
-ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek
+'''ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek'''
 
 ![PuTTY Fingerprint](res/putty_fingerprint.PNG)
 
