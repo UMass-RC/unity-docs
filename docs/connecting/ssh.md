@@ -37,6 +37,42 @@ If you know what to do with this information already, you can skip the rest of t
 !!! note
     Your username should be your email with all at's `@` and dot's `.` replaced with underscores `_`. View your username [here](https://unity.rc.umass.edu/panel/account.php)
 
+
+
+### [CLI](https://www.w3schools.com/whatis/whatis_cli.asp) Users ###
+We recommend connecting to Unity via the terminal. Windows, Mac, and most distributions of linux come with the OpenSSH client, which you can use to connect to Unity in your terminal.
+
+If the file `~/.ssh/config` doesn't exist, create it. Append the following contents and replace `<NETID>` and `<PATH_TO_PRIVATE_KEY>` to your specifications:
+
+Host unity
+     HostName unity.rc.umass.edu
+     User <NETID>_umass_edu
+     IdentityFile <PATH_TO_PRIVATE_KEY>
+
+Here is an example:
+
+![ssh example](res/ssh_example.PNG)
+
+!!! note
+    Doing this with a text editor and a file explorer can be challenging because these user friendly methods don't like files without an extension, and the ssh config file must not have an extension.
+
+    In Windows Notepad, you can save a file with no extension in the 'All Files' category, and windows will add the `.txt` extension regardless, which won't work.
+
+    The Mac TextEdit doesn't even have the option to save as `.txt`, which is tremendously unhelpful. You can make your current file plain-text formatted using ⌘-⇧-T, and [you can add plain-text as a 'Save as' option in the config.](https://macreports.com/how-to-create-a-text-txt-file-on-a-mac/)
+
+    The most reliable way to put your OpenSSH config file in the correct location is to open the terminal and use the `mv` (move) command, which will rename files with no fuss.
+
+    ```
+    mv path/to/source-file path/to/desination-file
+    ```
+
+    ```
+    mv ~/Desktop/ssh-config.txt ~/.ssh/config
+    ```
+Once the OpenSSH config file is in place, you can connect to Unity in your terminal using the command `ssh unity`.
+
+![Unity SSH](res/unity_ssh.PNG)
+
 ### Windows GUI Users ###
 Windows users can use [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) to connect to Unity. Download and install PuTTY by following the link above. Be sure to select the 64 bit / 32 bit download depending on your system. Most are 64 bit, but if you are unsure 32 bit will always work.
 
@@ -58,36 +94,9 @@ Finally, in the main screen again, save the profile you created so you don't hav
 
 The server's ssh-ed25519 key fingerprint is:
 
-'''ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek'''
+```ssh-ed25519 255 SHA256:jC7BF7h5/RJo5Svx1v+lufdf+I/ogu5dQV2sUe+y8ek```
 
 ![PuTTY Fingerprint](res/putty_fingerprint.PNG)
 
 If this key matches what is on your terminal, go ahead and click "Accept".
 
-### [CLI](https://www.w3schools.com/whatis/whatis_cli.asp) Users ###
-Windows, Mac, and most distributions of linux come with the OpenSSH client, which you can use to connect to Unity in your terminal.
-
-If the file `~/.ssh/config` doesn't exist, create it. Append the following contents and replace `<NETID>` and `<PATH_TO_PRIVATE_KEY>` to your specifications:
-```
-Host unity
-     HostName unity.rc.umass.edu
-     User <NETID>_umass_edu
-     IdentityFile <PATH_TO_PRIVATE_KEY>
-```
-!!! note
-    Doing this with a text editor and a file explorer can be challenging because these user friendly methods don't like files without an extension, and the ssh config file must not have an extension.
-
-    In Windows Notepad, you can save a file with no extension in the 'All Files' category, and windows will add the `.txt` extension regardless, which won't work.
-
-    The Mac TextEdit doesn't even have the option to save as `.txt`, which is tremendously unhelpful. You can make your current file plain-text formatted using ⌘-⇧-T, and [you can add plain-text as a 'Save as' option in the config.](https://macreports.com/how-to-create-a-text-txt-file-on-a-mac/)
-
-    The most reliable way to put your OpenSSH config file in the correct location is to open the terminal and use the `mv` (move) command, which will rename files with no fuss.
-
-    ```
-    mv path/to/source-file path/to/desination-file
-    ```
-
-    ```
-    mv ~/Desktop/ssh-config.txt ~/.ssh/config
-    ```
-Once the OpenSSH config file is in place, you can connect to Unity in your terminal using the command `ssh unity`.
