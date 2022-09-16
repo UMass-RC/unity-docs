@@ -35,24 +35,21 @@ If you know what to do with this information already, you can skip the rest of t
 * Hostname/Address: `unity.rc.umass.edu`
 * Username: `NETID_school_edu`
 !!! note
-    Your username should be your email with all at's `@` and dot's `.` replaced with underscores `_`. View your username [here](https://unity.rc.umass.edu/panel/account.php)
+    Your username is in the format `<organization username>_<organization>_edu`. View your username [here](https://unity.rc.umass.edu/panel/account.php)
 
 
 
 ### [CLI](https://www.w3schools.com/whatis/whatis_cli.asp) Users ###
 We recommend connecting to Unity via the terminal. Windows, Mac, and most distributions of linux come with the OpenSSH client, which you can use to connect to Unity in your terminal.
 
-If the file `~/.ssh/config` doesn't exist, create it. Append the following contents and replace `<NETID>` and `<PATH_TO_PRIVATE_KEY>` to your specifications:
-
+If the file `~/.ssh/config` doesn't exist, create it. Copy the following contents to your Notepad and replace `<NETID>` and `<PATH_TO_PRIVATE_KEY>` to your specifications:
+Remember to save the file in a directory of your choosing, without an extension.
+```
 Host unity
      HostName unity.rc.umass.edu
-     User <NETID>_umass_edu
+     User <USERID>_<ORGANIZATION>_edu
      IdentityFile <PATH_TO_PRIVATE_KEY>
-
-Here is an example:
-
-![ssh example](res/ssh_example.PNG)
-
+```
 !!! note
     Doing this with a text editor and a file explorer can be challenging because these user friendly methods don't like files without an extension, and the ssh config file must not have an extension.
 
