@@ -1,5 +1,5 @@
 # Introduction to Slurm: The Job Scheduler #
-Slurm is the job scheduler we use in our cluster. More info about what a job scheduler is can be found in the [introduction](../index.md). Here we will go more into depth about some elements of the scheduler. There are many more features of Slurm that go beyond the scope of this guide, but all that you as a user need to know should be available.
+Slurm is the job scheduler we use in Unity. More info about what a job scheduler is can be found in the [introduction](../index.md). Here we will go more into depth about some elements of the scheduler. There are many more features of Slurm that go beyond the scope of this guide, but all that you as a user need to know should be available.
 
 !!! note
     Doing work on the login nodes can cause Unity to become sluggish for the entire user base.
