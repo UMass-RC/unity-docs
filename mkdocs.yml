@@ -12,6 +12,7 @@ theme:
   logo: res/logo.png
 copyright: "Copyright &copy;2020 UMass Amherst"
 repo_url: https://github.com/UMass-RC/unity-docs
+edit_uri: ""
 markdown_extensions:
   - admonition
 nav:
