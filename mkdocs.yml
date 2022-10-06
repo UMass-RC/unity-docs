@@ -34,4 +34,5 @@ nav:
       - Node List: "technical/nodelist.md"
       - Partition List: "technical/partitionlist.md"
       - Storage: "technical/storage.md"
-  - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
+      - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
+      - File Transfers: "transfers/transfers.md"

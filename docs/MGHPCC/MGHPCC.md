@@ -10,3 +10,7 @@ Slurm offers the same basic functionalities as LSF: you can use it to submit job
 The LSF commands that you use today to submit and monitor jobs — ``` bsub, bjobs ``` — and their various options will need to be replaced with their Slurm equivalent, which can be found [here](https://scicomp.ethz.ch/wiki/LSF_to_Slurm_quick_reference).
 
 A full list of Slurm commands and their equivalents can be found [here](https://slurm.schedmd.com/rosetta.pdf).
+
+*** How to Transfer Files From One HPC to Another ***
+
+File transfer solutions can be found in our documentation [here](https://docs.unity.rc.umass.edu/uploading-files/index.html#:~:text=look%20like%20this%3A-,Globus,-Globus%20Connect%20allows).
