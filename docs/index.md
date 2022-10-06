@@ -1,16 +1,16 @@
 # Introduction to Unity #
 Welcome to Unity!
-The Unity cluster is a collaborative, multi-institutional high-performance computing cluster located at the Massachusetts Green High Performance Computing Center [(MGHPCC)](www.mghpcc.org). The cluster is under active development and supports primarily research activities. Partnering institutions today include UMass Amherst, UMass Dartmouth, and University of Rhode Island.
+The Unity cluster is a collaborative, multi-institutional high-performance computing cluster located at the Massachusetts Green High Performance Computing Center [(MGHPCC)](www.mghpcc.org). The cluster is under active development and supports primarily research activities. Partnering institutions currently include UMass Amherst, UMass Dartmouth, and University of Rhode Island.
 
 #### 1. Accessing Unity ####
 
 **For Faculty/PI:** If you are a Faculty member or Principal Investigator (PI), please create an account on the Unity [main page](https://unity.rc.umass.edu). Use your campus NetID and password to sign up for a Unity account.  Once your account is created, go to Account Settings and request PI status by clicking the "Request PI account" button.  Once your account is approved you will be able to approve adding additional users to your PI group in the “My Users” button on the side menu.  Adding users will grant them access to your PI /work directory.  Users in your group need to request access to join your PI group.  You cannot create accounts for your users.
 
 
-**For Students:** In order to use Unity you must be working with a faculty/PI and they must grant you access to their PI group.
+**For Students:** In order to use Unity you must be working with a PI and they must grant you access to their PI group.
 
 Create an account on the Unity [main page](https://unity.rc.umass.edu).
-Use your normal campus ID and password to sign up for a Unity account. Use your campus NetID and password to sign up for a Unity account. Once your account is created you will need to assign a PI to it.  To do this, go to "My PIs" using the left side menu and click the large "+" button. You can search for your PI by name. Once found, click on “Send Request”. After your PI approves your request, you will have access to Unity and your PI’s project code and data stored in Unity.
+Click "Login/Request Account". Click on your institution or search for it via the search bar. Once your account is created you will need to assign a PI to it.  To do this, go to "My PIs" using the left side menu and click the large "+" button. Follow the prompts to generate your unique SSH key. You can search for your PI by name. Once found, click on “Send Request”. After your PI approves your request, you will have access to Unity and your PI’s project code and data stored in Unity. You can view, join, or leave a PI group by clicking "My PIs".
 
 **Note:** If you are a student, **do not request a PI account**.  This will slow the process down.  You should assign a PI to your account by clicking the "+" button.  Your PI will then be able to approve your account.
 
