@@ -6,27 +6,13 @@ Slurm is the job scheduler we use in Unity. More info about what a job scheduler
     We have disincentivized this by setting limits on cpu and memory.
     Learn how to use `srun` interactive sessions to switch from a login node to a compute node.
 
+#### Core Limits ####
+There is currently a 300 CPU core, 64 GPU limit to be shared by the users of each lab.
+
+When you try to go over this limit, you will be denied for `MaxCpuPerAccount`.
 
 ## Partitions / Queues ##
-Our cluster has a number of slurm **partitions** defined, also known as a **queue**. As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. To view all available partitions in Slurm, you can run the command `sinfo`.
-
-| Partition         | Relative Wait Time    |  Maximum Runtime
-| -                 | -                     | -
-| cpu               | medium                | 1 day
-| gpu               | medium                | 1 day
-| cpu-long          | long                  | 14 days
-| gpu-long          | long                  | 14 days
-| cpu-preempt       | short                 | 14 days (see below)
-| gpu-preempt       | short                 | 14 days (see below)
-
-#### Non-Standard Partitions ####
-Access to non-standard partitions (not listed above) is typically limited to those who purchased the hardware.
-
-#### Preempt ####
-Jobs can be killed and re-queued after two hours in the `-preempt` partition.
-
-If you don't want your job re-queued (but still killed), you can specify `--no-requeue` in your job.
-
+Our cluster has a number of slurm **partitions** defined, also known as a **queue**. As you may have guessed, you as the user request to use a specific partition based on what resources your job needs. Find out which partition is best for your job [here](../technical/partitionlist.md).
 
 ## Jobs ##
 A job is an operation which the user submits to the cluster to run under allocated resources.

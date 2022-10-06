@@ -79,7 +79,7 @@ Here is a general step by step process that governs how the Unity Cluster works:
 ![Unity Diagram](res/unity.png)
 
 1. The client connects to Unity using [SSH](connecting/ssh.md), or the [Jupyter Lab](connecting/jupyter.md). (Bottom right of image)
-    * When you log into the Unity Cluster, you can interact with the Cluster either using Jupyter Lab, or Terminal. Note that there is a limited number of times that you can attempt to login. After **GET NUMBER OF LOGIN FAILS** failed login attempts.
+    * When you log into the Unity Cluster, you can interact with the Cluster either using Jupyter Lab, or Terminal.
     * If you are not comfortable working with a Linux SSH terminal interface, it is recommended that you use Jupyter Lab.
 2. Once connected, a job is requested through the scheduler, and the scheduler adds your requests to each *necessary que*.
     * '*Necessary*' because if the job requested requires 2 GPUs and 1 CPU then you need 2 positions in the GPU que and 1 position in the CPU que. This means that the wait time to get your required resources could be longer, but this doesn't mean the runtime of your job will also be longer.
