@@ -2,6 +2,23 @@
 User Documentation for Unity Cluster at UMass Amherst
 
 ### Contributing
+
+#### Github Guidelines
+We're gonna use a workflow using branches to propose changes.
+
+Guide for basic git commands: [https://github.com/git-guides](https://github.com/git-guides)
+
+1. Clone the repository using Github Desktop or ssh/https/git-cli.
+1. Make a new branch from `main` while following the namescheme: `<author>/<change-description>`
+1. Setup the local environment to run the documentation locally (described below).
+1. Make the desired changes.
+1. [Commit](https://github.com/git-guides/git-commit) and [Push](https://github.com/git-guides/git-push) the changes to your branch.
+1. Create a [Pull Request](https://docs.github.com/en/pull-requests) while comparing your branch to `main`.
+1. List `tlbernardin` and another team member for review. 
+1. Write a good description for the changes proposed no matter how small. 
+1. Submit [Pull Request](https://docs.github.com/en/pull-requests).
+
+#### Local Setup
 1. Install mkdocs: `pip install mkdocs`
 1. Install the theme: `pip install mkdocs-material`
 1. Install a plugin: `pip install mkdocs-include-markdown-plugin`
