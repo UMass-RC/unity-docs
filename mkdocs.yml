@@ -14,6 +14,8 @@ copyright: "Copyright &copy;2020 UMass Amherst"
 repo_url: https://github.com/UMass-RC/unity-docs
 markdown_extensions:
   - admonition
+  - toc:
+    permalink: True
 nav:
   - Home: index.md
   - Getting Started:
@@ -36,3 +38,4 @@ nav:
       - Storage: "technical/storage.md"
       - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
       - File Transfers: "transfers/transfers.md"
+
