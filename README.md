@@ -4,7 +4,7 @@ User Documentation for Unity Cluster at UMass Amherst
 ### Contributing
 
 #### Github Guidelines
-We're gonna use a workflow using branches to propose changes.
+We will use branches to propose changes.
 
 Guide for basic git commands: [https://github.com/git-guides](https://github.com/git-guides)
 
