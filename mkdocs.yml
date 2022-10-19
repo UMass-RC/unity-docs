@@ -16,7 +16,7 @@ edit_uri: "edit/main/docs"
 markdown_extensions:
   - admonition
   - toc:
-    permalink: True
+      permalink: True
 nav:
   - Home: index.md
   - Getting Started:
