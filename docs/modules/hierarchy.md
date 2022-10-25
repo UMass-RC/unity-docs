@@ -1,10 +1,58 @@
-# Environment Modules #
-Environment modules is how we are able to provide one installation of a piece of software to an entire cluster and its user base. Modules also allow us to have infinite versions of a single piece of software without conflicts. A **module** is a piece of software that the user can load in his/her shell, and then have access to that software. The software is installed elsewhere, but is not available until the user loads it. Unity uses lmod for managing modules.
+# Module Hierarchy #
 
-## How it Works ##
-You can skip this part if you don't care about how it works, but it may allow you to gain a better understanding for future reference.  
-Environment modules work by modifying the user's environment. The user's environment has a number of variables set. To see them all, just run `env` in the cli if you are curious. Those variables dictate what the user has access to. For instance, consider the `$PATH` environment variable. This variable is what determines where to find executable binaries. For example, when you run the command `ls` to list the directory, `ls` is simply an executable that lies somewhere on the system. In this case, `/bin`. Ordinarily, to run the `ls` executable, you would need to reference it directly, ie `/bin/ls`. To simplify this, linux adds certain directories to the `$PATH` environment variable. Any binaries/executable contained within any directories defined in `$PATH` can be executed from anywhere directly, ie `ls`. As such, `/bin`, `/usr/bin`, `/usr/local/bin`, etc. are all members of the `$PATH` variable.
+The modulepath (`$MODULEPATH`) is a list of directories in which Lmod (<red>`module`</red>) searches for modules.
 
-Modulefiles work by manipulating these variables. For example, consider `python`, a binary that comes with almost all linux distributions these days. Usually, running `python` will execute the python that is installed on the system. But if we wanted to create a module which loads a different python, we would add the location of the different python into the environment variables, at the top of the list. Now, when you run `python`, the first entry in `$PATH` directs you to the module you loaded, and it loads that, even though a system `python` exists later on. The important thing is that the program you want to use is first in the variable.
+In the limited view, not all directories are added to the modulepath by default.
 
-To see physical examples of modulefiles, please visit [this page](modules/self.md).
+This means not all modules can be found in <red>`module avail`</red> by default.
+
+### The hierarchy (as of 2022/10/24) ###
+<pre><code><strong>/modules/modulefiles/ (D)</strong>
+
+/modules/spack/.../linux-ubuntu20.04-x86_64/
+├── <strong><red>gcc</red>/9.4.0/ (C)(D)</strong>
+├── <red>intel</red>/2021.4/ (C)
+├── <blue>intel-oneapi-mpi</blue>/2021.6.0-ad5zrqt/ (P)
+    ├── <red>gcc</red>/9.4.0/ (C)
+├── <blue>openblas</blue>/0.3.18-cuu4pwk/ (P)
+    ├── <red>gcc</red>/9.4.0/ (C)
+├── <blue>openmpi</blue>/4.1.3-lih7mwq/ (P)
+    ├── <red>gcc</red>/9.4.0/ (C)
+    ├── <blue>intel-mkl</blue>/2020.4.304-w2r5zyv/ (P)
+        ├── <red>gcc</red>/9.4.0/ (C)
+</code></pre>
+where `(C)` is a <red>compiler</red>, `(P)` is a <blue>provider</blue>, and `(D)` is included by <strong>default</strong>.
+
+!!!note
+    `intel` refers to the classic intel compilers, the module for which is named `intel-oneapi-compilers-classic`
+
+### Hierarchy naming scheme ###
+
+<pre><code>linux-ubuntu20.04-[architecture]/[compiler]/[compiler-version]/<red>[module-name]/[version]</red>
+linux-ubuntu20.04-[architecture]/[provider]/[provider-version]/[compiler]/[compiler-version]/<red>[module-name]/[version]</red>
+</code></pre>
+
+* Nested providers are possible.
+
+### How to get access to a non-default module ###
+You can find modules anywhere in the hierarchy with the <red>`unity-module-find`</red> command.
+
+The module you find will be under a non-default provider, compiler, or architecture.
+
+* If under an architecture, get a slurm job on a node with that architecture.
+    * To switch your session to a node with arch 'x86_64_v4', use <red>`srun --pty -C x86_64_v4 /bin/bash`</red>.
+* If under a provider/compiler, <red>`module load`</red> that provider/compiler.
+    * You can load multiple modules in one line. For example:
+```
+$ module find gromacs
+
+linux-ubuntu20.04-x86_64/openmpi/4.1.3-3rgk3nu/intel-mkl/2020.4.304-gmusbfh/gcc/9.4.0/gromacs/2021.3
+
+$ module load openmpi intel-mkl gromacs
+```
+
+
+### Learn more ###
+[https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy](https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy)
+
+[https://lmod.readthedocs.io/en/latest/080_hierarchy.html](https://lmod.readthedocs.io/en/latest/080_hierarchy.html)

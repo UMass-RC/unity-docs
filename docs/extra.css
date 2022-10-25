@@ -13,3 +13,29 @@
 .md-sidebar--secondary {
   display: none !important;
 }
+
+/*
+html classes for colors that I invented
+to use them in code blocks, you must use html code blocks:
+    inline -> <code>
+    multiline -> <pre><code>
+*/
+.md-typeset red {
+  color: #881c1c !important
+}
+    .md-typeset red code {
+      color: #881c1c
+    }
+    .md-typeset red li {
+      color: #881c1c
+    }
+
+.md-typeset blue {
+  color: #0f48a3 !important
+}
+    .md-typeset blue code {
+      color: #0f48a3
+    }
+    .md-typeset blue li {
+      color: #0f48a3
+    }
