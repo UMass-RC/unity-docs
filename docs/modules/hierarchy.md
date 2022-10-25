@@ -34,7 +34,7 @@ linux-ubuntu20.04-[architecture]/[provider]/[provider-version]/[compiler]/[compi
 
 * Nested providers are possible.
 
-### How to get access to a non-default module ###
+### How to use a non-default module ###
 You can find modules anywhere in the hierarchy with the <red>`unity-module-find`</red> command.
 
 The module you find will be under a non-default provider, compiler, or architecture.
