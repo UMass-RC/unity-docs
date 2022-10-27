@@ -150,7 +150,7 @@ Micro-architecture specific modules are optimized for particular CPU's, but can 
 ```
 #SBATCH -C linux-ubuntu20.04-skylake_avx512
 module load microarch/skylake_avx512
-... ####
+...
 ```
 
 **`srun` interactive session:**

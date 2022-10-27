@@ -28,7 +28,7 @@ In short, you use the <red>`unity-module-find`</red> command, and from that outp
 
 In many cases, it can be as simple as changing <red>`module load gromacs`</red> into <red>`module load openmpi gromacs`</red>.
 
-## Does this effect me? ##
+## Does this affect me? ##
 The following modules are no longer in the default modulepath:
 
 * modules built with the **intel classic compilers**
@@ -113,12 +113,12 @@ The Unity module set is split in two. `/modules/modulefiles` contains our homebr
 
 Certain modules will now add a directory to your modulepath, making the modules in that directory available to load.
 
-At the start of each new login shell, only modules built with the system compiler `gcc/9.4.0` will be included in the modulepath, as defined in the sytem-wide [login scripts](https://unix.stackexchange.com/questions/56083/how-to-write-a-shell-script-that-gets-executed-on-login).
+At the start of each new login shell, only modules built with the system compiler `gcc/9.4.0` will be included in the modulepath, as defined in the system-wide [login scripts](https://unix.stackexchange.com/questions/56083/how-to-write-a-shell-script-that-gets-executed-on-login).
 
 #### Also included in this change ####
 
-* Every new Slurm job will <red>`module purge`</red>. You will have make sure that your jobs load modules all by themselves.
-    * This is to ensure that incompatiblie modules are not used.
+* Every new Slurm job will <red>`module purge`</red>. You will have to make sure that your jobs load modules all by themselves.
+    * This is to ensure that incompatible modules are not used.
 * New commands are available in your shell:
     * <red>`unity-module-find`</red>
     * <red>`unity-module-hierarchy`</red>
