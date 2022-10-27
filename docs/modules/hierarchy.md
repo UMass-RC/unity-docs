@@ -104,7 +104,7 @@ You can find modules anywhere in the hierarchy with the <red>`unity-module-find`
 From the full path of your desired module you should be able to tell which other modules need to be loaded first.
 
 #### Example: ####
-<pre><code>simonleary_umass_edu@login1:~$ module load gromacs
+<pre><code>user@login1:~$ module load gromacs
 <strong><red>No module(s) or extension(s) found!</red></strong>
 If the avail list is too long consider trying:
 
@@ -115,7 +115,7 @@ Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 </code></pre>
 
-<pre><code>simonleary_umass_edu@login1:~$ unity-module-find gromacs
+<pre><code>user@login1:~$ unity-module-find gromacs
 Modules found:
 linux-ubuntu20.04-cascadelake/openmpi/4.1.3-lih7mwq/intel-mkl/2020.4.304-w2r5zyv/gcc/9.4.0/<red>gromacs/2021.3</red>
 linux-ubuntu20.04-haswell/openmpi/4.1.3-habm2fz/intel-mkl/2020.4.304-drachcs/gcc/9.4.0/<red>gromacs/2021.3</red>
