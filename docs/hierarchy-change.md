@@ -75,7 +75,7 @@ would instead become:
 If module names are not unique, it can be difficult to choose which module to load. When two modules from different directories have the same name, Lmod will [decide](https://lmod.readthedocs.io/en/latest/060_locating.html#marking-a-version-as-default) which is default and mark it with a `(D)` flag. The only way to get around this is to manually manipulate `$MODULEPATH` to exclude certain directories until the desired module is marked as default. With the hierarchy, it's implicit that if you add special modules to your modulepath, you want those special modules to take priority.
 
 #### Module Conflicts ####
-Some software (particularly that which uses mpi) needs to be built in a similar manner to its depencencies. NetCDF, for example, will not work unless HDF5 and MPI are built with the same compiler and with certain parameters.
+Some software (particularly that which uses mpi) needs to be built in a similar manner to its dependencies. NetCDF, for example, will not work unless HDF5 and MPI are built with the same compiler and with certain parameters.
 
 With modules specific to CPU micro-architectures, it's possible to compile software on one node that is unable to run on other nodes. For example, linking off of Skylake modules may lead to problems when running on older Haswell nodes.
 
@@ -128,7 +128,7 @@ At the start of each new login shell, only modules built with the system compile
 * We are switching Spack TCL modules to Lua.
     * This shouldn't affect the user experience.
 * We are wrapping the <red>`module`</red> command with a bit of code which will print a message that things have changed.
-    * <red>`unity-module-lmod-disable-help`</red> is provided to surpress this output.
+    * <red>`unity-module-lmod-disable-help`</red> is provided to suppress this output.
 
 ## Learn more ##
 
