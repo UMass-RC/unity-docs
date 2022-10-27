@@ -125,6 +125,8 @@ At the start of each new login shell, only modules built with the system compile
     * <red>`unity-module-hierarchy-help`</red>
     * <red>`unity-module-lmod-disable-help`</red>
     * <red>`unity-module-lmod-enable-help`</red>
+    * <red>`unity-slurm-list-constraints`</red>
+    * <red>`unity-slurm-find-nodes`</red>
 * We are switching Spack TCL modules to Lua.
     * This shouldn't affect the user experience.
 * We are wrapping the <red>`module`</red> command with a bit of code which will print a message that things have changed.

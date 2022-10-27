@@ -147,6 +147,10 @@ $ module load openmpi intel-mkl gromacs
 Micro-architecture specific modules are optimized for particular CPU's, but can cause problems if used on other CPU's. If you want better performance for your job you can use these modules, but you should also use slurm constraints so that you always get a node with the correct type of CPU.
 
 #### Slurm constraints ####
+You can see a list of all possible constraints with the <red>`unity-slurm-list-constraints`</red> command.
+
+You can see a list of nodes that meet a given constraint with the <red>`unity-slurm-find-nodes`</red> command.
+
 You can see possible constraints for each node on our [node list](../technical/nodelist.md).
 
 **`sbatch` script:**
