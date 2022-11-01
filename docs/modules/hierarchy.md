@@ -185,7 +185,7 @@ source /etc/profile
 
 
 ### Learn more ###
-[About the Hierarchy Change](../hierarchy-change.md)
+[About the Hierarchy Change](../updates/index.md#the-module-hierarchy-change-coming-soon)
 
 [https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy](https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy)
 
