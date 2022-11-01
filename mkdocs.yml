@@ -32,6 +32,8 @@ nav:
       - Software:
           - Introduction: "modules/index.md"
           - Using Modules: "modules/using.md"
+          #- Module Hierarchy: "modules/hierarchy.md"
+  #- November 2022 Module Hierarchy Change: hierarchy-change.md
   - FAQ: faq.md
   - Cluster Information:
       - Node List: "technical/nodelist.md"
