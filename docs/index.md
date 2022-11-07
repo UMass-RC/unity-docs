@@ -21,7 +21,7 @@ Need additional help?  We offer office hours every week on Tuesdays 2:30-4 PM on
 
 
 ## Connecting to the cluster ##
-You can connect to Unity in two ways, an SSH connection (the standard linux console), or an instance of JupyterHub:
+You can connect to Unity in two ways, an SSH connection (the standard Linux console), or an instance of JupyterHub:
 
 [JupyterHub](connecting/jupyter.md) is the easiest to get up and going. To work with JupyterHub, it's a good idea to get aquainted with roughly how demanding the job you're uploading is though. You just need to be familiar with how roughly how many of each resource you will need (Image below). Most of the time you will only ever need a single CPU or GPU, but if you have terabytes of data to analyze, then you should probably consider getting multiple GPUs and CPUs.
 

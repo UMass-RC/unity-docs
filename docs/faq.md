@@ -31,8 +31,7 @@ Yes! We support singularity containers, which are fully compatible with docker i
 ### How much storage do I get on Unity and is it backed up?
 Refer to storage information [here](https://unity.rc.umass.edu/docs/technical/storage.html).
 We do not provide backup solutions by default.
-We take a snapshot of all storage at 1 AM every day for the past 48 hours.
-This way, if you accidentally deleted something it wouldn't be difficult to get it back within that time frame.
+We take snapshots of `/home/` and `/work/` every day at 1AM, but delete them after two days.
 
 ### When I try to queue a job I get denied for MaxCpuPerAccount.
 Resource limits are set per lab. Currently, they are 300 CPUs, and 64 GPUs. This allocation is shared across your entire PI group.
