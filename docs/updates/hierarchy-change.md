@@ -6,7 +6,7 @@ The <red>`module`</red> command refers to Environment Modules. We use [Lmod](htt
 
 This means **not all modules can be found with <red>`module avail`</red> by default.**
 
-The information on this page is not critical for proper usage of Unity. We know your time is valuable, so you can always skip to [Using the Module Hierarchy](../software/hierarchy.md) to learn how to work with these changes.
+The information on this page is not critical for proper usage of Unity. We know your time is valuable, so you can always skip to [Using the Module Hierarchy](../software/module-hierarchy.md) to learn how to work with these changes.
 
 ## What does this mean for my workflow? ##
 
@@ -22,7 +22,7 @@ Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 </code></pre>
 
-In this case you can follow the documentation on [how to use the hierarchy](../software/hierarchy.md#how-to-use-a-non-default-module).
+In this case you can follow the documentation on [how to use the hierarchy](../software/module-hierarchy.md#how-to-use-a-non-default-module).
 
 In short, you use the <red>`unity-module-find`</red> command, and from that output you should be able to tell which other modules need to be loaded first.
 
@@ -65,11 +65,11 @@ This has worked well enough, but long module names make it harder for Lmod to di
 
 This module:
 
-<code>/software/.../linux-ubuntu20.04-x86_64/<red>gromacs/2021.3+openmpi4.1.3-intel@2021.4</red></code>
+<code>/modules/.../linux-ubuntu20.04-x86_64/<red>gromacs/2021.3+openmpi4.1.3-intel@2021.4</red></code>
 
 would instead become:
 
-<code>/software/.../linux-ubuntu20.04-x86_64/gcc/9.4.0/openmpi/4.1.3/intel/2021.4/<red>gromacs/2021.3</red></code>
+<code>/modules/.../linux-ubuntu20.04-x86_64/gcc/9.4.0/openmpi/4.1.3/intel/2021.4/<red>gromacs/2021.3</red></code>
 
 #### Module name conflicts ####
 If module names are not unique, it can be difficult to choose which module to load. When two modules from different directories have the same name, Lmod will [decide](https://lmod.readthedocs.io/en/latest/060_locating.html#marking-a-version-as-default) which is default and mark it with a `(D)` flag. The only way to get around this is to manually manipulate `$MODULEPATH` to exclude certain directories until the desired module is marked as default. With the hierarchy, it's implicit that if you add special modules to your modulepath, you want those special modules to take priority.
@@ -90,13 +90,13 @@ A module hierarchy is a robust and elegant solution to avoid module conflicts.
 Our current module tree has two main directories with many modules inside.
 ```
 $ echo $MODULEPATH
-/software/spack/share/spack/software/linux-ubuntu20.04-x86_64:/software/modulefiles
-$ ls /software/spack/share/spack/software/linux-ubuntu20.04-x86_64 | wc -l
+/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/modules/modulefiles
+$ ls /modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64 | wc -l
 343
 ```
 We are simply splitting it into multiple directories.
 ```
-/software/spack/share/spack/software/linux-ubuntu20.04-x86_64
+/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64
 ├── gcc/9.4.0/
 ├── intelel/2021.4/
 ├── intel-oneapi-mpi/2021.6.0-ad5zrqt/
@@ -109,7 +109,7 @@ We are simply splitting it into multiple directories.
         ├── gcc/9.4.0/
 ```
 
-The Unity module set is split in two. `/software/modulefiles` contains our homebrew modules, those compiled by hand by the admins. `/software/spack/share/spack/software/` contains modules created by Spack. **`/software/modulefiles` is not changing.**
+The Unity module set is split in two. `/modules/modulefiles` contains our homebrew modules, those compiled by hand by the admins. `/modules/spack/share/spack/modules/` contains modules created by Spack. **`/modules/modulefiles` is not changing.**
 
 Certain modules will now add a directory to your modulepath, making the modules in that directory available to load.
 
@@ -134,7 +134,7 @@ At the start of each new login shell, only modules built with the system compile
 
 ## Learn more ##
 
-[Using the Module Hierarchy](../software/hierarchy.md)
+[Using the Module Hierarchy](../software/module-hierarchy.md)
 
 [https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy](https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy)
 

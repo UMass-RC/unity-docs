@@ -15,7 +15,7 @@ ml av
 
 This will return an output that looks something like this:
 ```
-------------------------------------------------- /software/modulefiles -------------------------------------------------
+------------------------------------------------- /modules/modulefiles -------------------------------------------------
    R/3.6.2             cuda/10.1.243 (D)    gcc/9.2.0               julia/1.1.1         openmpi/4.0.4
    cmake/3.7.2         cuda/11.0.1          glxgears/1.0            jupyter/3.6.8       python/2.7.16
    cmake/3.15.0 (D)    fd3dspher/1.0        gmsh/4.4.1              mathematica/12.0    python/3.7.4  (D)
@@ -39,7 +39,7 @@ module load gcc/9.2.0
 !!! note
     The naming convention for modules is `<name>/<version>`.
 
-    Modules built with non-standard software stacks require extra steps to load. They can be found with the <red>`unity-module-find`</red> command. See [module hierarchy](hierarchy.md).
+    Modules built with non-standard software stacks require extra steps to load. They can be found with the <red>`unity-module-find`</red> command. See [module hierarchy](module-hierarchy.md).
 
 ### Unloading Modules ###
 ```

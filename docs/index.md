@@ -17,7 +17,7 @@ Click "Login/Request Account". Click on your institution or search for it via th
 **Something not working for you?**  Send an email to <hpc@umass.edu> with as much detail as you can provide to open a support ticket.
 Need additional help?  We offer office hours every week on Tuesdays 2:30-4 PM on [Zoom](https://umass-amherst.zoom.us/j/95663998309?pwd=K2F2b0ZrNmhYR3pic1loY2pvcUhkdz09). Be sure to check the [cluster notes page](https://unity.rc.umass.edu/index.php) for up-to-date information on any canceled/delayed office hours.
 
-**Need expert help?** using the cluster and optimizing your code?  We encourage you to schedule an appointment with one of our experienced HPC facilitators.  Send an email to <hpc@umass.edu> and request an HPC facilitator consultation.
+**Need expert help** using the cluster and optimizing your code?  We encourage you to schedule an appointment with one of our experienced HPC facilitators.  Send an email to <hpc@umass.edu> and request an HPC facilitator consultation.
 
 
 ## Connecting to the cluster ##
@@ -34,7 +34,7 @@ You will be asked to select what computer resources you want/need for the job yo
 [SSH](connecting/ssh.md) is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible for starting your own jobs. This can be more useful than JupyterHubs for jobs that last a long time and must be left unattended, or to have much more refined control over the resources allocated for your job.
 
 ## Requesting Resources ##
-If you are on an SSH connection, you will have to manually request resources. Once you decide on what resources you want, you will submit that information to the scheduler, which will place you in a partition. If your resources are available immediately, your request will return right away, if not, you will be held in the partition until your requested resources become available.
+If you are on an SSH connection, you will have to [request resources with Slurm](slurm/index.md). Once you decide on what resources you want, you will submit that information to the scheduler, which will place your job in the queue. When the resources are available, your job will start.
 
 Requesting resources in the cluster and all parameters allowed is discussed in more detail [here](slurm/index.md).
 
@@ -68,4 +68,4 @@ Here is a general step by step process that governs how the Unity Cluster works:
     * Interactive job: Client does their work until they close the session or run out of time.
     * Batch job: The job runs until it finishes its tasks or runs out of time.
 1. Job returns output.
-    * Batch job: The output to the command line is saved by slurm to a file like `slurm-xyz.out`.
+    * Batch job: The output to the command line is saved by slurm to a file like `slurm-<JobID>.out`.

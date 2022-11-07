@@ -38,7 +38,7 @@ nav:
           - Conda: "software/conda.md"
           #- R: "software/R.md"
           #- Singularity: "software/singularity.md"
-      - JupyterHub: "jupyter/index.md"
+      #- JupyterHub: "jupyter/index.md"
   - FAQ: faq.md
   - Common Terms: "jargon.md"
   - Cluster Information:

@@ -9,13 +9,13 @@
 #### srun ####
 ```
 module load openmpi
-mpicc /software/admin-resources/mpi_testing/mpi_array.c -o mpi_array
+mpicc /modules/admin-resources/mpi_testing/mpi_array.c -o mpi_array
 srun --pty -N 2 mpi_array
 ```
 #### sbatch ####
 ```
 module load openmpi
-mpicc /software/admin-resources/mpi_testing/mpi_array.c -o mpi_array
+mpicc /modules/admin-resources/mpi_testing/mpi_array.c -o mpi_array
 sbatch -N 2 mpi_script
 ```
 Where `mpi_script` is a file containing the following:

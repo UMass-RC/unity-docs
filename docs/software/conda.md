@@ -24,7 +24,7 @@ module load miniconda
 ```
 
 ## Creating an Environment ##
-You can create as many conda environments as you desire, limited only by our [disk quotas](../technical/storage.html).
+You can create as many conda environments as you desire, limited only by our [disk quotas](../technical/storage.md).
 ```
 conda create --name testName python=3.7
 ```

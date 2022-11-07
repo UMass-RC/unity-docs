@@ -29,13 +29,13 @@ $ which python3
 /usr/bin/python3
 $ module load python/3.9.1
 $ which python3
-/software/apps/python/3.9.1/bin/python3
+/modules/apps/python/3.9.1/bin/python3
 ```
 ```
 $ echo $PATH
 /usr/local/bin:/usr/bin:/bin
 $ module load python/3.9.1
 $ echo $PATH
-/software/apps/python/3.9.1/bin:/usr/local/bin:/usr/bin:/bin
+/modules/apps/python/3.9.1/bin:/usr/local/bin:/usr/bin:/bin
 ```
 

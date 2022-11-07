@@ -14,9 +14,9 @@ There are a wide variety of modules available with the <red>`module`</red> comma
 
 Relevant Documentation:
 
-* [intro to environment modules](intro-module.md)
-* [using environment modules](using-module.md)
-* [module hierarchy](hierarchy.md)
+* [intro to environment modules](module-intro.md)
+* [using environment modules](module-usage.md)
+* [module hierarchy](module-hierarchy.md)
 
 ### Conda ###
 The conda package manager allows users to compile software easily and without admin privileges. Conda environments can be created for any software set, and can be enabled/disabled dynamically not unlike modules.

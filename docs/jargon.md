@@ -36,7 +36,7 @@ Here are some definitions for common terms used in this documentation:
 
 **Environment**: Set of environment variables. Defines the state of your current login **shell**. See [environment modules](module-intro).
 
-**Conda environment**: Set of installed packages. Activating a conda environment modifies your **shell** environment to include these packages. See [conda](conda.md).
+**Conda environment**: Set of installed packages. Activating a conda environment modifies your **shell** environment to include these packages. See [conda](software/conda.md).
 
 **Compile**: A compiler takes source code and turns it into binaries and libraries. Source code alone cannot be run by an operating system, it must be compiled into machine code or interpreted by an interpreter. C is compiled, Python is interpreted (sort of).
 

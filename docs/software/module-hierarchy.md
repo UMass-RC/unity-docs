@@ -1,6 +1,6 @@
 # Module Hierarchy #
 
-Environment Modules is a tool to change dynamically what software is available for use by a given user at a given time. Before you read this, it's recommended that you first read the  [introduction](index.md) and the [module usage guide](using.md).
+Environment Modules is a tool to change dynamically what software is available for use by a given user at a given time. Before you read this, it's recommended that you first read the  [introduction](index.md) and the [module usage guide](module-usage.md).
 
 As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. Our strategy is to create a **module hierarchy** to divide modules by their stacks.
 
@@ -10,7 +10,7 @@ The **modulepath** environment variable `$MODULEPATH` is a list of directories i
 
 <red>Compilers</red> are red, <blue>providers</blue> are blue, and **default directories** are bold.
 
-<pre><code><strong>/software/modulefiles/</strong>
+<pre><code><strong>/modules/modulefiles/</strong>
 
 x86_64
 |── <strong><red>gcc</red>/9.4.0/</strong>
@@ -100,7 +100,7 @@ linux-ubuntu20.04-[architecture]/[provider]/[provider-version]/[compiler]/[compi
 </code></pre>
 
 * Nested providers are possible.
-* Each of these paths have a prefix of `/software/spack/share/spack/lmod/`.
+* Each of these paths have a prefix of `/modules/spack/share/spack/lmod/`.
 
 ## How to use the hierarchy ##
 You can find modules anywhere in the hierarchy with the <red>`unity-module-find`</red> command.
