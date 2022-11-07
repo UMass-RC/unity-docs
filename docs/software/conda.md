@@ -59,8 +59,7 @@ conda activate ./testName
 
 Your currently active conda environment will appear in parentheses to the left of your command line prompt:
 ```
-user@login2:~$
-conda activate ./testName
+user@login2:~$ conda activate ./testName
 (testName) user@login2:~$
 ```
 
