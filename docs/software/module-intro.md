@@ -1,6 +1,6 @@
 # Intro. to Environment Modules #
 
-As a Unity user, you have access to a wide varity of software. Making all of this software available simultaneously and without conflicts is a complex problem, and the solution is Environment modules.
+As a Unity user, you have access to a wide variety of software. Making all of this software available simultaneously and without conflicts is a complex problem, and the solution is Environment modules.
 
 An **environment** is a set of shell variables of the form `"KEY=VALUE"`.
 
