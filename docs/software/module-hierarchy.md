@@ -1,10 +1,15 @@
 # Module Hierarchy #
 
-The <red>`module`</red> command refers to Environment Modules. We use [Lmod](https://lmod.readthedocs.io/en/latest/index.html), which is Environment Modules implemented in Lua. The **modulepath** environment variable `$MODULEPATH` is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default.
+Environment Modules is a tool to change dynamically what software is available for use by a given user at a given time. Before you read this, it's recommended that you first read the  [introduction](index.md) and the [module usage guide](module-usage.md).
 
-This means **not all modules can be found with <red>`module avail`</red> by default.**
+As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. Our strategy is to create a **module hierarchy** to divide modules by their stacks.
 
-Here is the full Unity module hierarchy as of 2022/10/26:
+The **modulepath** environment variable `$MODULEPATH` is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default. This means **not all modules can be found with <red>`module avail`</red> by default.**
+
+### Here is the full Unity module hierarchy as of 2022/10/26: ###
+
+<red>Compilers</red> are red, <blue>providers</blue> are blue, and **default directories** are bold.
+
 <pre><code><strong>/modules/modulefiles/</strong>
 
 x86_64
@@ -84,7 +89,6 @@ zen2
 |   |── <blue>intel-mkl</blue>/2020.4.304-iycblyc/
 |   |   \─ <red>gcc</red>/9.4.0/
 </code></pre>
-where <red>compilers are red</red>, <blue>providers are blue</blue>, and **limited view default directories are bold**.
 !!!note
     `intel` refers to the classic intel compilers (`icc`, `ifort`, `icpc`, ...).
 
@@ -131,15 +135,10 @@ This is the module that I want:
 </code></pre>
 In its path I can see `openmpi`, `intel-mkl`, `gcc`, and `gromacs`. Each of these are modules.
 
-gcc is loaded by default, so I can ignore it. I can load the other modules in series in one line:
+`gcc` is loaded by default, so I can ignore it. I can load the other modules in series in one line:
 ```
 $ module load openmpi intel-mkl gromacs
 ```
-
-!!!note
-    `intel` as part of the path to a module refers to the classic intel compilers (`icc`, `ifort`, `icpc`, ...).
-
-    The `intel-oneapi-compilers-classic` module adds `intel` to modulepath.
 
 
 ## Micro-architecture ##
@@ -168,7 +167,7 @@ module load microarch/skylake_avx512
 ```
 
 ## Opt Out ##
-While you can't put the directories back together, you can use the 'flat' module view rather than the limited view. This will add every directory of the hierarchy to your modulepath in an arbitrary order. There are problems with the flat view, like [module name conflicts](../hierarchy-change.md#module-name-conflicts). **This is not recommended**, and support will not be given for issues with the flat view.
+While you can't put the directories back together, you can use the 'flat' module view rather than the limited view. This will add every directory of the hierarchy to your modulepath in an arbitrary order. There are problems with the flat view, like [module name conflicts](../updates/hierarchy-change.md#module-name-conflicts). **This is not recommended**, and support will not be given for issues with the flat view.
 
 To enable the flat view:
 ```
@@ -185,7 +184,7 @@ source /etc/profile
 
 
 ### Learn more ###
-[About the Hierarchy Change](../hierarchy-change.md)
+[About the Hierarchy Change](../updates/index.md#the-module-hierarchy-change-coming-soon)
 
 [https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy](https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy)
 

@@ -1,4 +1,4 @@
-# The Module Hierarchy Change #
+# The Module Hierarchy Change (Coming soon!) #
 
 As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. The hierarchy change is to combat module bloat, simplify module names, and (most importantly) prevent conflicts. For many users, nothing will change, but some will have to take a few extra steps when loading modules going forward.
 
@@ -6,7 +6,7 @@ The <red>`module`</red> command refers to Environment Modules. We use [Lmod](htt
 
 This means **not all modules can be found with <red>`module avail`</red> by default.**
 
-The information on this page is not critical for proper usage of Unity. We know your time is valuable, so you can always skip to [Using the Module Hierarchy](modules/hierarchy.md) to learn how to work with these changes.
+The information on this page is not critical for proper usage of Unity. We know your time is valuable, so you can always skip to [Using the Module Hierarchy](../software/module-hierarchy.md) to learn how to work with these changes.
 
 ## What does this mean for my workflow? ##
 
@@ -22,7 +22,7 @@ Use "module spider" to find all possible modules and extensions.
 Use "module keyword key1 key2 ..." to search for all possible modules matching any of the "keys".
 </code></pre>
 
-In this case you can follow the documentation on [how to use the hierarchy](modules/hierarchy.md#how-to-use-a-non-default-module).
+In this case you can follow the documentation on [how to use the hierarchy](../software/module-hierarchy.md#how-to-use-a-non-default-module).
 
 In short, you use the <red>`unity-module-find`</red> command, and from that output you should be able to tell which other modules need to be loaded first.
 
@@ -89,9 +89,9 @@ A module hierarchy is a robust and elegant solution to avoid module conflicts.
 ## What is going on under the hood? ##
 Our current module tree has two main directories with many modules inside.
 ```
-simonleary_umass_edu@login2:~$ echo $MODULEPATH
+$ echo $MODULEPATH
 /modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/modules/modulefiles
-simonleary_umass_edu@login2:~$ ls /modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64 | wc -l
+$ ls /modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64 | wc -l
 343
 ```
 We are simply splitting it into multiple directories.
@@ -134,7 +134,7 @@ At the start of each new login shell, only modules built with the system compile
 
 ## Learn more ##
 
-[Using the Module Hierarchy](modules/hierarchy.md)
+[Using the Module Hierarchy](../software/module-hierarchy.md)
 
 [https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy](https://lmod.readthedocs.io/en/latest/010_user.html#module-hierarchy)
 

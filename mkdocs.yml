@@ -10,7 +10,7 @@ use_directory_urls: false
 theme:
   name: material
   logo: res/logo.png
-copyright: "Copyright &copy;2020 UMass Amherst"
+copyright: "Copyright &copy;2022 UMass Amherst"
 repo_url: https://github.com/UMass-RC/unity-docs
 edit_uri: "edit/main/docs"
 markdown_extensions:
@@ -22,23 +22,29 @@ nav:
   - Getting Started:
       - Connecting:
           - "Console - SSH": "connecting/ssh.md"
-          - "Web - JupyterLab": "connecting/jupyter.md"
+          - "Web - JupyterHub": "connecting/jupyter.md"
       - Uploading Files: "uploading-files/index.md"
       - Job Scheduling:
           - Introduction: "slurm/index.md"
           - SRUN Jobs: "slurm/srun.md"
           - SBATCH Jobs: "slurm/sbatch.md"
-          - MPI: "mpi.md"
+          - MPI: "slurm/mpi.md"
       - Software:
-          - Introduction: "modules/index.md"
-          - Using Modules: "modules/using.md"
-          #- Module Hierarchy: "modules/hierarchy.md"
-  #- November 2022 Module Hierarchy Change: hierarchy-change.md
+          - Overview: "software/index.md"
+          - Environment Modules:
+              - Introduction: "software/module-intro.md"
+              - Basic Usage: "software/module-usage.md"
+              - Hierarchy: "software/module-hierarchy.md"
+          - Conda: "software/conda.md"
+          #- R: "software/R.md"
+          #- Singularity: "software/singularity.md"
+      #- JupyterHub: "jupyter/index.md"
   - FAQ: faq.md
+  - Common Terms: "jargon.md"
   - Cluster Information:
       - Node List: "technical/nodelist.md"
       - Partition List: "technical/partitionlist.md"
       - Storage: "technical/storage.md"
       - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
       - File Transfers: "transfers/transfers.md"
-
+  - Cluster Updates: "updates/index.md"
