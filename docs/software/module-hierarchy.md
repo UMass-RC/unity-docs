@@ -135,7 +135,7 @@ This is the module that I want:
 </code></pre>
 In its path I can see `openmpi`, `intel-mkl`, `gcc`, and `gromacs`. Each of these are modules.
 
-gcc is loaded by default, so I can ignore it. I can load the other modules in series in one line:
+`gcc` is loaded by default, so I can ignore it. I can load the other modules in series in one line:
 ```
 $ module load openmpi intel-mkl gromacs
 ```
