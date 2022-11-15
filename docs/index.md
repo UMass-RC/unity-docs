@@ -15,7 +15,7 @@ Click "Login/Request Account". Click on your institution or search for it via th
 **Note:** If you are a student, **do not request a PI account**.  This will slow the process down.  You should assign a PI to your account by clicking the "+" button.  Your PI will then be able to approve your account.
 
 **Something not working for you?**  Send an email to <hpc@umass.edu> with as much detail as you can provide to open a support ticket.
-Need additional help?  We offer office hours every week on Tuesdays 2:30-4 PM on [Zoom](https://umass-amherst.zoom.us/j/95663998309?pwd=K2F2b0ZrNmhYR3pic1loY2pvcUhkdz09). Be sure to check the [cluster notes page](https://unity.rc.umass.edu/index.php) for up-to-date information on any canceled/delayed office hours.
+Need additional help?  We offer office hours every week on Tuesdays 2:30-4 PM on [Zoom](https://unity.rc.umass.edu/office-hours). Be sure to check the [cluster notes page](https://unity.rc.umass.edu/index.php) for up-to-date information on any canceled/delayed office hours.
 
 **Need expert help** using the cluster and optimizing your code?  We encourage you to schedule an appointment with one of our experienced HPC facilitators.  Send an email to <hpc@umass.edu> and request an HPC facilitator consultation.
 
