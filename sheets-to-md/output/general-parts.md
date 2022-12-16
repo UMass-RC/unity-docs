@@ -6,3 +6,4 @@
 | gpu         | medium               | 4 hours             | 1 day               |                      |
 | gpu-long    | long                 | 7 days              | 14 days             |                      |
 | gpu-preempt | short                | 4 hours (see below) | 14 days (see below) |                      |
+| power9      | short                | 1 day               | 30 days             |                      |
