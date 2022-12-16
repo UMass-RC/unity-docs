@@ -7,5 +7,6 @@
 | zhoulin-cpu            | Unlimited    | zhoulin CPU partition                      |
 | toltec-cpu             | Unlimited    | toltec CPU partition                       |
 | gaoseismolab-cpu       | Unlimited    | gaoseismolab CPU partition                 |
-| uri-cpu                | Unlimited    | URI CPU partition                          |
+| uri-cpu                | 30 days      | URI CPU partition                          |
+| uri-gpu                | 30 days      | URI GPU partition                          |
 | ece-gpu                | 5 days       | ece partition for ECE courses only         |
