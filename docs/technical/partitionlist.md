@@ -7,11 +7,9 @@ These are the only partitions that are open to use by all users of Unity.
 {% include-markdown "../../sheets-to-md/output/general-parts.md" %}
 
 #### Preempt ####
-Jobs can be killed and re-queued after two hours in the `-preempt` partition.
+Nodes in preempt partitions are buy-in nodes which would normally be inaccessible to general users. Buyers in reserve the right to kill (preempt) any job running on their nodes to make room for their own jobs. When you schedule a job on a preempt partition, your job can be killed after two hours.
 
-To avoid losing progress, it's a good idea to use software that supports checkpointing. Checkpointing in a nutshell is periodically saving the job's state to a file, and having the capability to read this file and resume work from said state.
-
-If you don't want your job re-queued (but still killed), you can specify `--no-requeue` in your job.
+If your job is preempted, it will be re-queued and start again on some other hardware. If you don't want your job re-queued (but still killed), you can use the `--no-requeue` Slurm argument. To avoid losing progress, it's a good idea to use software that supports checkpointing. Checkpointing software periodically saves its state to a file. In the event of an interruption, it can read from this file and resume work where it left off.
 
 ### Gypsum Cluster Partitions
 
@@ -21,12 +19,12 @@ Gypsum users, depending on the type, have access to these partitions.
 
 ### IALS Cluster Partitions
 
-If you are an authorized IALS member on Unity, you can use these partitions.
+IALS members have access to these partitions.
 
 {% include-markdown "../../sheets-to-md/output/ials-parts.md" %}
 
 ### Other Priority Partitions
 
-These are the remaining priority partitions for smaller installations purchased for specific labs by themselves.
+These partitions represent the specific labs who "bought in" to Unity by providing their own nodes.
 
 {% include-markdown "../../sheets-to-md/output/priority-parts.md" %}
