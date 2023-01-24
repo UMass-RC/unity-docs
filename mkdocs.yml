@@ -22,11 +22,18 @@ nav:
   - Home: index.md
   - Getting Started:
       - Connecting:
+          - OnDemand: "connecting/ood.md"
           - "Console - SSH": "connecting/ssh.md"
           - "Web - JupyterHub": "connecting/jupyter.md"
-      - Uploading Files: "uploading-files/index.md"
+      - Managing Files:
+          - Introduction: "managing-files/intro.md"
+          - OnDemand: "managing-files/ood.md"
+          - "Console - SCP/Rsync": "managing-files/cli.md"
+          - Globus: "managing-files/globus.md"
+          - FileZilla: "managing-files/filezilla.md"
       - Job Scheduling:
           - Introduction: "slurm/index.md"
+          - OnDemand: "slurm/ood.md"
           - SRUN Jobs: "slurm/srun.md"
           - SBATCH Jobs: "slurm/sbatch.md"
           - MPI: "slurm/mpi.md"
@@ -37,6 +44,7 @@ nav:
               - Basic Usage: "software/module-usage.md"
               - Hierarchy: "software/module-hierarchy.md"
           - Conda: "software/conda.md"
+          - GUI Apps via OnDemand: "software/ood.md"
           #- R: "software/R.md"
           #- Singularity: "software/singularity.md"
       #- JupyterHub: "jupyter/index.md"
