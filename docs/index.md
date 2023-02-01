@@ -23,7 +23,7 @@ Need additional help?  We offer office hours every week on Tuesdays 2:30-4 PM on
 ## Connecting to the cluster ##
 You can connect to Unity in two ways, an SSH connection (the standard Linux console), or an instance of JupyterHub:
 
-[JupyterHub](connecting/jupyter.md) is the easiest to get up and going. To work with JupyterHub, it's a good idea to get aquainted with roughly how demanding the job you're uploading is though. You just need to be familiar with how roughly how many of each resource you will need (Image below). Most of the time you will only ever need a single CPU or GPU, but if you have terabytes of data to analyze, then you should probably consider getting multiple GPUs and CPUs.
+[JupyterHub](connecting/jupyter.md) is the easiest to get up and going. To work with JupyterHub, it's a good idea to get acquainted with roughly how demanding the job you're uploading is though. You just need to be familiar with how roughly how many of each resource you will need (Image below). Most of the time you will only ever need a single CPU or GPU, but if you have terabytes of data to analyze, then you should probably consider getting multiple GPUs and CPUs.
 
 When connecting the portal, click on JupyterHub tab located at the bottom of the options list on the left side of the window. This will take you to the JupyterHub for Unity, which looks like this:
 
@@ -31,7 +31,7 @@ When connecting the portal, click on JupyterHub tab located at the bottom of the
 
 You will be asked to select what computer resources you want/need for the job you want to upload. Once you attempt to spawn your notebook and resources become available, you will be able to use JupyterHub as if it is running on your own computer.
 
-[SSH](connecting/ssh.md) is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible for starting your own jobs. This can be more useful than JupyterHubs for jobs that last a long time and must be left unattended, or to have much more refined control over the resources allocated for your job.
+[SSH](connecting/ssh.md) is the more traditional method of using an HPC cluster. You will connect to the login node of unity, and you will be responsible for starting your own jobs. This can be more useful than JupyterHub's for jobs that last a long time and must be left unattended, or to have much more refined control over the resources allocated for your job.
 
 ## Requesting Resources ##
 If you are on an SSH connection, you will have to [request resources with Slurm](slurm/index.md). Once you decide on what resources you want, you will submit that information to the scheduler, which will place your job in the queue. When the resources are available, your job will start.

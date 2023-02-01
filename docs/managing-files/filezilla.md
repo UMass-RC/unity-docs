@@ -1,5 +1,5 @@
 ## FileZilla ##
-FileZilla can use either an `.rsa` or a `.ppk` private key, but the 'Browse' button will show only `.ppk` files. To use an `.rsa` key, type in the path to the keyfile by hand.
+FileZilla can use either an `.rsa` or a `.ppk` private key, but the 'Browse' button will show only `.ppk` files. To use an `.rsa` key, type in the path to the key file by hand.
 
 This guide assumes that your key lives at `~/.ssh/KEYFILE`, but you can substitute this path.
 

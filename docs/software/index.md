@@ -3,7 +3,7 @@
 ## Means of installing packages ##
 
 ### `apt` package manager ###
-The Ubuntu system package manager `apt` downloads its packages pre-compiled from the [Ubuntu repository](https://packages.ubuntu.com/). These are placed in standard locations like `/usr/bin` so that they are always found in your `$PATH`. This can only be done by administrators. To avoid conflicts, most software is only available in one version. These packages will change with an (enevitable) [operating system update](http://www.releases.ubuntu.com/jammy/). The admin team is trying to avoid `apt` installs for research computing software.
+The Ubuntu system package manager `apt` downloads its packages pre-compiled from the [Ubuntu repository](https://packages.ubuntu.com/). These are placed in standard locations like `/usr/bin` so that they are always found in your `$PATH`. This can only be done by administrators. To avoid conflicts, most software is only available in one version. These packages will change with an (inevitable) [operating system update](http://www.releases.ubuntu.com/jammy/). The admin team is trying to avoid `apt` installs for research computing software.
 
 Relevant Documentation:
 

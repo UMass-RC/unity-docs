@@ -12,7 +12,7 @@ Unity OnDemand uses your organization's identity provider to give access to Unit
 
 ### Opening the File Explorer
 
-Login to [Unity OnDemand](http://ood.unity.rc.umass.edu) with your organizations's identity provider, and click `Files > Home Directory`.
+Login to [Unity OnDemand](http://ood.unity.rc.umass.edu) with your organization's identity provider, and click `Files > Home Directory`.
 
 ![OOD File Explorer Button](res/ood-file-explorer-button.png)
 

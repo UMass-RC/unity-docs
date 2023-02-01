@@ -6,7 +6,7 @@ Here are some definitions for common terms used in this documentation:
 
 **High Performance Computer Cluster (HPC Cluster)**: A system made up of many smaller computers that behaves like one large computer. HPC allows a user to utilize the power of many computers simultaneously.
 
-**Scheduler**: Distributer of resources. If you request 2 CPU cores for your **job**, the **scheduler** will reserve those cores and connect you to them. In a multi-threaded computer, the operating system also distributes resources and manages tasks like a job scheduler. The Scheduler for the Unity cluster is called [Slurm](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
+**Scheduler**: Distributor of resources. If you request 2 CPU cores for your **job**, the **scheduler** will reserve those cores and connect you to them. In a multi-threaded computer, the operating system also distributes resources and manages tasks like a job scheduler. The Scheduler for the Unity cluster is called [Slurm](https://support.ceci-hpc.be/doc/_contents/QuickStart/SubmittingJobs/SlurmTutorial.html).
 
 **Node**: One of the computers that serves as part of an **HPC cluster**. See [node list](technical/nodelist.md).
 
@@ -18,7 +18,7 @@ Here are some definitions for common terms used in this documentation:
 
 **Partition**: A grouping of nodes. See [partition list](technical/partitionlist.md).
 
-**Queue**: Often used interchangably with **partition**.
+**Queue**: Often used interchangeably with **partition**.
 
 ![Unity Diagram](res/unity.png)
 
@@ -50,7 +50,7 @@ Here are some definitions for common terms used in this documentation:
 * **Graphical User Interface (GUI)**: The general term for graphical applications, where you click buttons, type in text boxes, and see visuals. Anything that uses the mouse.
 * **Command Line Interface (CLI)**: The general term for text-based applications, where you enter commands and then read whatever comes out. Uses only the keyboard.
 
-**Console**: Often used interchangably with **terminal**.
+**Console**: Often used interchangeably with **terminal**.
 
 **Terminal**: The terminal is the graphical application that you type your commands in. In windows, this can be the the Command Prompt (`cmd`) or the [Windows Terminal App](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) (recommended). In Mac, it's just called Terminal. The terminal runs the shell.
 

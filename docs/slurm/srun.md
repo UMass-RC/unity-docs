@@ -17,7 +17,7 @@ Options is where you can specify the resources you want for the executable, or d
 * `--mem <num>[K|M|G|T]` Memory to allocate to the job (in MB by default)
 * `-p <partition>` Partition to submit the job to
 
-To run an interacitve job (in this case a bash prompt), the command might look like this (`--pty` is the important option):
+To run an interactive job (in this case a bash prompt), the command might look like this (`--pty` is the important option):
 ```
 srun -c 6 -p cpu --pty bash
 ```
