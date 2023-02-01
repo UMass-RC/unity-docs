@@ -8,7 +8,7 @@ Unity OnDemand uses your organization's identity provider to give access to Unit
     There is currently a bug in OpenOnDemand such that special characters are not displayed in Chrome. This means that the Unity message of the day (including cluster notices) are not shown in the OOD Shell app. This will be patched soon, but works properly on Firefox or Safari. Cluster notices are displayed on [the front page of UnityOnDemand](http://ood.unity.rc.umass.edu).
 
 ### Getting a Login Shell
-Login to [Unity OnDemand](http://ood.unity.rc.umass.edu) with your organizations's identity provider, and click on `Unity Shell Access`.
+Login to [Unity OnDemand](http://ood.unity.rc.umass.edu) with your organization's identity provider, and click on `Unity Shell Access`.
 
 ![OpenOnDemand Shell Button](res/ood-shell-button.png)
 

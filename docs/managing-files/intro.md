@@ -8,7 +8,7 @@ The only way to add files to the Unity filesystem is through an SSL encrypted co
 
 !!! note
     Uploading files using American residential internet is typically very slow.
-    UMass Amherst has a fibre line going directly to MGHPCC to improve speeds.
+    UMass Amherst has a fiber line going directly to MGHPCC to improve speeds.
 
 ## Your Key File ##
 The FileZilla and Console methods require public/private SSH keys to be set up.

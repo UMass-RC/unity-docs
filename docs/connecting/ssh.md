@@ -81,7 +81,7 @@ On the left sidebar, navigate to connection -> data, and enter your username.
 
 ![PuTTY Username](res/putty-username.png)
 
-On the left sidebar, navigate to connction -> ssh -> auth, and browse to your private key location.
+On the left sidebar, navigate to connection -> ssh -> auth, and browse to your private key location.
 
 ![PuTTY SSH Key](res/putty-ssh-key.png)
 

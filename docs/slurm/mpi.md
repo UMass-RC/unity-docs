@@ -53,7 +53,7 @@ openmpi is dependent on pmix.
 Our current system slurm installation was not configured with pmix support.
 This is evident by <red>`srun --mpi=list`</red>.
 pmix_v2 and pmix_v3 should be there, but they aren't.
-We will likely recomile slurm to accomodate this.
+We will likely recompile slurm to accommodate this.
 
 ### Why do I keep getting this OpenFabrics warning?
 ```
@@ -61,8 +61,8 @@ We will likely recomile slurm to accomodate this.
 used on a specific port.  As such, the openib BTL (OpenFabrics
 support) will be disabled for this port."
 ```
-We do not currently have infiniband hardware in our network, and openmpi would like us to.
-You can simply add `-mca btl ^ofi` to your <red>`mpirun`</red> command and disable the infiniband feature. We will likely recompile openmpi to disable this sitewide.
+We do not currently have Infiniband hardware in our network, and openmpi would like us to.
+You can simply add `-mca btl ^ofi` to your <red>`mpirun`</red> command and disable the Infiniband feature. We will likely recompile openmpi to disable this site-wide.
 ```
 mpirun -mca btl ^ofi ...
 ```

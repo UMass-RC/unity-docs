@@ -11,7 +11,7 @@ Unity is in Beta! With the addition of additional service hardware and storage d
 * Support for dynamic creation of shared drives
 
 ### Website ###
-* Finish writing user documenation.
+* Finish writing user documentation.
 * Add content to the landing page(s)
 
 ### Hardware ###

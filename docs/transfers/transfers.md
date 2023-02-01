@@ -14,7 +14,7 @@
     * The MGHPCC is ghpcc#ghpcc07
     * Unity is Unity
         * *more technical identifier: acda5457-9c06-4564-8375-260ba428f22a*
-    * If you start typing either in the "Collection" text box, the dropdown will update and allow you to select the appropriate "Collection" (aka cluster)
+    * If you start typing either in the "Collection" text box, the drop-down will update and allow you to select the appropriate "Collection" (aka cluster)
 * Provide your login credentials for each cluster
     * Once you're finished logging in to each connection, the screen should look something like this: ![](https://camo.githubusercontent.com/8575d9fbfbcef3b14cedc37eb2f1c04d32496b25a7bc662a253078d084df95ab/68747470733a2f2f692e696d6775722e636f6d2f48713771536d6f2e706e67)
 
@@ -32,7 +32,7 @@
 
 ## This guide will allow you to send data from the MGHPCC to the Unity server using `scp` for the purposes of transitioning.
 #### Notes:
-* You will need to have set up an acount on the Unity server.
+* You will need to have set up an account on the Unity server.
 * You will need your password for the MGHPCC server (unless you are using private/public keys for logging on to this too).
 
 ### Step 1.
@@ -60,7 +60,7 @@
 * Attempt to transfer the file from Unity to the MGHPCC:
     * `scp test.txt username@ghpcc06.umassrc.org:/home/username/`
 * You will be prompted for your password to the MGHPCC - enter it here.
-* If configured properly, this file should transfer immediately to the specficied destination path (in this case `/home/username/`)
+* If configured properly, this file should transfer immediately to the specified destination path (in this case `/home/username/`)
 
 ### Step 4.
 * Assuming that Step 3 worked and the file transferred across from Unity to the MGHPCC, you can use this to pull data across:
