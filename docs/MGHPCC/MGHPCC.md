@@ -1,5 +1,4 @@
 # MGHPCC Transitions #
-Latest updates on MGHPCC transitions available [here.](https://www.umass.edu/it/researchcomputing/mghpcc-transitions)
 
 *** For Users Moving from Shared/MGHPCC to Unity ***
 
@@ -13,4 +12,4 @@ A full list of Slurm commands and their equivalents can be found [here](https://
 
 *** How to Transfer Files From One HPC to Another ***
 
-File transfer solutions can be found in our documentation [here](https://docs.unity.rc.umass.edu/managing-files/index.html#:~:text=look%20like%20this%3A-,Globus,-Globus%20Connect%20allows).
+File transfer solutions can be found in our documentation [here](../managing-files/globus2.md).
