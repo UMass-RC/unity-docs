@@ -1,5 +1,10 @@
 # Partition List
 
+#### Core Limits ####
+There is currently a 300 CPU core, 64 GPU limit to be shared by the users of each lab.
+
+When you try to go over this limit, you will be denied for `MaxCpuPerAccount`.
+
 ### General Use Partitions
 
 These are the only partitions that are open to use by all users of Unity.
