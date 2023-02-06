@@ -31,7 +31,7 @@ The following steps can be accomplished via either
 
 ```
 podman build -v $(pwd):/unity-docs:z -t unity-docs .
-podman run -v $(pwd):/unity-docs:z -p 127.0.0.1:8080:8080 unity-docs
+podman run --rm -v $(pwd):/unity-docs:z -p 127.0.0.1:8080:8080 unity-docs
 ```
 
 Once the above has completed, you can view the live documentation at
