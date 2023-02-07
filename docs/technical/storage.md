@@ -15,9 +15,10 @@ Below is a table of all available storage on Unity.
 
 ## Snapshots
 
-Backups are not available on the Unity cluster. There are temporary
-snapshots created each day at 1am UTC. Self-directed restores are
-accomplished by accessing read-only snapshots (see table below).
+Backups are not available on the Unity cluster.
+There are temporary snapshots created each day at 1am UTC.
+Snapshots older than three days are deleted.
+Self-directed restores are accomplished by accessing read-only snapshots (see table below).
 
 | Filesystem | Name | Snapshot location |
 | --- | --- | --- |
