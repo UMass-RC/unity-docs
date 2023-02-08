@@ -23,4 +23,14 @@ Self-directed restores are accomplished by accessing read-only snapshots (see ta
 | Filesystem | Name | Snapshot location |
 | --- | --- | --- |
 | `/home/<username>` | Home directory | `/snapshots/home/unity_<timestamp>/<username>` |
-| `/work/pi_<pi username>` | Work directory | `/snapshots/work/unity_<timestamp>/<pi_username>` |
+| `/work/pi_<pi-username>` | Work directory | `/snapshots/work/unity_<timestamp>/pi_<pi-username>` |
+
+### Restore Files From a Snapshot
+
+The following is an example of restoring a specific directory.
+In this example, we restore to a `restore` directory first to ensure we don't overwrite any changes.
+
+```
+$ mkdir ~/restore
+$ cp -a /snapshot/home/unity_2023-02-08_01_00_00_UTC/<username>/path/to/file/or/directory ~/restore/
+```
