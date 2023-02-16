@@ -24,6 +24,19 @@ Guide for basic git commands: [https://github.com/git-guides](https://github.com
 1. Install a plugin: `pip install mkdocs-include-markdown-plugin`
 1. Navigate to the root of the repository and run `mkdocs serve`, which will start a web server you can reach from your local browser to test live edits on documentation.
 
+#### Container Setup
+You can also build the documentation using a containerized environment.
+The following steps can be accomplished via either
+[Docker](https://www.docker.com/) or [podman](https://podman.io/).
+
+```
+podman build -v $(pwd):/unity-docs:z -t unity-docs .
+podman run --rm -v $(pwd):/unity-docs:z -p 127.0.0.1:8080:8080 unity-docs
+```
+
+Once the above has completed, you can view the live documentation at
+http://localhost:8080.
+
 ### Updating the nodelist/partitionlist Tables
 edit the tables [here](https://docs.google.com/spreadsheets/d/1kEieN7qKY-iiSJc18SVZdyRnJ4NArIhZY_or_WKnIAI/edit?usp=sharing)
 
