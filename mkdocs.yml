@@ -29,7 +29,7 @@ nav:
           - Introduction: "managing-files/intro.md"
           - OnDemand: "managing-files/ood.md"
           - "Console - SCP/Rsync": "managing-files/cli.md"
-          - Globus: "managing-files/globus.md"
+          - Globus: "managing-files/globus2.md"
           - FileZilla: "managing-files/filezilla.md"
       - Job Scheduling:
           - Introduction: "slurm/index.md"
@@ -55,5 +55,4 @@ nav:
       - Partition List: "technical/partitionlist.md"
       - Storage: "technical/storage.md"
       - MGHPCC Transitions: "MGHPCC/MGHPCC.md"
-      - File Transfers: "transfers/transfers.md"
   - Cluster Updates: "updates/index.md"
