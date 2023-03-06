@@ -31,6 +31,7 @@ nav:
           - "Console - SCP/Rsync": "managing-files/cli.md"
           - Globus: "managing-files/globus.md"
           - FileZilla: "managing-files/filezilla.md"
+          #- HPC Workspace: "managing-files/hpc-workspace.md"
       - Job Scheduling:
           - Introduction: "slurm/index.md"
           - OnDemand: "slurm/ood.md"
