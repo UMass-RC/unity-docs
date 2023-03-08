@@ -5,13 +5,15 @@ Start by accessing JupyterLab using the Unity OnDemand interface:
 
 [https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new](https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new)
 
-Click on the JupyterLab interactive app and fill out the different fields:
+Click on the JupyterLab interactive app and fill out the following fields:
 
-1. For the partition choose one of the following: gpu, gpu-long, uri-gpu, gpu-preempt
-2. Maximum job duration: 1:00:00
-3. Memory (in GB): 50
-4. GPU count: 1
-5. Modules: cudnn/cuda11-8.4.1.50 cuda/11.4.0 
+1. For `Partition` choose one of the following: gpu, gpu-long, uri-gpu, gpu-preempt
+2. `Maximum job duration`: 1:00:00
+3. `Memory (in GB)`: 50
+4. `GPU count`: 1
+5. `Modules`: cudnn/cuda11-8.4.1.50 cuda/11.4.0
+
+The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
 Inside JupyterLab:
 
@@ -78,7 +80,9 @@ colabfold_search <path to fasta file> /datasets/bio/colabfold <path to output di
 
 To use the PDB70 templates database, the parameter `--use-templates` should be set to 1 and the path to the database should be provided with `--db2 pdb`.
 
-#### Notes: 
+#### Notes:
+* `<path to fasta file>` is the full path to a fasta file containing protein sequence(s) of interest.
+* `<path to output directory>` is the full path to an existing directory used to store the multiple sequence alignments (MSAs).
 * It is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
 * Running colabfold_search with 1,762 proteins, the UniRef30 and environmental databases and the highest mmseqs sensitivity (s = 8) on a gpu A100 node with 64 threads takes approximately 3h.
 
@@ -126,7 +130,8 @@ The next 2 files are generated for the 5 trained models:
 
 
 #### Notes:
-
+* `<path to directory containing MSAs>` is the same as `<path to the output directory>` used with the `colabfold_search` command.
+* `<path to output directory>` is the full path to an existing directory used to store the results.
 * Predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM.
 * Predictions can be expedited on a large set of input protein sequences by submitting the batch script as an array job.
 
@@ -140,8 +145,7 @@ colabfold_search [-h] [-s S] [--db1 DB1] [--db2 DB2] [--db3 DB3]
                         [--diff DIFF] [--qsc QSC] [--max-accept MAX_ACCEPT]
                         [--db-load-mode DB_LOAD_MODE] [--threads THREADS]
                         query dbbase base
-```
-```
+   
   query                 fasta files with the queries.
   dbbase                The path to the database and indices you downloaded
                         and created with setup_databases.sh
