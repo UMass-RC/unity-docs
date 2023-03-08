@@ -76,11 +76,14 @@ basejobname = re.sub(r'\W+', '', basejobname)
 jobname = add_hash(basejobname, query_sequence)
 os.makedirs(jobname, exist_ok=True)
 queries_path = os.path.join(jobname, f"{jobname}.csv")
+# create csv file to store sequence
+with open(queries_path, "w") as text_file:
+  text_file.write(f"id,sequence\n{jobname},{query_sequence}")
 ```
 
 
 ```python
-# number of models to use
+# choose number of models to use
 num_relax = 0 #@param [0, 1, 5] {type:"raw"}
 use_amber = num_relax > 0
 # template mode --> `none` = no template information is used. `pdb70` = detect templates in pdb70. `custom` - upload and search own templates (PDB or mmCIF format, see [notes below](#custom_templates))
