@@ -1,6 +1,6 @@
 # Introduction to Unity #
 Welcome to Unity!
-The Unity cluster is a collaborative, multi-institutional high-performance computing cluster located at the Massachusetts Green High Performance Computing Center [(MGHPCC)](www.mghpcc.org). The cluster is under active development and supports primarily research activities. Partnering institutions currently include UMass Amherst, UMass Dartmouth, and University of Rhode Island.
+The Unity cluster is a collaborative, multi-institutional high-performance computing cluster located at the Massachusetts Green High Performance Computing Center [(MGHPCC)](https://www.mghpcc.org). The cluster is under active development and supports primarily research activities. Partnering institutions currently include UMass Amherst, UMass Dartmouth, and University of Rhode Island.
 
 ## Accessing Unity ##
 
