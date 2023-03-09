@@ -27,3 +27,5 @@ srun -c 6 -p cpu --pty --x11 xclock
 ```
 !!! note
     You cannot run an interactive/gui job using the `sbatch` command, you must use `srun`.
+
+{% include-markdown "slurm-mail.md" %}

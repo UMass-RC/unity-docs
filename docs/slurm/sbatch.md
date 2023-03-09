@@ -23,3 +23,5 @@ module load cuda/10
 /modules/apps/cuda/10.1.243/samples/bin/x86_64/linux/release/deviceQuery
 ```
 This script should query the available GPUs, and print only one device to the specified file. Feel free to remove/modify any of the parameters in the script to suit your needs.
+
+{% include-markdown "slurm-mail.md" %}
