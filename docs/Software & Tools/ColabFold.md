@@ -5,8 +5,6 @@
 
 # Using a Jupyter notebook to access ColabFold
 
-The Jupyter notebook is a modified version of the AlphaFold2_mmseqs2 notebook provided here (3).
-
 Start by accessing JupyterLab using the Unity OnDemand interface:
 
 [https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new](https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new)
@@ -22,30 +20,30 @@ Click on the JupyterLab interactive app and fill out the following fields:
 The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
 Inside JupyterLab:
-
-* Open the ColabFold.ipynb notebook
-* Choose Python (colabfold) for the kernel
-* Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
-* Run the code in the remaining cells in order to predict the protein structure with the default parameters (see below) and output plots and a visualization of the 3D structure.
-* The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
+1. Open the ColabFold.ipynb notebook
+2. Choose Python (colabfold) for the kernel
+3. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
+4. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
+5. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
 
 #### Notes:
-* Default parameters:
+* ColabFold's notebook is setup to run with the following parameters that can be adjusted by the user:
     * No templates
     * Number of models: 5
     * Stop predictions at score 100
     * Msa mode: mmseqs2_uniref_env
     * Model type: alphafold2_ptm
-* Running ColabFold on the terminal through SBATCH should be favored with a large number of input protein sequences.
+* The Jupyter notebook made available here is a modified version of the AlphaFold2_mmseqs2 notebook (3).
 
+# Using a batch script to run ColabFold
 
-# Using an SBATCH script
+The example of batch scripts provided below should be considered for users dealing with a large number of protein sequences.
 
 ## ColabFold on Unity has 3 main components:
 
-* A script **colabfold_search** that searches the ColabFold databases of proteins using MMseqs2 to build diverse multiple sequence alignments in A3M format.
-* A script **colabfold_batch** designed to predict protein structures.
-* A set of protein databases:
+1. A script **colabfold_search** that searches the ColabFold databases of proteins using MMseqs2 to build diverse multiple sequence alignments in A3M format.
+2. A script **colabfold_batch** designed to predict protein structures.
+3. A set of protein databases:
     * **UniRef30**: database containing 30% sequence identity clustered proteins based on UniRef100 non-redundant protein sequence database. 
     * **Environmental database** (also called ColabFoldDB): combination of** **the** **Big Fantastic Database (BFD) and the MGnify database with redundancy reduced in addition to metagenomic protein catalogs containing eukaryotic proteins, phage catalogs and an updated version of MetaClust.
     * **Templates database** (PDB70): database containing 70% sequence identity clustered proteins from the** **Protein Data Bank (PDB) database.
@@ -89,10 +87,12 @@ To use the PDB70 templates database, the parameter `--use-templates` should be s
 #### Notes:
 * `<path to fasta file>` is the full path to a fasta file containing protein sequence(s) of interest.
 * `<path to output directory>` is the full path to an existing directory used to store the multiple sequence alignments (MSAs).
-* It is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
+* > Note that it is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
 * Running colabfold_search with 1,762 proteins, the UniRef30 and environmental databases and the highest mmseqs sensitivity (s = 8) on a gpu A100 node with 64 threads takes approximately 3h.
 
-### Train models and make predictions
+### Train models and make predictions with ColabFold using a batch script
+
+A batch script can be used to train models and make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an array job.
 
 The code below provides an example on how to make predictions using `colabfold_batch` in a batch script:
 
@@ -138,8 +138,7 @@ The next 2 files are generated for the 5 trained models:
 #### Notes:
 * `<path to directory containing MSAs>` is the same as `<path to the output directory>` used with the `colabfold_search` command.
 * `<path to output directory>` is the full path to an existing directory used to store the results.
-* Predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM.
-* Predictions can be expedited on a large set of input protein sequences by submitting the batch script as an array job.
+
 
 # Full list of parameters for colabfold_search and colabfold_batch
 
@@ -268,7 +267,7 @@ colabfold_batch [-h]   [--stop-at-score STOP_AT_SCORE]
 ```
 
 # References
-(1) Reference paper of ColabFold: https://www.nature.com/articles/s41592-022-01488-1
-(2) Reference paper of AlphaFold2: https://www.nature.com/articles/s41586-021-03819-2
-(3) ColabFold notebooks: https://github.com/sokrypton/ColabFold#running-locally
+1. Mirdita, M., Schütze, K., Moriwaki, Y. et al. ColabFold: making protein folding accessible to all. Nat Methods 19, 679–682 (2022). https://doi.org/10.1038/s41592-022-01488-1
+2. Jumper, J., Evans, R., Pritzel, A. et al. Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589 (2021). https://doi.org/10.1038/s41586-021-03819-2
+3. https://github.com/sokrypton/ColabFold#running-locally
 
