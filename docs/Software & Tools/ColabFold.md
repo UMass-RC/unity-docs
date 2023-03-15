@@ -13,11 +13,11 @@ Start by accessing JupyterLab using the Unity OnDemand interface:
 
 Click on the JupyterLab interactive app and fill out the following fields:
 
-1. For `Partition` choose one of the following: gpu, gpu-long, uri-gpu, gpu-preempt
-2. `Maximum job duration`: 1:00:00
-3. `Memory (in GB)`: 50
-4. `GPU count`: 1
-5. `Modules`: cudnn/cuda11-8.4.1.50 cuda/11.4.0
+1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt).
+2. The `Maximum job duration` field defines how long the interactive session with JupyterLab should run for. This field can be left with the default value of one hour (1:00:00) for short protein sequences but should be increased to make predictions on larger protein sequences.
+3. The `Memory (in GB)` field defines the amount of memory in gigabytes allocated to your interactive session. A value of 50 GB is enough for small and large protein sequences.
+4. The `GPU count` field is the number of GPUs allocated to your interactive session. It should be set to 1 since ColabFold only runs on a single GPU.
+5. The `Modules` field corresponds to a list of modules to load. The two following modules should be added (separated only by a space) to this field in order to use the GPU: cudnn/cuda11-8.4.1.50 cuda/11.4.0
 
 The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
