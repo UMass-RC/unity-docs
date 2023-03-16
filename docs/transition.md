@@ -10,7 +10,7 @@ Please see below for important dates and information to guide your transition to
 
 _For questions about the Unity transition, please attend our 
 [onboarding sessions](#onboarding-live-sessions) 
-or contact the Unity help desk at hpc@umass.edu._
+or contact the Unity help desk at [hpc@umass.edu](mailto:hpc@umass.edu)._
 
 [TOC]
 
