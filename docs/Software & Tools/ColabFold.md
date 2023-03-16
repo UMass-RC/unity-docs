@@ -2,6 +2,7 @@
 ### ColabFold on Unity can be run using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU), the AlphaFold2 AI tool and output the predicted structure in a PDB format text file along with additional files allowing the user to evaluate the results. 
 ### The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
 
+#### ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu. 
 
 # Using a Jupyter notebook to access ColabFold
 
