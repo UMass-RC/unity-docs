@@ -1,6 +1,6 @@
 # Transitioning from the Shared Cluster to Unity
 
-_Last updated: 16 March 2023_
+_Last updated: 17 March 2023_
 
 It is our pleasure to welcome you to [Unity](https://unity.rc.umass.edu/), 
 a high performance computing cluster located at [MGHPCC](https://www.mghpcc.org/) and managed by 
@@ -14,32 +14,32 @@ or contact the Unity help desk at [hpc@umass.edu](mailto:hpc@umass.edu)._
 
 [TOC]
 
-## Timeline Overview
+## Account Information 
 
-### PI & Faculty Accounts (March 17, 2023)
+### PI & Faculty Accounts
 
 PIs and faculty can request Unity cluster PI accounts in the 
-[Unity Portal](https://unity.rc.umass.edu/) beginning 
-*March 17, 2023*. On the left side bar, select “Login / Request Account” and log 
+[Unity Portal](https://unity.rc.umass.edu/). On the left side bar, select “Login / Request Account” and log 
 in with your UMass Lowell credentials. Once logged in, under “Account Settings,” 
 click the “Request PI Account” button. The Unity team will review your 
 request and approve your PI account. 
 
-### Student & Postdoc Accounts (March 24, 2023)
+### Student & Postdoc Accounts
 
-Next Friday (March 24, 2023), you will be able to add students and postdocs to your 
-PI group. Students request access to your PI group by logging into the 
+Students request access to PI groups by logging into the 
 [Unity Portal](https://unity.rc.umass.edu/), 
 navigating to “My PIs,” and clicking the “plus” button to search for your group. 
 Students and postdocs can’t access Unity without an associated PI, so please ensure 
-your PI account is created and approved before onboarding your students.
+the PI account is created and approved before requesting an account.
+
+## Timeline Overview
 
 ### Migrating Data to Unity (deadline: May 15, 2023)
 
 All data must be migrated to Unity by May 15, 2023. PIs will temporarily receive 
 sufficient storage in the /project directory to move as much data from the shared 
 cluster as desired. However, storage quotas will be enforced starting January 2024. 
-Users may purchase additional storage at that time at a rate of $6.20 per TB per Month. 
+Users may purchase additional storage at that time. 
 
 ### Shared Cluster Shutdown (read-only: May 1, 2023, final shutdown: June 1, 2023)
 
