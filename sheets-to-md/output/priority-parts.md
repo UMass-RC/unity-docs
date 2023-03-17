@@ -10,3 +10,7 @@
 | uri-cpu                | 30 days      | URI CPU partition                          |
 | uri-gpu                | 30 days      | URI GPU partition                          |
 | ece-gpu                | 5 days       | ece partition for ECE courses only         |
+| umd-cscdr-cpu          | 30 days      | UMD CSCDR CPU partition                    |
+| umd-cscdr-gpu          | 30 days      | UMD CSCDR GPU partition                    |
+| umd-cscdr-arm          | 30 days      | UMD CSCDR ARM partition                    |
+| power9-gpu-osg         | 30 days      | OSG Resource Contribution                  |
