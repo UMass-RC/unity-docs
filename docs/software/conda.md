@@ -2,7 +2,7 @@
 
 ## Introduction ##
 
-The conda package manager allows users to compile software easily and without admin privileges. Conda environments can be created for any software set, and can be enabled/disabled dynamically not unlike modules.
+The conda package manager allows users to install software easily and without admin privileges. Conda environments can be created for any software set, and can be enabled/disabled dynamically not unlike modules.
 
 A conda environment is not to be confused with [the environment of your login shell](module-intro.md). The package tied to an environment module is compiled by hand by the Unity admins, where **conda packages can be installed by any user with a simple command**. A conda environment can contain any number of packages, where a module usually only contains one. Modules and conda environments can be used together.
 
