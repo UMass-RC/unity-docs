@@ -1,19 +1,17 @@
 # Introduction to ColabFold on Unity
 
-ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold. 
-ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results. 
+ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm `MMSeqs2` with AlphaFold2 [2] or RoseTTAFold. 
+ColabFold is available on Unity through a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results. 
 The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
-ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu. 
+ColabFold on Unity is currently available in a beta version. For questions, please send an email to [hpc@umass.edu](mailto:hpc@umass.edu). 
 
 # Using a Jupyter notebook to access ColabFold
 
-Start by accessing JupyterLab using the Unity OnDemand interface:
-
-[https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new](https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new)
+Start by accessing JupyterLab using the [Unity OnDemand interface](https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new).
 
 Click on the JupyterLab interactive app and fill out the following fields:
 
-1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt).
+1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt). For more information on partitions, see [the partition list](https://docs.unity.rc.umass.edu/technical/partitionlist.html).
 2. The `Maximum job duration` field defines how long the interactive session with JupyterLab should run for. This field can be left with the default value of one hour (1:00:00) for short protein sequences but should be increased to make predictions on larger protein sequences.
 3. The `Memory (in GB)` field defines the amount of memory in gigabytes allocated to your interactive session. To give you an idea of how much memory you may need, 8GB is enough for a protein of 59 amino acids but 50 GB is required for a large protein of 2894 amino acids.
 4. The `GPU count` field is the number of GPUs allocated to your interactive session. It should be set to 1 since ColabFold only runs on a single GPU.
@@ -58,7 +56,7 @@ Finding homologous proteins using MMSeqs2 can be done by running a batch script 
 The code below is an example of a batch script to run MMSeqs2. The top of the script contains the instruction to use bash to execute the commands (`#!/bin/bash`) and the SBATCH parameters (`#SBATCH <parameter>`) followed by the different modules required to run MMSeqs2 through ColabFold.
 
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=cpu
 #SBATCH --nodes=1
@@ -76,7 +74,7 @@ conda activate colabfold
 ```
 
 
-The command colabfold_search shown below is added after activating the conda environment `colabfold-v1.5.0`. In this case, protein sequences contained in a fasta file are aligned against the UniRef30 (`--db1 uniref30_2202/uniref30_2202_db`) and environmental (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`) databases. UniRef30 is the default database used to search proteins. In order to use the environmental database, the parameter `--use-env `has to be set to 1 in addition to providing the path (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`).
+The command `colabfold_search` shown below is added after activating the conda environment `colabfold-v1.5.0`. In this case, protein sequences contained in a fasta file are aligned against the UniRef30 (`--db1 uniref30_2202/uniref30_2202_db`) and environmental (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`) databases. UniRef30 is the default database used to search proteins. In order to use the environmental database, the parameter `--use-env `has to be set to 1 in addition to providing the path (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`).
 
 
 ```
@@ -89,19 +87,19 @@ To use the PDB70 templates database, the parameter `--use-templates` should be s
 #### Notes:
 * `<path to fasta file>` is the full path to a fasta file containing protein sequence(s) of interest.
 * `<path to output directory>` is the full path to an existing directory used to store the multiple sequence alignments (MSAs).
-* > Note that it is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
+* Note that it is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
 * Running colabfold_search with 1,762 proteins, the UniRef30 and environmental databases and the highest mmseqs sensitivity (s = 8) on a gpu A100 node with 64 threads takes approximately 3h.
 
 ### Train models and make predictions with ColabFold using a batch script
 
-A batch script can be used to train models and make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an array job.
+A batch script can be used to train models and make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an [array job](https://slurm.schedmd.com/job_array.html).
 
 The code below provides an example on how to make predictions using `colabfold_batch` in a batch script:
 
-The parameter --stop-at-score is used to stop generating models until the predicted confidence metric (pLDDT or predicted local distance difference test) is reached.
+The parameter `--stop-at-score` is used to stop generating models until the predicted confidence metric (pLDDT or predicted local distance difference test) is reached.
 
 
-```
+```bash
 #!/bin/bash
 #SBATCH --partition=uri-gpu
 #SBATCH --nodes=1
