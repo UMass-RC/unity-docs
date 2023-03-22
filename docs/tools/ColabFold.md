@@ -21,11 +21,12 @@ The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
 Inside JupyterLab:
 
-1. Open the ColabFold.ipynb notebook.
-2. Choose Python (colabfold) for the kernel.
-3. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
-4. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
-5. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
+1. Copy the ColabFold.ipynb notebook available at /datasets/bio/colabfold/ColabFold.ipynb on Unity to your work directory.
+2. Open the ColabFold.ipynb notebook.
+3. Choose Python (colabfold) for the kernel.
+4. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
+5. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
+6. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
 
 #### Notes:
 * ColabFold's notebook is setup to run with the following parameters that can be adjusted by the user:
