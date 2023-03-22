@@ -20,6 +20,7 @@ Click on the JupyterLab interactive app and fill out the following fields:
 The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
 Inside JupyterLab:
+
 1. Open the ColabFold.ipynb notebook.
 2. Choose Python (colabfold) for the kernel.
 3. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
