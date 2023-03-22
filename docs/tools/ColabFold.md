@@ -1,7 +1,9 @@
-### ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold. 
-### ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results. 
-### The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
-#### ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu. 
+# Introduction to ColabFold on Unity
+
+ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold. 
+ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results. 
+The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
+ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu. 
 
 # Using a Jupyter notebook to access ColabFold
 
