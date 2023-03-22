@@ -301,4 +301,7 @@ display(HTML(f"""
 </div>
 """))
 ```
-
+```
+# close session
+%system scancel $SLURM_JOB_ID
+```

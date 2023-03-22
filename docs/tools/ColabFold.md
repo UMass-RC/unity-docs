@@ -1,7 +1,7 @@
 ### ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold. 
-### ColabFold on Unity can be run using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU), the AlphaFold2 AI tool and output the predicted structure in a PDB format text file along with additional files allowing the user to evaluate the results. 
+### ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results. 
 ### The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
-
+#### ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu. 
 
 # Using a Jupyter notebook to access ColabFold
 
@@ -13,15 +13,15 @@ Click on the JupyterLab interactive app and fill out the following fields:
 
 1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt).
 2. The `Maximum job duration` field defines how long the interactive session with JupyterLab should run for. This field can be left with the default value of one hour (1:00:00) for short protein sequences but should be increased to make predictions on larger protein sequences.
-3. The `Memory (in GB)` field defines the amount of memory in gigabytes allocated to your interactive session. A value of 50 GB is enough for small and large protein sequences.
+3. The `Memory (in GB)` field defines the amount of memory in gigabytes allocated to your interactive session. To give you an idea of how much memory you may need, 8GB is enough for a protein of 59 amino acids but 50 GB is required for a large protein of 2894 amino acids.
 4. The `GPU count` field is the number of GPUs allocated to your interactive session. It should be set to 1 since ColabFold only runs on a single GPU.
 5. The `Modules` field corresponds to a list of modules to load. The two following modules should be added (separated only by a space) to this field in order to use the GPU: cudnn/cuda11-8.4.1.50 cuda/11.4.0
 
 The fields `CPU thread count` and `Extra arguments for Slurm` can be left blank.
 
 Inside JupyterLab:
-1. Open the ColabFold.ipynb notebook
-2. Choose Python (colabfold) for the kernel
+1. Open the ColabFold.ipynb notebook.
+2. Choose Python (colabfold) for the kernel.
 3. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
 4. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
 5. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
