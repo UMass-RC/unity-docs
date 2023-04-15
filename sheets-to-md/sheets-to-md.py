@@ -36,8 +36,8 @@ def main():
         # each row is a dict {column_header:value , column_header2:value2 , ...}
         try:
             column_headers = data[0].keys()
-        # empty worksheet
         except IndexError:
+            print("ignoring empty worksheet...")
             continue
 
         with open(csv_name, 'w', encoding="utf-8") as csv_file:
