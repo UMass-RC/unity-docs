@@ -2,113 +2,91 @@
 
 Environment Modules is a tool to change dynamically what software is available for use by a given user at a given time. Before you read this, it's recommended that you first read the  [introduction](index.md) and the [module usage guide](module-usage.md).
 
-As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. Our strategy is to create a **module hierarchy** to divide modules by their stacks.
+As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. Our strategy is to create a **module hierarchy** to divide modules according to their stacks. This makes it much more difficult to accidentally load modules which are incompatible with each other.
 
-The **modulepath** environment variable `$MODULEPATH` is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default. This means **not all modules can be found with <red>`module avail`</red> by default.**
+The `$MODULEPATH` environment variable is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default.
 
-### Here is the full Unity module hierarchy as of 2022/10/26: ###
+This means **not all modules can be found with <red>`module avail`</red> by default.**
 
-<red>Compilers</red> are red, <blue>providers</blue> are blue, and **default directories** are bold.
+### Here is the full Unity module hierarchy as of 2023/4/15: ###
 
-<pre><code><strong>/modules/modulefiles/</strong>
+<red>Compilers</red> are red, and <blue>providers</blue> are blue.
 
-x86_64
-|── <strong><red>gcc</red>/9.4.0/</strong>
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-h3cppyo/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-6pbqv7b/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-3rgk3nu/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-gmusbfh/
-|   |   \─ <red>gcc</red>/9.4.0/
+<pre><code>/modules/modulefiles/
 
-cascadelake
-|── <red>gcc</red>/9.4.0/
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-ad5zrqt/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-cuu4pwk/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-lih7mwq/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-w2r5zyv/
-|   |   \─ <red>gcc</red>/9.4.0/
+/modules/spack_modulefiles/
+├── linux-ubuntu20.04-x86_64
+|   ├── <red>Core</red>
+|   ├── <red>intel</red>
+|   │   └── 2021.4.0
+|   ├── <blue>atlas</blue>
+|   │   └── 3.10.3-sfhhdph
+|   │       └── <red>Core</red>
+|   ├── <blue>intel-oneapi-mpi</blue>
+|   │   └── 2021.6.0-h3cppyo
+|   │       ├── <red>Core</red>
+|   │       └── <blue>openblas</blue>
+|   │           └── 0.3.18-6pbqv7b
+|   │               └── <red>Core</red>
+|   ├── <blue>openblas</blue>
+|   │   └── 0.3.18-6pbqv7b
+|   │       └── <red>Core</red>
+|   └── <blue>openmpi</blue>
+|       ├── 4.1.3-3rgk3nu
+|       │   ├── <red>Core</red>
+|       │   └── <blue>intel-mkl</blue>
+|       │       └── 2020.4.304-gmusbfh
+|       │           └── <red>Core</red>
+|       └── 4.1.4-tauaqk4
+|           ├── <red>Core</red>
+|           └── <blue>intel-mkl</blue>
+|               └── 2020.4.304-gmusbfh
+|                   └── <red>Core</red>
+|                       └── gromacs
+|                           └── 2022.3+cuda11.6.2.lua
+├── linux-ubuntu20.04-aarch64
+│   └── <red>Core</red>
+└── linux-ubuntu20.04-ppc64le
+    ├── <red>Core</red>
+    ├── <blue>openblas</blue>
+    │   └── 0.3.21-coxg6gz
+    │       └── <red>Core</red>
+    └── <blue>openmpi</blue>
+        ├── 4.1.3-edoxxdf
+        │   ├── <red>Core</red>
+        │   └── xl
+        │       └── 16.1
+        └── 4.1.4-476r55m
+            └── <red>Core</red>
 
-haswell
-|── <red>gcc</red>/9.4.0/
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-dxpge2x/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-zoqwa7c/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-habm2fz/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-drachcs/
-|   |   \─ <red>gcc</red>/9.4.0/
-
-icelake
-|── <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-lih7mwq/
-|   \─ <red>gcc</red>/9.4.0/
-
-skylake_avx512
-|── <red>gcc</red>/9.4.0/
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-ad5zrqt/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-cuu4pwk/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-lih7mwq/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-usztzez/
-|   |   \─ <red>gcc</red>/9.4.0/
-
-zen
-|── <red>gcc</red>/9.4.0/
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-364ncu6/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-wr2rrpa/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-bonsmsu/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-7t7xybh/
-|   |   \─ <red>gcc</red>/9.4.0/
-
-zen2
-|── <red>gcc</red>/9.4.0/
-|── <red>intel</red>/2021.4/
-|── <blue>intel-oneapi-mpi</blue>/2021.6.0-vwuo3ee/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openblas</blue>/0.3.18-mf2vweb/
-|   \─ <red>gcc</red>/9.4.0/
-|── <blue>openmpi</blue>/4.1.3-velsqdk/
-|   |── <red>gcc</red>/9.4.0/
-|   |── <blue>intel-mkl</blue>/2020.4.304-iycblyc/
-|   |   \─ <red>gcc</red>/9.4.0/
 </code></pre>
 !!!note
+    Random characters at the end of compiler/provider version numbers can usually be ignored.
+
+    `Core` refers to modules compiled with Ubuntu's default GNU compiler suite, and without any special providers. The majority of Unity's modules are found here.
+
     `intel` refers to the classic intel compilers (`icc`, `ifort`, `icpc`, ...).
 
     The `intel-oneapi-compilers-classic` module adds `intel` to modulepath.
 
 ## Hierarchy naming scheme ##
-<pre><code>linux-ubuntu20.04-[architecture]/[compiler]/[compiler-version]/<red>[module-name]/[version]</red>
-linux-ubuntu20.04-[architecture]/[provider]/[provider-version]/[compiler]/[compiler-version]/<red>[module-name]/[version]</red>
+<pre><code>linux-ubuntu20.04-[architecture]/<red>[compiler]</red>/<strong>[name]/[version]</strong>
+linux-ubuntu20.04-[architecture]/<blue>[provider]</blue>/<red>[compiler]</red>/<strong>[name]/[version]</strong>
+linux-ubuntu20.04-[architecture]/<blue>[provider]</blue>/<blue>[another-provider]</blue>/<red>[compiler]</red>/<strong>[name]/[version]</strong>
 </code></pre>
 
-* Nested providers are possible.
-* Each of these paths have a prefix of `/modules/spack/share/spack/lmod/`.
+* In this naming scheme, `Core` counts as a compiler.
 
 ## How to use the hierarchy ##
 You can find modules anywhere in the hierarchy with the <red>`unity-module-find`</red> command.
 
 From the full path of your desired module you should be able to tell which other modules need to be loaded first.
 
+!!!note
+    `Core` is always automatically added to `$MODULEPATH`!
+
 #### Example: ####
-<pre><code>user@login1:~$ module load gromacs
+<pre><code>user@login1:~$ module load gromacs/2021.3
 <strong><red>No module(s) or extension(s) found!</red></strong>
 If the avail list is too long consider trying:
 
@@ -121,67 +99,18 @@ Use "module keyword key1 key2 ..." to search for all possible modules matching a
 
 <pre><code>user@login1:~$ unity-module-find gromacs
 Modules found:
-linux-ubuntu20.04-cascadelake/openmpi/4.1.3-lih7mwq/intel-mkl/2020.4.304-w2r5zyv/gcc/9.4.0/<red>gromacs/2021.3</red>
-linux-ubuntu20.04-haswell/openmpi/4.1.3-habm2fz/intel-mkl/2020.4.304-drachcs/gcc/9.4.0/<red>gromacs/2021.3</red>
-linux-ubuntu20.04-skylake_avx512/openmpi/4.1.3-lsrnpnm/intel-mkl/2020.4.304-usztzez/gcc/9.4.0/<red>gromacs/2021.3</red>
-linux-ubuntu20.04-x86_64/intel-oneapi-mpi/2021.6.0-h3cppyo/gcc/9.4.0/<red>gromacs/2021.3</red>
-<strong>linux-ubuntu20.04-x86_64/openmpi/4.1.3-3rgk3nu/intel-mkl/2020.4.304-gmusbfh/gcc/9.4.0/<red>gromacs/2021.3</red></strong>
-linux-ubuntu20.04-zen/openmpi/4.1.3-bonsmsu/intel-mkl/2020.4.304-7t7xybh/gcc/9.4.0/<red>gromacs/2021.3</red>
-linux-ubuntu20.04-zen2/openmpi/4.1.3-velsqdk/intel-mkl/2020.4.304-iycblyc/gcc/9.4.0/<red>gromacs/2021.3</red>
+linux-ubuntu20.04-x86_64/intel-oneapi-mpi/2021.6.0-h3cppyo/Core/<red>gromacs/2021.3</red>
+<strong>linux-ubuntu20.04-x86_64/openmpi/4.1.3-3rgk3nu/intel-mkl/2020.4.304-gmusbfh/Core/<red>gromacs/2021.3</red></strong>
 </code></pre>
 
 This is the module that I want:
-<pre><code>linux-ubuntu20.04-x86_64/<strong>openmpi</strong>/4.1.3-3rgk3nu/<strong>intel-mkl</strong>/2020.4.304-gmusbfh/<strong>gcc</strong>/9.4.0/<strong>gromacs</strong>/2021.3
+<pre><code>linux-ubuntu20.04-x86_64/<strong><blue>openmpi</blue></strong>/4.1.3-3rgk3nu/<strong><blue>intel-mkl</blue></strong>/2020.4.304-gmusbfh/<strong><red>Core</red></strong>/gromacs/2021.3
 </code></pre>
-In its path I can see `openmpi`, `intel-mkl`, `gcc`, and `gromacs`. Each of these are modules.
 
-`gcc` is loaded by default, so I can ignore it. I can load the other modules in series in one line:
+In that path I can see which modules must loaded first. The new command becomes:
 ```
-$ module load openmpi intel-mkl gromacs
+$ module load openmpi/4.1.3 intel-mkl/2020.4.304 gromacs/2021.3
 ```
-
-
-## Micro-architecture ##
-
-Micro-architecture specific modules are optimized for particular CPU's, but can cause problems if used on other CPU's. If you want better performance for your job you can use these modules, but you should also use slurm constraints so that you always get a node with the correct type of CPU.
-
-#### Slurm constraints ####
-You can see a list of all possible constraints with the <red>`unity-slurm-list-constraints`</red> command.
-
-You can see a list of nodes that meet a given constraint with the <red>`unity-slurm-find-nodes`</red> command.
-
-You can see possible constraints for each node on our [node list](../technical/nodelist.md).
-
-**`sbatch` script:**
-```
-#SBATCH -C linux-ubuntu20.04-skylake_avx512
-module load microarch/skylake_avx512
-...
-```
-
-**`srun` interactive session:**
-```
-srun --pty -C linux-ubuntu20.04-skylake_avx512 bash
-module load microarch/skylake_avx512
-...
-```
-
-## Opt Out ##
-While you can't put the directories back together, you can use the 'flat' module view rather than the limited view. This will add every directory of the hierarchy to your modulepath in an arbitrary order. There are problems with the flat view, like [module name conflicts](../updates/hierarchy-change.md#module-name-conflicts). **This is not recommended**, and support will not be given for issues with the flat view.
-
-To enable the flat view:
-```
-export LMOD_ENABLE_LIMITED_VIEW=false
-```
-And to make the change persist:
-```
-echo "export LMOD_ENABLE_LIMITED_VIEW=false" >> ~/.bashrc
-```
-The change will be applied on your next login shell. You can also reload the modulepath in your current shell:
-```
-source /etc/profile
-```
-
 
 ### Learn more ###
 [About the Hierarchy Change](../updates/index.md#the-module-hierarchy-change-coming-soon)
