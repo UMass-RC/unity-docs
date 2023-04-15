@@ -51,7 +51,7 @@ def main():
         with open(md_name, 'w', encoding="utf-8") as md:
             print(md_name)
             df.to_markdown(buf=md, index=False)
-
+            md.write("\n") # newline @ EOF
         os.remove(csv_name)
 
 if __name__=="__main__":
