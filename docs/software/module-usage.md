@@ -9,7 +9,7 @@ These all do the same thing:
 ```
 module available
 module avail
-module avail
+module av
 ml av
 ```
 
