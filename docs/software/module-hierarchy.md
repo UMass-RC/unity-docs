@@ -42,8 +42,6 @@ This means **not all modules can be found with <red>`module avail`</red> by defa
 |           └── <blue>intel-mkl</blue>
 |               └── 2020.4.304-gmusbfh
 |                   └── <red>Core</red>
-|                       └── gromacs
-|                           └── 2022.3+cuda11.6.2.lua
 ├── linux-ubuntu20.04-aarch64
 │   └── <red>Core</red>
 └── linux-ubuntu20.04-ppc64le
