@@ -2,11 +2,9 @@
 
 As a Unity user, you have access to many modules built with various software stacks. As Unity grows and more modules are installed with more stacks, it can become difficult to effectively manage them all. The hierarchy change is to combat module bloat, simplify module names, and (most importantly) prevent conflicts. For many users, nothing will change, but some will have to take a few extra steps when loading modules going forward.
 
-The <red>`module`</red> command refers to Environment Modules. We use [Lmod](https://lmod.readthedocs.io/en/latest/index.html), which is Environment Modules implemented in Lua. The **modulepath** environment variable `$MODULEPATH` is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default.
+The <red>`module`</red> command refers to Environment Modules. We use [Lmod](https://lmod.readthedocs.io/en/latest/index.html), which is the [Lua](https://www.lua.org/) flavor of Environment Modules. The `$MODULEPATH` environment variable is a list of directories in which Lmod searches for modules. With a module hierarchy, not all directories are added to the modulepath by default.
 
 This means **not all modules can be found with <red>`module avail`</red> by default.**
-
-The information on this page is not critical for proper usage of Unity. We know your time is valuable, so you can always skip to [Using the Module Hierarchy](../software/module-hierarchy.md) to learn how to work with these changes.
 
 ## What does this mean for my workflow? ##
 
@@ -63,13 +61,7 @@ fftw/3.3.8+intel-oneapi-mpi2021.6.0
 ```
 This has worked well enough, but long module names make it harder for Lmod to display many modules on one screen, because horizontal whitespace can be used for more columns.
 
-This module:
-
-<code>/modules/.../linux-ubuntu20.04-x86_64/<red>gromacs/2021.3+openmpi4.1.3-intel@2021.4</red></code>
-
-would instead become:
-
-<code>/modules/.../linux-ubuntu20.04-x86_64/gcc/9.4.0/openmpi/4.1.3/intel/2021.4/<red>gromacs/2021.3</red></code>
+Gromacs, for example: `gromacs/2021.3+openmpi4.1.3-intel@2021.4` would be shortened to `gromacs/2021.3`.
 
 #### Module name conflicts ####
 If module names are not unique, it can be difficult to choose which module to load. When two modules from different directories have the same name, Lmod will [decide](https://lmod.readthedocs.io/en/latest/060_locating.html#marking-a-version-as-default) which is default and mark it with a `(D)` flag. The only way to get around this is to manually manipulate `$MODULEPATH` to exclude certain directories until the desired module is marked as default. With the hierarchy, it's implicit that if you add special modules to your modulepath, you want those special modules to take priority.
@@ -89,48 +81,48 @@ A module hierarchy is a robust and elegant solution to avoid module conflicts.
 ## What is going on under the hood? ##
 Our current module tree has two main directories with many modules inside.
 ```
-$ echo $MODULEPATH
-/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/modules/modulefiles
-$ ls /modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64 | wc -l
-343
+/modules/modulefiles
+/modules/spack_modulefiles
 ```
 We are simply splitting it into multiple directories.
 ```
-/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64
-├── gcc/9.4.0/
-├── intelel/2021.4/
-├── intel-oneapi-mpi/2021.6.0-ad5zrqt/
-    ├── gcc/9.4.0/
-├── openblas/0.3.18-cuu4pwk/
-    ├── gcc/9.4.0/
-├── openmpi/4.1.3-lih7mwq/
-    ├── gcc/9.4.0/
-    ├── intel-mkl/2020.4.304-w2r5zyv/
-        ├── gcc/9.4.0/
+/modules/modulefiles
+/modules/spack_modulefiles
+├── linux-ubuntu20.04-x86_64
+|   ├── Core
+|   ├── intel/2021.4.0
+|   ├── intel-oneapi-mpi/2021.6.0
+|   │   └── openblas/0.3.18
+|   ├── openblas/0.3.18
+|   ├── openmpi/4.1.3
+|   |   └── intel-mkl/2020.4.304
+|   ├── openmpi/4.1.4
+|   |   └── intel-mkl/2020.4.304
+|   └── atlas/3.10.3
+├── linux-ubuntu20.04-aarch64
+|   └── ...
+└── linux-ubuntu20.04-ppc64le
+    └── ...
+
 ```
 
-The Unity module set is split in two. `/modules/modulefiles` contains our homebrew modules, those compiled by hand by the admins. `/modules/spack/share/spack/modules/` contains modules created by Spack. **`/modules/modulefiles` is not changing.**
+The Unity module set is split in two. `/modules/modulefiles` contains our homebrew modules, those compiled by hand by the admins. `/modules/spack_modulefiles` contains modules created by Spack. **`/modules/modulefiles` is not changing.**
 
-Certain modules will now add a directory to your modulepath, making the modules in that directory available to load.
-
-At the start of each new login shell, only modules built with the system compiler `gcc/9.4.0` will be included in the modulepath, as defined in the system-wide [login scripts](https://unix.stackexchange.com/questions/56083/how-to-write-a-shell-script-that-gets-executed-on-login).
+At the start of each new login shell, `$MODULEPATH` contains only `/modules/modulefiles/` and `/modules/spack_modulefiles/linux-ubuntu20.04-<architecture>/Core`. The "Core" directory contains the modules compiled with Ubuntu's default GNU compiler suite, and without any special providers. Modules made with another compiler, or with special providers, are separated from Core and given their own directory. When you `module load` a compiler or special provider, its directory is added to `$MODULEPATH`, and any modules in that directory are now available to use.
 
 #### Also included in this change ####
 
+* Lmod will no longer allow you to load modules without a version name.
 * Every new Slurm job will <red>`module purge`</red>. You will have to make sure that your jobs load modules all by themselves.
     * This is to ensure that incompatible modules are not used.
 * New commands are available in your shell:
     * <red>`unity-module-find`</red>
     * <red>`unity-module-hierarchy`</red>
     * <red>`unity-module-hierarchy-help`</red>
-    * <red>`unity-module-lmod-disable-help`</red>
-    * <red>`unity-module-lmod-enable-help`</red>
     * <red>`unity-slurm-list-constraints`</red>
     * <red>`unity-slurm-find-nodes`</red>
 * We are switching Spack TCL modules to Lua.
     * This shouldn't affect the user experience.
-* We are wrapping the <red>`module`</red> command with a bit of code which will print a message that things have changed.
-    * <red>`unity-module-lmod-disable-help`</red> is provided to suppress this output.
 
 ## Learn more ##
 

@@ -1,6 +1,6 @@
 # Using Environment Modules
 
-Modules are easy to use. You can <red>`load`</red> and <red>`unload`</red> them as you please, enabling and disabling different software. You can list currently active modules with <red>`module list`</red>, search for modules with <red>`module av`</red>, and remove all modules with <red>`module purge`</red>.
+Modules are easy to use. You can <red>`load`</red> and <red>`unload`</red> them as you please, enabling and disabling different software. You can list currently active modules with <red>`module list`</red>, search for modules with <red>`module avail`</red>, and unload all active modules with <red>`module purge`</red>.
 
 While the modules work on the login nodes, the login nodes have strict CPU and memory limits. Jobs that do heavy lifting should always be [scheduled through Slurm](../slurm/index.md).
 
@@ -24,22 +24,20 @@ This will return an output that looks something like this:
    cuda/9.2.148        gcc/7.4.0     (D)    gromacs/2020.2G  (D)    opencl/2.2.11       vtk/8.2.0
 ```
 !!! note
-    The module list is rapidly growing. To see the full module list, use this command in your terminal.
+    The module list is rapidly growing. To see the full list, use this command in your terminal.
 
 ### Search for Modules ###
 ```
-module av gcc
+module avail gcc
 ```
-This filters the output of <red>`module av`</red> for just the `gcc` modules.
+This filters the output of <red>`module avail`</red> for just the `gcc` modules.
 
 ### Loading Modules ###
 ```
 module load gcc/9.2.0
 ```
 !!! note
-    The naming convention for modules is `<name>/<version>`.
-
-    Modules built with non-standard software stacks require extra steps to load. They can be found with the <red>`unity-module-find`</red> command. See [module hierarchy](module-hierarchy.md).
+    Not all modules are shown by default in `module avail`. See [module hierarchy](module-hierarchy.md).
 
 ### Unloading Modules ###
 ```
