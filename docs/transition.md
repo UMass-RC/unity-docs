@@ -1,6 +1,6 @@
 # Transitioning from the Shared Cluster to Unity
 
-_Last updated: 17 March 2023_
+_Last updated: 21 April 2023_
 
 It is our pleasure to welcome you to [Unity](https://unity.rc.umass.edu/), 
 a high performance computing cluster located at [MGHPCC](https://www.mghpcc.org/) and managed by 
@@ -11,6 +11,17 @@ Please see below for important dates and information to guide your transition to
 _For questions about the Unity transition, please attend our 
 [onboarding sessions](#onboarding-live-sessions) 
 or contact the Unity help desk at [hpc@umass.edu](mailto:hpc@umass.edu)._
+
+_In addition, we have created a new Unity User Community.
+Please sign up with your school email
+[here](https://join.slack.com/t/unity-user-community/signup).
+If you’re unable to register with your school email, please contact 
+[hpc@umass.edu](mailto:hpc@umass.edu) 
+with your preferred email address and we’ll send you a direct invite._
+
+_Once you’ve signed up, you can access the community 
+[here](https://unity-user-community.slack.com)._
+
 
 [TOC]
 
@@ -50,10 +61,7 @@ continue transferring data, you will no longer be able to run jobs or create new
 ## Onboarding Live Sessions
 
 To ensure a smooth transition from the Shared Cluster to Unity, we will hold two online 
-workshops on accessing Unity, data transfer and storage, and running jobs. Both workshops 
-will take place on Zoom (links follow each description below). Recordings and slides will 
-be available [on this page](/transition.html) after the workshops for review or if you can’t 
-attend live. 
+workshops on accessing Unity, data transfer and storage, and running jobs. Links to the recordings and slides follow each workshop description.
 
 ### Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)
 
@@ -61,14 +69,18 @@ _Friday, March 31, 2023, 2:00 pm to 3:00 pm (time for questions following)_
 We will provide an overview of Unity in comparison to the Shared cluster, explain the account 
 request process for PIs/faculty and students/postdocs, and discuss storage on Unity and data 
 transfer options.  
-[**Zoom link**](https://umass-amherst.zoom.us/j/99759226495) 
+
+[**Recording link**](https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESGBqTjFg99Bjj5VQ0pG17ABtmvwDozDw1L85Utu2Rmpig)  
+[**Slides link**](https://bit.ly/ghpcc-to-unity)
 
 ### Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)
 _Friday, April 14, 2023, 2:00 pm to 3:00 pm (time for questions following)_  
 We will discuss the differences between the Shared Cluster’s LSF scheduler and Unity’s Slurm 
 scheduler, introduce Unity’s partition layout, show example Slurm jobs, and demonstrate Unity’s 
 Open OnDemand portal.   
-[**Zoom link**](https://umass-amherst.zoom.us/j/92501785774) 
+
+[**Recording link**](https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESOfR4VMB0BEiJlqwtRMnxoBmUugUD4YUl5qkBvt0mEilQ)  
+[**Slides link**](https://bit.ly/ghpcc-to-unity-2) 
 
 ## Technical Information
 

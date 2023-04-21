@@ -1,17 +1,17 @@
-# Transferring data from MGHPCC to Unity:
+# Transferring data from the Shared Cluster (GHPCC) to Unity:
 
 
-## This guide will allow you to transfer data from the MGHPCC to Unity via Globus.
+## This guide will allow you to transfer data from the Shared Cluster (GHPCC) to Unity via Globus.
 
 ### Step 1: Log in to Globus
 
 * Visit this site: [https://app.globus.org/file-manager](https://app.globus.org/file-manager)
 * Use your university credentials to log in
 
-### Step 2: Connect to the MGHPCC and Unity
+### Step 2: Connect to the Shared Cluster and Unity
 * Select the **File Manager** tab from lefthand pane
-* In the two "Collection" boxes, select the MGHPCC and Unity via their Globus identities
-    * The MGHPCC is ghpcc#ghpcc07
+* In the two "Collection" boxes, select the Shared Cluster and Unity via their Globus identities
+    * The Shared Cluster is ghpcc#ghpcc07
     * Unity is Unity
         * *more technical identifier: acda5457-9c06-4564-8375-260ba428f22a*
     * If you start typing either in the "Collection" text box, the drop-down will update and allow you to select the appropriate "Collection" (aka cluster)
@@ -30,14 +30,14 @@
 * Open the Destination directory and confirm that the file was transferred as expected.
 
 
-## This guide will allow you to send data from the MGHPCC to the Unity server using `scp` for the purposes of transitioning.
+## This guide will allow you to send data from the Shared Cluster to the Unity server using `scp` for the purposes of transitioning.
 #### Notes:
 * You will need to have set up an account on the Unity server.
-* You will need your password for the MGHPCC server (unless you are using private/public keys for logging on to this too).
+* You will need your password for the Shared Cluster server (unless you are using private/public keys for logging on to this too).
 
 ### Step 1.
-* Log in to the MGHPCC.
-* While logged into the MGHPCC, from your home directory, run `ssh-keygen -t rsa`
+* Log in to the Shared Cluster (GHPCC).
+* While logged into the Shared Cluster, from your home directory, run `ssh-keygen -t rsa`
     * This will generate a private/public key pair which is unique to each user.
     * The generator will ask you to save the keys as a specific name, and you have the option to associate a password to the keys (recommended but not required).
     * Two files will be created: NAME and NAME.pub
@@ -47,8 +47,8 @@
 * Log in to the Unity cluster portal: https://unity.rc.umass.edu/
 * Navigate to "Account Settings"
 * You will see the SSH keys that are currently linked to your account
-* Click the "+" button to add the MGHPCC key to your account.
-* Copy the entire contents of the public key (NAME.pub) from the MGHPCC generated in Step 1 into the prompt.
+* Click the "+" button to add the Shared Cluster key to your account.
+* Copy the entire contents of the public key (NAME.pub) from the Shared Cluster generated in Step 1 into the prompt.
 * Click "add key"
 * Click "Set Login Shell"
     * This will now link the two servers, allowing them to communicate
@@ -57,16 +57,16 @@
 ### Step 3.
 * Log into the Unity cluster
 * Create a file to test the connection between servers (e.g. `touch test.txt`)
-* Attempt to transfer the file from Unity to the MGHPCC:
+* Attempt to transfer the file from Unity to the Shared Cluster:
     * `scp test.txt username@ghpcc06.umassrc.org:/home/username/`
-* You will be prompted for your password to the MGHPCC - enter it here.
+* You will be prompted for your password to the Shared Cluster - enter it here.
 * If configured properly, this file should transfer immediately to the specified destination path (in this case `/home/username/`)
 
 ### Step 4.
-* Assuming that Step 3 worked and the file transferred across from Unity to the MGHPCC, you can use this to pull data across:
+* Assuming that Step 3 worked and the file transferred across from Unity to the Shared Cluster, you can use this to pull data across:
 `scp username@ghpcc06.umassrc.org:/where/files/are/you/want/* ./destination/`
 * Each time you run `scp` in this way, you will be prompted for your password.
-* **Note** that currently this only works when **logged in and running commands from Unity, not the MGHPCC.**
+* **Note** that currently this only works when **logged in and running commands from Unity, not the Shared Cluster.**
 
 
 Globus documentation provided by the Molecular Ecology and Conservation Lab, Dept. Environmental Conservation.
