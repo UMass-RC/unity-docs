@@ -60,14 +60,14 @@ continue transferring data, you will no longer be able to run jobs or create new
 
 ## Onboarding Live Sessions
 
-To ensure a smooth transition from the Shared Cluster to Unity, we will hold two online 
+To ensure a smooth transition from the Shared Cluster to Unity, we held two online 
 workshops on accessing Unity, data transfer and storage, and running jobs. Links to the recordings and slides follow each workshop description.
 
 ### Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)
 
 _Friday, March 31, 2023, 2:00 pm to 3:00 pm (time for questions following)_  
-We will provide an overview of Unity in comparison to the Shared cluster, explain the account 
-request process for PIs/faculty and students/postdocs, and discuss storage on Unity and data 
+We provided an overview of Unity in comparison to the Shared cluster, explained the account 
+request process for PIs/faculty and students/postdocs, and discussed storage on Unity and data 
 transfer options.  
 
 [**Recording link**](https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESGBqTjFg99Bjj5VQ0pG17ABtmvwDozDw1L85Utu2Rmpig)  
@@ -75,8 +75,8 @@ transfer options.
 
 ### Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)
 _Friday, April 14, 2023, 2:00 pm to 3:00 pm (time for questions following)_  
-We will discuss the differences between the Shared Cluster’s LSF scheduler and Unity’s Slurm 
-scheduler, introduce Unity’s partition layout, show example Slurm jobs, and demonstrate Unity’s 
+We discussed the differences between the Shared Cluster’s LSF scheduler and Unity’s Slurm 
+scheduler, introduced Unity’s partition layout, showed example Slurm jobs, and demonstrated Unity’s 
 Open OnDemand portal.   
 
 [**Recording link**](https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESOfR4VMB0BEiJlqwtRMnxoBmUugUD4YUl5qkBvt0mEilQ)  
