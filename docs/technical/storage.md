@@ -11,7 +11,6 @@ Below is a table of all available storage on Unity.
 | `/nas`     | Buy-in NAS mounts   | Everywhere                        | Varying  | Varying                                 | Legacy location where the mounts for buy-in NAS hardware are located on Unity. For users who purchased storage nodes for their own use on Unity only. |
 | `/scratch` | Scratch space       | Everywhere (Intended for Compute) | SSD      | 40 TB / user, cleared at the end of job | `/scratch/[nodeid]/[jobid]` is created when a job is started. That folder is assigned to $TMP and deleted after the job is complete. This directory is not directly available to users. |
 | `/gypsum`  | Gypsum devices      | Everywhere                        | HDD      | Varying                                 | For users migrating from the Gypsum cluster to the Unity clusters, you will find all your old storage here. |
-| `/old`     | Old mounts          | Everywhere (Read-Only)            | Varying  | Varying                                 | Old filesystems which are deprecated live here until they are deleted. |
 
 ## Snapshots
 
