@@ -7,6 +7,31 @@ using one or more GPUs does not guarantee that code will run faster, however
 many popular software packages have been modified to incorporate GPUs for
 better performance.
 
+## Available GPU Resources
+
+- A100 -Ampere 2020
+- V100 - Votla 2017/2018
+- rtx8000 - 48g, Quadro 8000, 2018
+- 2080 - 8gb, GeForce 20, 2018
+- 2080ti - 11gb, GeForce 20, 2018
+- 1080ti - 11gb, GeForce 10, 2016
+- titanX - 12gb, GeForce 10, 2016
+- m40 - 24gb - Maxwell,  2015
+
+| Device | Caps | VRAM |
+| --- | --- | --- |
+| NVIDIA A100-PCIE-40GB | sm_52,sm_61,sm_70,sm_75,sm_80 | vram8,vram11,vram12,vram16,vram23,vram32,vram40 |
+| NVIDIA A100-SXM4-80GB | sm_52,sm_61,sm_70,sm_75,sm_80 | vram8,vram11,vram12,vram16,vram23,vram32,vram40,vram48,vram80 |
+| NVIDIA GeForce GTX 1080 Ti | sm_52,sm_61 | vram8,vram11 |
+| NVIDIA GeForce GTX TITAN X | sm_52 | vram8,vram11,vram12 |
+| NVIDIA GeForce RTX 2080 | sm_52,sm_61,sm_70,sm_75 | vram8 |
+| NVIDIA GeForce RTX 2080 Ti | sm_52,sm_61,sm_70,sm_75 | vram8,vram11 |
+| Quadro RTX 8000 | sm_52,sm_61,sm_70,sm_75 | vram8,vram11,vram12,vram16,vram23,vram32,vram40,vram48 |
+| Tesla M40 24GB | sm_52 | vram8,vram11,vram12,vram16,vram23 |
+| Tesla V100-PCIE-16GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16 |
+| Tesla V100-SXM2-16GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16 |
+| Tesla V100-SXM2-32GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16,vram23,vram32 |
+
 ## Requesting GPU Resources
 
 Requesting GPU access on Unity can be done via Slurm either for an interactive session or using a batch script.
@@ -21,7 +46,7 @@ resources.
 
 **Interactive**
 ```bash
-srun -p GPU-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
+srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 ```
 
 
@@ -29,12 +54,65 @@ srun -p GPU-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 ```bash
 #!/bin/bash
 
-#SBATCH -p GPU-preempt # Submit job to to GPU-preempt partition
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
 #SBATCH -t 02:00:00    # Set max job time for 2 hours
 #SBATCH --gpus=1       # Request access to 1 GPU
+$SBATCH --constraint=2080ti # Request access to a 2080ti GPU 
 
 ./myscript.sh
 ```
+
+Specific GPUs can also be selected by using the --constraint flags with Slurm,
+or by adding the gpu type to --gpus. The available constraints are listed
+below. 
+
+!!! Note: using --constraint allows you to select multiple possible GPUs if multiple can fulfil the requirements
+
+- 2080ti
+- 1080ti
+- 2080
+- titanx
+- m40
+- rtx8000
+- v100
+- a100
+
+
+ **Batch Script with Specific GPU**
+```bash
+#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=2080ti:1       # Request access to 1 2080tiGPU
+
+./myscript.sh
+```
+
+ **Batch Script with Constraint**
+```bash
+#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=1       # Request access to 1 2080tiGPU
+#SBATCH --constraint=2080ti
+
+./myscript.sh
+```
+
+ **Batch Script with Constraint specifying multiple options**
+```bash
+#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=1       # Request access to 1 2080tiGPU
+#SBATCH --constraint=2080ti|1080ti|2080
+
+./myscript.sh
+```
+
 ---
 
 
@@ -98,7 +176,7 @@ The steps to set up a conda environment for TensorFlow is shown below:
 1. request an interactive session with a GPU node
 
 ```bash
-srun -t 01:00:00 -p GPU-preempt --gpus=1 --mem=16G --pty /bin/bash
+srun -t 01:00:00 -p gpu-preempt --gpus=1 --mem=16G --pty /bin/bash
 ```
 
 2. load modules
@@ -123,14 +201,32 @@ pip install TensorFlow
 pip install tensorrt
 conda install ipykernel
 ```
-
 Note: if you do not request enough memory, TensorRT will fail to install
 
 4. Add environment to Jupyter 
 ```bash
 python -m ipykernel install --user --name TensorFlow-env --display-name="TensorFlow-Env"
+```
 
 ---
 
 After completing these steps, a new kernel with the name "TensorFlow-Env" will be shown with new Open OnDemand sessions
+
+
+## Troubleshooting with GPUs
+
+To view ongoing GPU processes, the nvidia-smi command can be used.
+
+If you are getting error messages, please be sure to add the following command
+to your scripts in order to know which GPU is being used.
+
+```bash
+nvidia-smi -L
+```
+
+If there is a CUDA_ERROR_OUT_OF_MEMORY, a GPU with more available VRAM may be
+necessary, or the code being run should be modified to reduce the memory usage.
+
+
+
 
