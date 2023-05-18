@@ -12,6 +12,11 @@ better performance.
 Requesting GPU access on Unity can be done via slurm either for an interactive session or using a batch script.
 Below are a minimal example of both interactive and batch jobs.
 
+Note: not all software is able to use GPUs, and some software will require
+special options, dependencies, or alternate versions to be able to run with
+GPUs. Please ensure your software supports GPU use before requesting these
+resources.
+
 ---
 
 **Interactive**
@@ -119,9 +124,9 @@ pip install tensorrt
 conda install ipykernel
 ```
 
-Note: if you do not request enough memory, tensorrt will fail to isntall
+Note: if you do not request enough memory, tensorrt will fail to install
 
-4. Add enviornment to jupyter 
+4. Add environment to jupyter 
 ```bash
 python -m ipykernel install --user --name tensorflow-env --display-name="Tensorflow-Env"
 
