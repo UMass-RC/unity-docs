@@ -29,6 +29,9 @@ You can also build the documentation using a containerized environment.
 The following steps can be accomplished via either
 [Docker](https://www.docker.com/) or [podman](https://podman.io/).
 
+> **Note**
+> If you want to build the nodelist/partitionlist tables, you will need to first download the [private key](https://drive.google.com/file/d/1Q9fJ0QSi3AjLq3vb4e-1kRQgM1NR7eaA/view?usp=sharing) and place it into the same directory as [sheets-to-md/sheets-to-md.py](sheets-to-md/sheets-to-md.py) with the name `unity-sheets-key.json`.
+
 ```
 podman build -v $(pwd):/unity-docs:z -t unity-docs .
 podman run --rm -v $(pwd):/unity-docs:z -p 127.0.0.1:8080:8080 unity-docs
