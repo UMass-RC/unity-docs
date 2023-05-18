@@ -9,10 +9,10 @@ better performance.
 
 ## Requesting GPU Resources
 
-Requesting GPU access on Unity can be done via slurm either for an interactive session or using a batch script.
+Requesting GPU access on Unity can be done via Slurm either for an interactive session or using a batch script.
 Below are a minimal example of both interactive and batch jobs.
 
-Note: not all software is able to use GPUs, and some software will require
+!!! Note: Not all software is able to use GPUs, and some software will require
 special options, dependencies, or alternate versions to be able to run with
 GPUs. Please ensure your software supports GPU use before requesting these
 resources.
@@ -21,7 +21,7 @@ resources.
 
 **Interactive**
 ```bash
-srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
+srun -p GPU-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 ```
 
 
@@ -29,7 +29,7 @@ srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 ```bash
 #!/bin/bash
 
-#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -p GPU-preempt # Submit job to to GPU-preempt partition
 #SBATCH -t 02:00:00    # Set max job time for 2 hours
 #SBATCH --gpus=1       # Request access to 1 GPU
 
@@ -40,7 +40,7 @@ srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 
 ## GPU-Enabled Software
 
-**CUDA**: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most gpu jobs, as this allows access to this nvidia compiler suite (nvcc, nvfortran) as well as the nvidia gpu profiling tool (nsys). 
+**CUDA**: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most GPU jobs, as this allows access to this NVIDIA compiler suite (nvcc, nvfortran) as well as the NVIDIA GPU profiling tool (nsys). 
 
 **Note: be sure to check which version(s) of cuda are compatible with the software that is being used.**
 
@@ -87,18 +87,18 @@ In addition to these, many programming languages are able to use one or more GPU
 
 ### Setting up a TensorFlow GPU Environment
 
-Some software, especially with python, requirest setting up the environment in a specific way.
+Some software, especially with python, requires setting up the environment in a specific way.
 
-For python programs that can use GPU, such as tensorflow, this is best done using a conda environment.
+For python programs that can use GPU, such as TensorFlow, this is best done using a conda environment.
 
-The steps to set up a conda environment for tensorflow is shown below:
+The steps to set up a conda environment for TensorFlow is shown below:
 
 ---
 
-1. request an interactive session with a gpu node
+1. request an interactive session with a GPU node
 
 ```bash
-srun -t 01:00:00 -p gpu-preempt --gpus=1 --mem=16G --pty /bin/bash
+srun -t 01:00:00 -p GPU-preempt --gpus=1 --mem=16G --pty /bin/bash
 ```
 
 2. load modules
@@ -112,25 +112,25 @@ module load cudnn/cuda11-8.4.1.50
 3. create the environment
 
 ```bash
-conda create --name tensorflow-env python=3.9 
+conda create --name TensorFlow-env python=3.9 
 ```
 
-Note: tensorflow 2 requirest a python version of at least 3.9
+Note: TensorFlow 2 requires a python version of at least 3.9
 
 ```bash
-conda activate tensorflow-env
-pip install tensorflow
+conda activate TensorFlow-env
+pip install TensorFlow
 pip install tensorrt
 conda install ipykernel
 ```
 
-Note: if you do not request enough memory, tensorrt will fail to install
+Note: if you do not request enough memory, TensorRT will fail to install
 
-4. Add environment to jupyter 
+4. Add environment to Jupyter 
 ```bash
-python -m ipykernel install --user --name tensorflow-env --display-name="Tensorflow-Env"
+python -m ipykernel install --user --name TensorFlow-env --display-name="TensorFlow-Env"
 
 ---
 
-After completing these steps, a new kernel with the name "Tensorflow-Env" will be shown with new Open OnDemand sessions
+After completing these steps, a new kernel with the name "TensorFlow-Env" will be shown with new Open OnDemand sessions
 
