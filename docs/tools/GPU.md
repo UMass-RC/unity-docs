@@ -9,38 +9,30 @@ better performance.
 
 ## Available GPU Resources
 
-- A100 -Ampere 2020
-- V100 - Votla 2017/2018
-- rtx8000 - 48g, Quadro 8000, 2018
-- 2080 - 8gb, GeForce 20, 2018
-- 2080ti - 11gb, GeForce 20, 2018
-- 1080ti - 11gb, GeForce 10, 2016
-- titanX - 12gb, GeForce 10, 2016
-- m40 - 24gb - Maxwell,  2015
-
-| Device | Caps | VRAM |
-| --- | --- | --- |
-| NVIDIA A100-PCIE-40GB | sm_52,sm_61,sm_70,sm_75,sm_80 | vram8,vram11,vram12,vram16,vram23,vram32,vram40 |
-| NVIDIA A100-SXM4-80GB | sm_52,sm_61,sm_70,sm_75,sm_80 | vram8,vram11,vram12,vram16,vram23,vram32,vram40,vram48,vram80 |
-| NVIDIA GeForce GTX 1080 Ti | sm_52,sm_61 | vram8,vram11 |
-| NVIDIA GeForce GTX TITAN X | sm_52 | vram8,vram11,vram12 |
-| NVIDIA GeForce RTX 2080 | sm_52,sm_61,sm_70,sm_75 | vram8 |
-| NVIDIA GeForce RTX 2080 Ti | sm_52,sm_61,sm_70,sm_75 | vram8,vram11 |
-| Quadro RTX 8000 | sm_52,sm_61,sm_70,sm_75 | vram8,vram11,vram12,vram16,vram23,vram32,vram40,vram48 |
-| Tesla M40 24GB | sm_52 | vram8,vram11,vram12,vram16,vram23 |
-| Tesla V100-PCIE-16GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16 |
-| Tesla V100-SXM2-16GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16 |
-| Tesla V100-SXM2-32GB | sm_52,sm_61,sm_70 | vram8,vram11,vram12,vram16,vram23,vram32 |
+| Device | Arch | Caps | VRAM |
+| --- | --- | --- | --- |
+| NVIDIA GeForce GTX TITAN X | Maxwell | sm_52 | vram8 vram11 vram12 |
+| Tesla M40 24GB | Maxwell | sm_52 | vram8 vram11 vram12 vram16 vram23 |
+| NVIDIA GeForce GTX 1080 Ti | Pascal | sm_52 sm_61 | vram8 vram11 |
+| Tesla V100-PCIE-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 |
+| Tesla V100-SXM2-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 |
+| Tesla V100-SXM2-32GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 vram23 vram32 |
+| NVIDIA GeForce RTX 2080 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 |
+| NVIDIA GeForce RTX 2080 Ti |  Turing |sm_52 sm_61 sm_70 sm_75 | vram8 vram11 |
+| Quadro RTX 8000 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 |
+| NVIDIA A100-PCIE-40GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 |
+| NVIDIA A100-SXM4-80GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 vram80 |
 
 ## Requesting GPU Resources
 
 Requesting GPU access on Unity can be done via Slurm either for an interactive session or using a batch script.
 Below are a minimal example of both interactive and batch jobs.
 
-!!! Note: Not all software is able to use GPUs, and some software will require
-special options, dependencies, or alternate versions to be able to run with
-GPUs. Please ensure your software supports GPU use before requesting these
-resources.
+!!! note
+    Not all software is able to use GPUs, and some software will require
+    special options, dependencies, or alternate versions to be able to run with
+    GPUs. Please ensure your software supports GPU use before requesting these
+    resources.
 
 ---
 
@@ -57,16 +49,17 @@ srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
 #SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
 #SBATCH -t 02:00:00    # Set max job time for 2 hours
 #SBATCH --gpus=1       # Request access to 1 GPU
-$SBATCH --constraint=2080ti # Request access to a 2080ti GPU 
+$SBATCH --constraint=2080ti # Request access to a 2080ti GPU
 
 ./myscript.sh
 ```
 
 Specific GPUs can also be selected by using the --constraint flags with Slurm,
 or by adding the gpu type to --gpus. The available constraints are listed
-below. 
+below.
 
-!!! Note: using --constraint allows you to select multiple possible GPUs if multiple can fulfil the requirements
+!!! note
+    Using `--constraint` allows you to select multiple possible GPUs that fulfil the requirements. You can either use `--constraint=[2080|2080ti]` or `--constraint=sm_70&vram12`. It is better to use the first form if you are using GPUs across more than one node to ensure the same model is used across all entire job.
 
 - 2080ti
 - 1080ti
@@ -118,7 +111,7 @@ below.
 
 ## GPU-Enabled Software
 
-**CUDA**: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most GPU jobs, as this allows access to this NVIDIA compiler suite (nvcc, nvfortran) as well as the NVIDIA GPU profiling tool (nsys). 
+**CUDA**: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most GPU jobs, as this allows access to this NVIDIA compiler suite (nvcc, nvfortran) as well as the NVIDIA GPU profiling tool (nsys).
 
 **Note: be sure to check which version(s) of cuda are compatible with the software that is being used.**
 
@@ -190,7 +183,7 @@ module load cudnn/cuda11-8.4.1.50
 3. create the environment
 
 ```bash
-conda create --name TensorFlow-env python=3.9 
+conda create --name TensorFlow-env python=3.9
 ```
 
 Note: TensorFlow 2 requires a python version of at least 3.9
@@ -203,7 +196,7 @@ conda install ipykernel
 ```
 Note: if you do not request enough memory, TensorRT will fail to install
 
-4. Add environment to Jupyter 
+4. Add environment to Jupyter
 ```bash
 python -m ipykernel install --user --name TensorFlow-env --display-name="TensorFlow-Env"
 ```
@@ -215,7 +208,7 @@ After completing these steps, a new kernel with the name "TensorFlow-Env" will b
 
 ## Troubleshooting with GPUs
 
-To view ongoing GPU processes, the nvidia-smi command can be used.
+To view ongoing GPU processes, the `nvidia-smi pmon` command can be used.
 
 If you are getting error messages, please be sure to add the following command
 to your scripts in order to know which GPU is being used.
@@ -226,7 +219,3 @@ nvidia-smi -L
 
 If there is a CUDA_ERROR_OUT_OF_MEMORY, a GPU with more available VRAM may be
 necessary, or the code being run should be modified to reduce the memory usage.
-
-
-
-
