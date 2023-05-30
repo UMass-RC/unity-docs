@@ -73,6 +73,9 @@ username@login2:~$ ws_list
 username@login2:~$
 ```
 
+!!! tip
+    We encourage releasing workspaces when they are no longer needed to facilitate optimal scratch space usage.
+
 !!! important 
     Releasing a workspace does not delete the data immediately.
     The deletion of the workspace can take place at any time once it's released.
