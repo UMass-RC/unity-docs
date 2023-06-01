@@ -54,8 +54,8 @@ $SBATCH --constraint=2080ti # Request access to a 2080ti GPU
 ./myscript.sh
 ```
 
-Specific GPUs can also be selected by using the --constraint flags with Slurm,
-or by adding the gpu type to --gpus. The available constraints are listed
+Specific GPUs can also be selected by using the `--constraint` flags with Slurm,
+or by adding the gpu type to `--gpus`. The available constraints are listed
 below.
 
 !!! note
