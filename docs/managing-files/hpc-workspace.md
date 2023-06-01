@@ -73,6 +73,9 @@ username@login2:~$ ws_list
 username@login2:~$
 ```
 
+!!! tip
+    Please release workspaces when they are no longer needed to help optimize scratch space for all Unity users.
+
 !!! important 
     Releasing a workspace does not delete the data immediately.
     The deletion of the workspace can take place at any time once it's released.
