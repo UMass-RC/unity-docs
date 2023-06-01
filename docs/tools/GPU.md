@@ -9,19 +9,19 @@ better performance.
 
 ## Available GPU Resources
 
-| Device | Arch | Caps | VRAM |
-| --- | --- | --- | --- |
-| NVIDIA GeForce GTX TITAN X | Maxwell | sm_52 | vram8 vram11 vram12 |
-| Tesla M40 24GB | Maxwell | sm_52 | vram8 vram11 vram12 vram16 vram23 |
-| NVIDIA GeForce GTX 1080 Ti | Pascal | sm_52 sm_61 | vram8 vram11 |
-| Tesla V100-PCIE-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 |
-| Tesla V100-SXM2-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 |
-| Tesla V100-SXM2-32GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 vram23 vram32 |
-| NVIDIA GeForce RTX 2080 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 |
-| NVIDIA GeForce RTX 2080 Ti |  Turing |sm_52 sm_61 sm_70 sm_75 | vram8 vram11 |
-| Quadro RTX 8000 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 |
-| NVIDIA A100-PCIE-40GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 |
-| NVIDIA A100-SXM4-80GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 vram80 |
+| Device | Arch | Caps | VRAM | Constraint(s) |
+| --- | --- | --- | --- | --- |
+| NVIDIA GeForce GTX TITAN X | Maxwell | sm_52 | vram8 vram11 vram12 | titanx |
+| Tesla M40 24GB | Maxwell | sm_52 | vram8 vram11 vram12 vram16 vram23 | m40 |
+| NVIDIA GeForce GTX 1080 Ti | Pascal | sm_52 sm_61 | vram8 vram11 | 1080ti |
+| Tesla V100-PCIE-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 | v100 |
+| Tesla V100-SXM2-16GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 | v100 |
+| Tesla V100-SXM2-32GB | Volta | sm_52 sm_61 sm_70 | vram8 vram11 vram12 vram16 vram23 vram32 | v100 |
+| NVIDIA GeForce RTX 2080 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 | 2080 |
+| NVIDIA GeForce RTX 2080 Ti |  Turing |sm_52 sm_61 sm_70 sm_75 | vram8 vram11 | 2080ti |
+| Quadro RTX 8000 | Turing | sm_52 sm_61 sm_70 sm_75 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 | rtx8000 |
+| NVIDIA A100-PCIE-40GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 | a100, a100-40g |
+| NVIDIA A100-SXM4-80GB | Ampere | sm_52 sm_61 sm_70 sm_75 sm_80 | vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 vram80 | a100, a100-80g |
 
 ## Requesting GPU Resources
 
@@ -113,37 +113,20 @@ below.
 
 **CUDA**: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most GPU jobs, as this allows access to this NVIDIA compiler suite (nvcc, nvfortran) as well as the NVIDIA GPU profiling tool (nsys).
 
-**Note: be sure to check which version(s) of cuda are compatible with the software that is being used.**
-
-- cuda/6.0
-- cuda/6.5.14
-- cuda/7.0
-- cuda/7.5.18
-- cuda/8.0
-- cuda/8.0.61
-- cuda/9.0
-- cuda/9.2
-- cuda/9.2.88
-- cuda/10.0.130
-- cuda/10.1.243
-- cuda/10.2.89
-- cuda/11.0.1
-- cuda/11.0.3
-- cuda/11.3.1
-- cuda/11.4.0
-- cuda/11.5.0
-- cuda/11.8.0
-
 **cuDNN**: Cuda Deep Neural Network library, often used to accelerate deep learning frameworks in Keras, PyTorch, TensorFlow, and others.
-
-- cudnn/cuda10-7.5.0.56
-- cudnn/cuda11-8.4.1.50
-- cudnn/8.2.4.15-11.4
 
 **OpenMPI**: The OpenMPI compilers for MPI compiled against the cuda compilers. This is necessary to use if software that uses both MPI and GPU acceleration.
 
-- openmpi/4.1.3+cuda11.6.2-mpirun
-- openmpi/4.1.3+cuda11.6.2
+**Note: be sure to check which version(s) of cuda are compatible with the software that is being used.**
+
+
+| Software Name | Available Verions |
+| --- | --- |
+| cuda 11 | 11.8.0, 11.5.0, 11.4.0, 11.3.1, 11.0.3, 11.0.1 |
+| cuda 10 | 10.2.89, 10.1.243, 10.0.130 |
+| cuda legacy versions (<10.0) | 9.2, 9.2.88, 9.0, 8.0.61, 8.0, 7.5.18, 7.0, 6.5.14, 6.0 |
+| cudnn | cuda11-8.4.1.50, cuda10-7.5.0.56, 8.2.4.15-11.4 |
+| openmpi | 4.1.3+cuda11.6.2-mpirun, 4.1.3+cuda11.6.2 |
 
 In addition to these, many programming languages are able to use one or more GPUs.
 
