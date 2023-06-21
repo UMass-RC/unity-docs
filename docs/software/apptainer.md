@@ -88,7 +88,7 @@ Given an Apptainer image (`.sif` or sandbox directory), you can:
 Useful arguments:
 
 * **bind mount (`-B --bind`)**: see description above
-* **clean environment (`-e --cleanenv`)**: don't export any environment variables ito the container.
+* **clean environment (`-e --cleanenv`)**: don't export any environment variables into the container.
 * **fake root access (`-f --fakeroot`)**: simulate root access inside the container.
 
 Learn More:
