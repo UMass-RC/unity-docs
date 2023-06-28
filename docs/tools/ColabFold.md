@@ -11,7 +11,7 @@ Start by accessing JupyterLab using the [Unity OnDemand interface](https://ood.u
 
 Click on the JupyterLab interactive app and fill out the following fields:
 
-1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt). For more information on partitions, see [the partition list](https://docs.unity.rc.umass.edu/technical/partitionlist.html).
+1. The `Partition` field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long or gpu-preempt). For more information on partitions, see [the partition list](https://docs.unity.rc.umass.edu/technical/partitionlist.html).
 2. The `Maximum job duration` field defines how long the interactive session with JupyterLab should run for. This field can be left with the default value of one hour (1:00:00) for short protein sequences but should be increased to make predictions on larger protein sequences.
 3. The `Memory (in GB)` field defines the amount of memory in gigabytes allocated to your interactive session. To give you an idea of how much memory you may need, 8GB is enough for a protein of 59 amino acids but 50 GB is required for a large protein of 2894 amino acids.
 4. The `GPU count` field is the number of GPUs allocated to your interactive session. It should be set to 1 since ColabFold only runs on a single GPU.
@@ -23,8 +23,8 @@ Inside JupyterLab:
 
 1. Copy the ColabFold.ipynb notebook available at /datasets/bio/colabfold/ColabFold.ipynb on Unity to your work directory.
 2. Open the ColabFold.ipynb notebook.
-3. Choose Python (colabfold) for the kernel.
-4. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
+3. Choose `Python [conda env: colabfold]` for the kernel.
+4. Insert your protein sequence next to `query_sequence` and execute the code in the first cell (press SHIFT+ENTER or press the play button in the toolbar above).
 5. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
 6. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.
 
@@ -60,7 +60,7 @@ The code below is an example of a batch script to run MMSeqs2. The top of the sc
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=cpu
+#SBATCH --partition=cpu,cpu-preempt,cpu-long
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=32
 #SBATCH --mem=200G
@@ -70,17 +70,19 @@ The code below is an example of a batch script to run MMSeqs2. The top of the sc
 
 module load uri
 module load MMseqs2/14-7e284-gompi-2021b
+module load cudnn/cuda11-8.4.1.50
+module load cuda/11.4.0
 module load miniconda
 source ~/.bashrc
 conda activate colabfold
 ```
 
 
-The command `colabfold_search` shown below is added after activating the conda environment `colabfold-v1.5.0`. In this case, protein sequences contained in a fasta file are aligned against the UniRef30 (`--db1 uniref30_2202/uniref30_2202_db`) and environmental (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`) databases. UniRef30 is the default database used to search proteins. In order to use the environmental database, the parameter `--use-env `has to be set to 1 in addition to providing the path (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`).
+The command `colabfold_search` shown below is added after activating the conda environment `colabfold`. In this case, protein sequences contained in a fasta file are aligned against the UniRef30 (`--db1 uniref30_2202/uniref30_2202_db`) and environmental (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`) databases. UniRef30 is the default database used to search proteins. In order to use the environmental database, the parameter `--use-env `has to be set to 1 in addition to providing the path (`--db3 colabfold_envdb_202108/colabfold_envdb_202108_db`).
 
 
 ```
-colabfold_search <path to fasta file> /datasets/bio/colabfold <path to output directory> --db1 uniref30_2202/uniref30_2202_db --db3 colabfold_envdb_202108/colabfold_envdb_202108_db --use-env 1 --use-templates 0
+colabfold_search <path to fasta file> /datasets/bio/colabfold <path to output directory> --db1 uniref30_2202/uniref30_2202_db --db3 colabfold_envdb_202108/colabfold_envdb_202108_db --use-env 1 --use-templates 0 --threads $SLURM_CPUS_ON_NODE
 ```
 
 
@@ -92,9 +94,9 @@ To use the PDB70 templates database, the parameter `--use-templates` should be s
 * Note that it is recommended to request at least 200G using `#SBATCH --mem=200G` in order to load the protein databases.
 * Running colabfold_search with 1,762 proteins, the UniRef30 and environmental databases and the highest mmseqs sensitivity (s = 8) on a gpu A100 node with 64 threads takes approximately 3h.
 
-### Train models and make predictions with ColabFold using a batch script
+### Make predictions with ColabFold using a batch script
 
-A batch script can be used to train models and make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an [array job](https://slurm.schedmd.com/job_array.html).
+A batch script can be used to make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 11GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an [array job](https://slurm.schedmd.com/job_array.html).
 
 The code below provides an example on how to make predictions using `colabfold_batch` in a batch script:
 
@@ -103,10 +105,10 @@ The parameter `--stop-at-score` is used to stop generating models until the pred
 
 ```bash
 #!/bin/bash
-#SBATCH --partition=uri-gpu
+#SBATCH --partition=gpu,gpu-preempt,gpu-long
 #SBATCH --nodes=1
-#SBATCH --cpus-per-gpu=16
-#SBATCH -mem-per-gpu=80
+#SBATCH --gpus-per-node=1
+#SBATCH --mem-per-gpu=11
 #SBATCH -t 05:00:00
 #SBATCH -o slurm-%j.out
 #SBATCH -e slurm-%j.err
@@ -118,7 +120,7 @@ source ~/.bashrc
 
 conda activate colabfold
 
-colabfold_batch <path to directory containing MSAs> <path to output directory> --stop-at-score 85 --msa-mode 'MMseqs2 (UniRef+Environmental)'
+colabfold_batch <path to directory containing MSAs> <path to output directory> --stop-at-score 85
 ```
 
 The `colabfold_batch` command above will create the following files in the provided output directory for each input protein sequence:
@@ -140,6 +142,8 @@ The next 2 files are generated for the 5 trained models:
 #### Notes:
 * `<path to directory containing MSAs>` is the same as `<path to the output directory>` used with the `colabfold_search` command.
 * `<path to output directory>` is the full path to an existing directory used to store the results.
+* When dealing with a large number of sequences, it is recommended to sort proteins into batches based on their size and submit a job to a GPU node with smaller VRAM for batches with shorter proteins.
+* Note that one of colabfold default settings is to not overwrite existing results. Therefore, the batch script of a job that ended before colabfold finished can be resubmitted and colabfold will pursue making predictions for the remaining protein sequences.
 
 
 # Full list of parameters for colabfold_search and colabfold_batch
@@ -184,7 +188,7 @@ colabfold_batch [-h]   [--stop-at-score STOP_AT_SCORE]
                        [--recompile-padding RECOMPILE_PADDING]
                        [--model-order MODEL_ORDER] [--host-url HOST_URL]
                        [--data DATA]
-                       [--msa-mode {MMseqs2 UniRef+Environmental),MMseqs2 (UniRef only,single_sequence}]
+                       [--msa-mode {'mmseqs2_uniref_env','mmseqs2_uniref','single_sequence'}]
                        [--model-type {auto,AlphaFold2-ptm,AlphaFold2-multimer-v1,AlphaFold2-multimer-v2}]
                        [--amber] [--templates]
                        [--custom-template-path CUSTOM_TEMPLATE_PATH] [--env]
