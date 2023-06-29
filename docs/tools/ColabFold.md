@@ -72,7 +72,7 @@ module load uri/main
 module load MMseqs2/14-7e284-gompi-2021b
 module load cudnn/cuda11-8.4.1.50
 module load cuda/11.4.0
-module load miniconda
+module load miniconda/22.11.1-1
 source ~/.bashrc
 conda activate colabfold
 ```
