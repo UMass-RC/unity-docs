@@ -115,7 +115,7 @@ The parameter `--stop-at-score` is used to stop generating models until the pred
 
 module load cudnn/cuda11-8.4.1.50
 module load cuda/11.4.0
-module load miniconda
+module load miniconda/22.11.1-1
 source ~/.bashrc
 
 conda activate colabfold
