@@ -68,7 +68,7 @@ The code below is an example of a batch script to run MMSeqs2. The top of the sc
 #SBATCH -o slurm-%j.out
 #SBATCH -e slurm-%j.err
 
-module load uri
+module load uri/main
 module load MMseqs2/14-7e284-gompi-2021b
 module load cudnn/cuda11-8.4.1.50
 module load cuda/11.4.0
