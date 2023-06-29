@@ -106,9 +106,9 @@ The parameter `--stop-at-score` is used to stop generating models until the pred
 ```bash
 #!/bin/bash
 #SBATCH --partition=gpu,gpu-preempt,gpu-long
-#SBATCH --nodes=1
 #SBATCH --gpus-per-node=1
-#SBATCH --mem-per-gpu=11
+#SBATCH --cpus-per-gpu=16
+#SBATCH --mem-per-gpu=80G
 #SBATCH -t 05:00:00
 #SBATCH -o slurm-%j.out
 #SBATCH -e slurm-%j.err
