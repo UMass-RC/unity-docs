@@ -96,9 +96,9 @@ To use the PDB70 templates database, the parameter `--use-templates` should be s
 
 ### Make predictions with ColabFold using a batch script
 
-A batch script can be used to make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 11GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an [array job](https://slurm.schedmd.com/job_array.html).
+A batch script can be used to make predictions with ColabFold. It should be noted that predictions on proteins longer than 2000 amino acids should be run on a GPU node with at least 16GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an [array job](https://slurm.schedmd.com/job_array.html).
 
-The code below provides an example on how to make predictions using `colabfold_batch` in a batch script:
+The code below provides an example on how to make predictions using `colabfold_batch` in a batch script. The SBATCH options specify resources including access to a GPU with at least 16GB of VRAM (`--constraint=vram16`) necessary to run colabfold on a protein of 2894 amino acids.
 
 The parameter `--stop-at-score` is used to stop generating models until the predicted confidence metric (pLDDT or predicted local distance difference test) is reached.
 
@@ -106,9 +106,10 @@ The parameter `--stop-at-score` is used to stop generating models until the pred
 ```bash
 #!/bin/bash
 #SBATCH --partition=gpu,gpu-preempt,gpu-long
+#SBATCH --constraint=vram16
 #SBATCH --gpus-per-node=1
-#SBATCH --cpus-per-gpu=16
-#SBATCH --mem-per-gpu=80G
+#SBATCH --cpus-per-gpu=8
+#SBATCH --mem-per-gpu=40G
 #SBATCH -t 05:00:00
 #SBATCH -o slurm-%j.out
 #SBATCH -e slurm-%j.err
