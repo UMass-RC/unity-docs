@@ -142,7 +142,7 @@ The next 2 files are generated for the 5 trained models:
 #### Notes:
 * `<path to directory containing MSAs>` is the same as `<path to the output directory>` used with the `colabfold_search` command.
 * `<path to output directory>` is the full path to an existing directory used to store the results.
-* When dealing with a large number of sequences, it is recommended to sort proteins into batches based on their size and submit a job to a GPU node with smaller VRAM for batches with shorter proteins.
+* When dealing with a large number of sequences, we recommended sorting proteins into batches based on their size and submitting a job to a GPU node with smaller VRAM for batches with shorter proteins.
 * Note that one of colabfold default settings is to not overwrite existing results. Therefore, the batch script of a job that ended before colabfold finished can be resubmitted and colabfold will pursue making predictions for the remaining protein sequences.
 
 
