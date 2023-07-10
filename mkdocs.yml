@@ -31,7 +31,7 @@ nav:
           - "Console - SCP/Rsync": "managing-files/cli.md"
           - Globus: "managing-files/globus.md"
           - FileZilla: "managing-files/filezilla.md"
-          #- HPC Workspace: "managing-files/hpc-workspace.md"
+          - HPC Workspace: "managing-files/hpc-workspace.md"
       - Job Scheduling:
           - Introduction: "slurm/index.md"
           - OnDemand: "slurm/ood.md"
@@ -47,6 +47,8 @@ nav:
           - Conda: "software/conda.md"
           - GUI Apps via OnDemand: "software/ood.md"
           - Containers: "software/apptainer.md"
+          - GPUs: "tools/GPU.md"
+          - ColabFold: "tools/ColabFold.md"
           #- R: "software/R.md"
       #- JupyterHub: "jupyter/index.md"
   - FAQ: faq.md
