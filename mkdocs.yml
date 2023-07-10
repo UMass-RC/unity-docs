@@ -46,10 +46,10 @@ nav:
               - Hierarchy: "software/module-hierarchy.md"
           - Conda: "software/conda.md"
           - GUI Apps via OnDemand: "software/ood.md"
+          - Containers: "software/apptainer.md"
           - GPUs: "tools/GPU.md"
           - ColabFold: "tools/ColabFold.md"
           #- R: "software/R.md"
-          #- Singularity: "software/singularity.md"
       #- JupyterHub: "jupyter/index.md"
   - FAQ: faq.md
   - Common Terms: "jargon.md"
