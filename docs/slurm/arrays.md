@@ -13,7 +13,7 @@ To submit an array job, specify
 ```
 where `<indexes>` can be any combination of ranges and lists. For example, `1-100,200` would submit 101 jobs. Ranges support skip counting with a `:`, so `0-15:4` is the same as `0,4,8,12`.
 
-When submitting a large array it may be useful to limit the number of jobs in the array running at one time (see the [partition list]({{< relref "partition-list" >}}) for per-user and per-account limits). For this,you can use the `%` syntax. For example, this will limit to 10 concurrent jobs:
+When submitting a large array it may be useful to limit the number of jobs in the array running at one time (see the [partition list](../technical/partitionlist.md) for per-user and per-account limits). For this,you can use the `%` syntax. For example, this will limit to 10 concurrent jobs:
 ```shell
 --array=1-100%10
 ```
