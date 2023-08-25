@@ -24,4 +24,6 @@ module load cuda/10
 ```
 This script should query the available GPUs, and print only one device to the specified file. Feel free to remove/modify any of the parameters in the script to suit your needs.
 
+If you need to run the same type of job over many inputs, different parameters, or even just some number of iterations, you should look into using [Job Arrays](arrays.md) to simplify your workflow.
+
 {% include-markdown "slurm-mail.md" %}

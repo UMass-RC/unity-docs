@@ -38,6 +38,7 @@ nav:
           - SRUN Jobs: "slurm/srun.md"
           - SBATCH Jobs: "slurm/sbatch.md"
           - MPI: "slurm/mpi.md"
+          - Job Arrays: "slurm/arrays.md"
       - Software:
           - Overview: "software/index.md"
           - Environment Modules:
