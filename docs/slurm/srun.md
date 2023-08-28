@@ -1,6 +1,6 @@
 # Using SRUN to Submit Jobs #
 
-!!! note 
+!!! note
     Usually, if you have to run a single application multiple times, or if you are trying to run a non-interactive application, you should use [sbatch](sbatch.md) instead of srun, since sbatch allows you to specify parameters in the file, and is *non-blocking* (see below).
 
 SRUN is a so-called *blocking* command, as in it will not let you execute other commands until this command is finished (not necessarily the job, just the allocation). For example, if you run `srun /bin/hostname` and resources are available right away, the job will be sent out and the result saved into a file. If resources are not available, you will be stuck in the command while you are pending in the queue.
@@ -28,4 +28,4 @@ srun -c 6 -p cpu --pty --x11 xclock
 !!! note
     You cannot run an interactive/gui job using the `sbatch` command, you must use `srun`.
 
-{% include-markdown "slurm-mail.md" %}
+{% include-markdown "slurm/slurm-mail.md" %}

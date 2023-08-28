@@ -32,9 +32,9 @@ Here are some definitions for common terms used in this documentation:
 
 **Library**: Allows distribution of C code about the filesystem. [Learn more about libraries](https://2066.medium.com/what-is-a-c-library-d5501c4a56fc)
 
-**Module**: Script that modifies your environment to include a package. See [environment modules](module-intro).
+**Module**: Script that modifies your environment to include a package. See [environment modules](software/module-intro.md).
 
-**Environment**: Set of environment variables. Defines the state of your current login **shell**. See [environment modules](module-intro).
+**Environment**: Set of environment variables. Defines the state of your current login **shell**. See [environment modules](software/module-intro.md).
 
 **Conda environment**: Set of installed packages. Activating a conda environment modifies your **shell** environment to include these packages. See [conda](software/conda.md).
 

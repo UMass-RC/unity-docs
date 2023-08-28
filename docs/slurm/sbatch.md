@@ -26,4 +26,4 @@ This script should query the available GPUs, and print only one device to the sp
 
 If you need to run the same type of job over many inputs, different parameters, or even just some number of iterations, you should look into using [Job Arrays](arrays.md) to simplify your workflow.
 
-{% include-markdown "slurm-mail.md" %}
+{% include-markdown "slurm/slurm-mail.md" %}
