@@ -1,0 +1,1637 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../software/apptainer.html">
+      
+      
+        <link rel="next" href="ColabFold.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+    
+    
+      
+        <title>GPUs - Unity Cluster Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unity-gpu-documentation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Unity Cluster Documentation" class="md-header__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="../res/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unity Cluster Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPUs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Unity Cluster Documentation" class="md-nav__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="../res/logo.png" alt="logo">
+
+    </a>
+    Unity Cluster Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Connecting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/ssh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/jupyter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web - JupyterHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managing Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/cli.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SCP/Rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/globus.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Globus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/filezilla.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileZilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/hpc-workspace.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC Workspace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Job Scheduling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Job Scheduling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/srun.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SRUN Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/sbatch.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SBATCH Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/mpi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/arrays.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Environment Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Environment Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-usage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-hierarchy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/conda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GUI Apps via OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/apptainer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GPUs
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="GPU.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    GPUs
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-gpu-resources" class="md-nav__link">
+    Available GPU Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-gpu-resources" class="md-nav__link">
+    Requesting GPU Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-enabled-software" class="md-nav__link">
+    GPU-Enabled Software
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU-Enabled Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-tensorflow-gpu-environment" class="md-nav__link">
+    Setting up a TensorFlow GPU Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-with-gpus" class="md-nav__link">
+    Troubleshooting with GPUs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ColabFold.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ColabFold
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jargon.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Terms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cluster Information
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cluster Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/nodelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/partitionlist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partition List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/storage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transfers/transfers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updates/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Cluster Transition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-gpu-resources" class="md-nav__link">
+    Available GPU Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requesting-gpu-resources" class="md-nav__link">
+    Requesting GPU Resources
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-enabled-software" class="md-nav__link">
+    GPU-Enabled Software
+  </a>
+  
+    <nav class="md-nav" aria-label="GPU-Enabled Software">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-up-a-tensorflow-gpu-environment" class="md-nav__link">
+    Setting up a TensorFlow GPU Environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-with-gpus" class="md-nav__link">
+    Troubleshooting with GPUs
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="unity-gpu-documentation">Unity GPU Documentation<a class="headerlink" href="#unity-gpu-documentation" title="Permanent link">&para;</a></h1>
+<p>Graphics Processing Units (GPUs) provide a powerful tool to run code in
+parallel at a larger scale than traditional CPU parallel workload. This comes
+at the tradeoff with slower communication times. It is important to note that
+using one or more GPUs does not guarantee that code will run faster, however
+many popular software packages have been modified to incorporate GPUs for
+better performance.</p>
+<h2 id="available-gpu-resources">Available GPU Resources<a class="headerlink" href="#available-gpu-resources" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Device</th>
+<th>Arch</th>
+<th>Caps</th>
+<th>VRAM</th>
+<th>Constraint(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NVIDIA GeForce GTX TITAN X</td>
+<td>Maxwell</td>
+<td>sm_52</td>
+<td>vram8 vram11 vram12</td>
+<td>titanx</td>
+</tr>
+<tr>
+<td>Tesla M40 24GB</td>
+<td>Maxwell</td>
+<td>sm_52</td>
+<td>vram8 vram11 vram12 vram16 vram23</td>
+<td>m40</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce GTX 1080 Ti</td>
+<td>Pascal</td>
+<td>sm_52 sm_61</td>
+<td>vram8 vram11</td>
+<td>1080ti</td>
+</tr>
+<tr>
+<td>Tesla V100-PCIE-16GB</td>
+<td>Volta</td>
+<td>sm_52 sm_61 sm_70</td>
+<td>vram8 vram11 vram12 vram16</td>
+<td>v100</td>
+</tr>
+<tr>
+<td>Tesla V100-SXM2-16GB</td>
+<td>Volta</td>
+<td>sm_52 sm_61 sm_70</td>
+<td>vram8 vram11 vram12 vram16</td>
+<td>v100</td>
+</tr>
+<tr>
+<td>Tesla V100-SXM2-32GB</td>
+<td>Volta</td>
+<td>sm_52 sm_61 sm_70</td>
+<td>vram8 vram11 vram12 vram16 vram23 vram32</td>
+<td>v100</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 2080</td>
+<td>Turing</td>
+<td>sm_52 sm_61 sm_70 sm_75</td>
+<td>vram8</td>
+<td>2080</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 2080 Ti</td>
+<td>Turing</td>
+<td>sm_52 sm_61 sm_70 sm_75</td>
+<td>vram8 vram11</td>
+<td>2080ti</td>
+</tr>
+<tr>
+<td>Quadro RTX 8000</td>
+<td>Turing</td>
+<td>sm_52 sm_61 sm_70 sm_75</td>
+<td>vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48</td>
+<td>rtx8000</td>
+</tr>
+<tr>
+<td>NVIDIA A100-PCIE-40GB</td>
+<td>Ampere</td>
+<td>sm_52 sm_61 sm_70 sm_75 sm_80</td>
+<td>vram8 vram11 vram12 vram16 vram23 vram32 vram40</td>
+<td>a100, a100-40g</td>
+</tr>
+<tr>
+<td>NVIDIA A100-SXM4-80GB</td>
+<td>Ampere</td>
+<td>sm_52 sm_61 sm_70 sm_75 sm_80</td>
+<td>vram8 vram11 vram12 vram16 vram23 vram32 vram40 vram48 vram80</td>
+<td>a100, a100-80g</td>
+</tr>
+</tbody>
+</table>
+<h2 id="requesting-gpu-resources">Requesting GPU Resources<a class="headerlink" href="#requesting-gpu-resources" title="Permanent link">&para;</a></h2>
+<p>Requesting GPU access on Unity can be done via Slurm either for an interactive session or using a batch script.
+Below are a minimal example of both interactive and batch jobs.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Not all software is able to use GPUs, and some software will require
+special options, dependencies, or alternate versions to be able to run with
+GPUs. Please ensure your software supports GPU use before requesting these
+resources.</p>
+</div>
+<hr />
+<p><strong>Interactive</strong></p>
+<pre><code class="language-bash">srun -p gpu-preempt -t 02:00:00 --gpus=1 --pty /bin/bash
+</code></pre>
+<p><strong>Batch Script</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=1       # Request access to 1 GPU
+$SBATCH --constraint=2080ti # Request access to a 2080ti GPU
+
+./myscript.sh
+</code></pre>
+<p>Specific GPUs can also be selected by using the <code>--constraint</code> flags with Slurm,
+or by adding the gpu type to <code>--gpus</code>. The available constraints are listed
+below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using <code>--constraint</code> allows you to select multiple possible GPUs that fulfil the requirements. You can either use <code>--constraint=[2080|2080ti]</code> or <code>--constraint=sm_70&amp;vram12</code>. It is better to use the first form if you are using GPUs across more than one node to ensure the same model is used across all entire job.</p>
+</div>
+<ul>
+<li>2080ti</li>
+<li>1080ti</li>
+<li>2080</li>
+<li>titanx</li>
+<li>m40</li>
+<li>rtx8000</li>
+<li>v100</li>
+<li>a100</li>
+</ul>
+<p><strong>Batch Script with Specific GPU</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=2080ti:1       # Request access to 1 2080tiGPU
+
+./myscript.sh
+</code></pre>
+<p><strong>Batch Script with Constraint</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=1       # Request access to 1 2080tiGPU
+#SBATCH --constraint=2080ti
+
+./myscript.sh
+</code></pre>
+<p><strong>Batch Script with Constraint specifying multiple options</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+
+#SBATCH -p gpu-preempt # Submit job to to gpu-preempt partition
+#SBATCH -t 02:00:00    # Set max job time for 2 hours
+#SBATCH --gpus=1       # Request access to 1 2080tiGPU
+#SBATCH --constraint=2080ti|1080ti|2080
+
+./myscript.sh
+</code></pre>
+<hr />
+<h2 id="gpu-enabled-software">GPU-Enabled Software<a class="headerlink" href="#gpu-enabled-software" title="Permanent link">&para;</a></h2>
+<p><strong>CUDA</strong>: NVIDIA's parallel computing platform. A version of this will typically be required to be loaded for most GPU jobs, as this allows access to this NVIDIA compiler suite (nvcc, nvfortran) as well as the NVIDIA GPU profiling tool (nsys).</p>
+<p><strong>cuDNN</strong>: Cuda Deep Neural Network library, often used to accelerate deep learning frameworks in Keras, PyTorch, TensorFlow, and others.</p>
+<p><strong>OpenMPI</strong>: The OpenMPI compilers for MPI compiled against the cuda compilers. This is necessary to use if software that uses both MPI and GPU acceleration.</p>
+<p><strong>Note: be sure to check which version(s) of cuda are compatible with the software that is being used.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Software Name</th>
+<th>Available Verions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cuda 11</td>
+<td>11.8.0, 11.5.0, 11.4.0, 11.3.1, 11.0.3, 11.0.1</td>
+</tr>
+<tr>
+<td>cuda 10</td>
+<td>10.2.89, 10.1.243, 10.0.130</td>
+</tr>
+<tr>
+<td>cuda legacy versions (&lt;10.0)</td>
+<td>9.2, 9.2.88, 9.0, 8.0.61, 8.0, 7.5.18, 7.0, 6.5.14, 6.0</td>
+</tr>
+<tr>
+<td>cudnn</td>
+<td>cuda11-8.4.1.50, cuda10-7.5.0.56, 8.2.4.15-11.4</td>
+</tr>
+<tr>
+<td>openmpi</td>
+<td>4.1.3+cuda11.6.2-mpirun, 4.1.3+cuda11.6.2</td>
+</tr>
+</tbody>
+</table>
+<p>In addition to these, many programming languages are able to use one or more GPUs.</p>
+<ul>
+<li>Python</li>
+<li>Matlab</li>
+<li>Julia</li>
+<li>C++ (using Cuda or OpenACC)</li>
+<li>Fortran (using Cuda or OpenACC)</li>
+<li>C (using Cuda or OpenACC)</li>
+</ul>
+<h3 id="setting-up-a-tensorflow-gpu-environment">Setting up a TensorFlow GPU Environment<a class="headerlink" href="#setting-up-a-tensorflow-gpu-environment" title="Permanent link">&para;</a></h3>
+<p>Some software, especially with python, requires setting up the environment in a specific way.</p>
+<p>For python programs that can use GPU, such as TensorFlow, this is best done using a conda environment.</p>
+<p>The steps to set up a conda environment for TensorFlow is shown below:</p>
+<hr />
+<ol>
+<li>request an interactive session with a GPU node</li>
+</ol>
+<pre><code class="language-bash">srun -t 01:00:00 -p gpu-preempt --gpus=1 --mem=16G --pty /bin/bash
+</code></pre>
+<ol>
+<li>load modules</li>
+</ol>
+<pre><code class="language-bash">module load miniconda/22.11.1-1
+module load cuda/11.4.0
+module load cudnn/cuda11-8.4.1.50
+</code></pre>
+<ol>
+<li>create the environment</li>
+</ol>
+<pre><code class="language-bash">conda create --name TensorFlow-env python=3.9
+</code></pre>
+<p>Note: TensorFlow 2 requires a python version of at least 3.9</p>
+<pre><code class="language-bash">conda activate TensorFlow-env
+pip install TensorFlow
+pip install tensorrt
+conda install ipykernel
+</code></pre>
+<p>Note: if you do not request enough memory, TensorRT will fail to install</p>
+<ol>
+<li>Add environment to Jupyter</li>
+</ol>
+<pre><code class="language-bash">python -m ipykernel install --user --name TensorFlow-env --display-name=&quot;TensorFlow-Env&quot;
+</code></pre>
+<hr />
+<p>After completing these steps, a new kernel with the name "TensorFlow-Env" will be shown with new Open OnDemand sessions</p>
+<h2 id="troubleshooting-with-gpus">Troubleshooting with GPUs<a class="headerlink" href="#troubleshooting-with-gpus" title="Permanent link">&para;</a></h2>
+<p>To view ongoing GPU processes, the <code>nvidia-smi pmon</code> command can be used.</p>
+<p>If you are getting error messages, please be sure to add the following command
+to your scripts in order to know which GPU is being used.</p>
+<pre><code class="language-bash">nvidia-smi -L
+</code></pre>
+<p>If there is a CUDA_ERROR_OUT_OF_MEMORY, a GPU with more available VRAM may be
+necessary, or the code being run should be modified to reduce the memory usage.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy;2023 UMass Amherst
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

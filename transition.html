@@ -1,0 +1,1606 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="updates/index.html">
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+    
+    
+      
+        <title>Shared Cluster Transition - Unity Cluster Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.0e669242.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#transitioning-from-the-shared-cluster-to-unity" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Unity Cluster Documentation" class="md-header__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="res/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unity Cluster Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shared Cluster Transition
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Unity Cluster Documentation" class="md-nav__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="res/logo.png" alt="logo">
+
+    </a>
+    Unity Cluster Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Connecting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connecting/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connecting/ssh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connecting/jupyter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web - JupyterHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managing Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/cli.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SCP/Rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/globus.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Globus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/filezilla.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileZilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="managing-files/hpc-workspace.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC Workspace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Job Scheduling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Job Scheduling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/srun.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SRUN Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/sbatch.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SBATCH Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/mpi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="slurm/arrays.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Environment Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Environment Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/module-intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/module-usage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/module-hierarchy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/conda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GUI Apps via OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="software/apptainer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools/GPU.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="tools/ColabFold.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ColabFold
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jargon.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Terms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cluster Information
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cluster Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="technical/nodelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="technical/partitionlist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partition List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="technical/storage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="transfers/transfers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="updates/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shared Cluster Transition
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="transition.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shared Cluster Transition
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#account-information" class="md-nav__link">
+    Account Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pi-faculty-accounts" class="md-nav__link">
+    PI &amp; Faculty Accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-postdoc-accounts" class="md-nav__link">
+    Student &amp; Postdoc Accounts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-overview" class="md-nav__link">
+    Timeline Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-data-to-unity-deadline-may-15-2023" class="md-nav__link">
+    Migrating Data to Unity (deadline: May 15, 2023)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-cluster-shutdown-read-only-may-1-2023-final-shutdown-june-1-2023" class="md-nav__link">
+    Shared Cluster Shutdown (read-only: May 1, 2023, final shutdown: June 1, 2023)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onboarding-live-sessions" class="md-nav__link">
+    Onboarding Live Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Onboarding Live Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-onboarding-workshop-part-1-access-and-data-storage-march-31-2023" class="md-nav__link">
+    Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unity-onboarding-workshop-part-2-running-jobs-april-14-2023" class="md-nav__link">
+    Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-information" class="md-nav__link">
+    Technical Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transfer" class="md-nav__link">
+    Data Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-scheduler" class="md-nav__link">
+    Job Scheduler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#account-information" class="md-nav__link">
+    Account Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Account Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pi-faculty-accounts" class="md-nav__link">
+    PI &amp; Faculty Accounts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#student-postdoc-accounts" class="md-nav__link">
+    Student &amp; Postdoc Accounts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeline-overview" class="md-nav__link">
+    Timeline Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Timeline Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#migrating-data-to-unity-deadline-may-15-2023" class="md-nav__link">
+    Migrating Data to Unity (deadline: May 15, 2023)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-cluster-shutdown-read-only-may-1-2023-final-shutdown-june-1-2023" class="md-nav__link">
+    Shared Cluster Shutdown (read-only: May 1, 2023, final shutdown: June 1, 2023)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onboarding-live-sessions" class="md-nav__link">
+    Onboarding Live Sessions
+  </a>
+  
+    <nav class="md-nav" aria-label="Onboarding Live Sessions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unity-onboarding-workshop-part-1-access-and-data-storage-march-31-2023" class="md-nav__link">
+    Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unity-onboarding-workshop-part-2-running-jobs-april-14-2023" class="md-nav__link">
+    Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-information" class="md-nav__link">
+    Technical Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-transfer" class="md-nav__link">
+    Data Transfer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-scheduler" class="md-nav__link">
+    Job Scheduler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="transitioning-from-the-shared-cluster-to-unity">Transitioning from the Shared Cluster to Unity<a class="headerlink" href="#transitioning-from-the-shared-cluster-to-unity" title="Permanent link">&para;</a></h1>
+<p><em>Last updated: 21 April 2023</em></p>
+<p>It is our pleasure to welcome you to <a href="https://unity.rc.umass.edu/">Unity</a>,
+a high performance computing cluster located at <a href="https://www.mghpcc.org/">MGHPCC</a> and managed by
+<a href="https://www.umass.edu/it/researchcomputing">UMass Amherst Research Computing</a>.
+We understand that migrating your work may be stressful and we want to make it as smooth as possible.
+Please see below for important dates and information to guide your transition to Unity.</p>
+<p><em>For questions about the Unity transition, please attend our
+<a href="#onboarding-live-sessions">onboarding sessions</a>
+or contact the Unity help desk at <a href="mailto:hpc@umass.edu">hpc@umass.edu</a>.</em></p>
+<p><em>In addition, we have created a new Unity User Community.
+Please sign up with your school email
+<a href="https://join.slack.com/t/unity-user-community/signup">here</a>.
+If you’re unable to register with your school email, please contact
+<a href="mailto:hpc@umass.edu">hpc@umass.edu</a>
+with your preferred email address and we’ll send you a direct invite.</em></p>
+<p><em>Once you’ve signed up, you can access the community
+<a href="https://unity-user-community.slack.com">here</a>.</em></p>
+<div class="toc">
+<ul>
+<li><a href="#transitioning-from-the-shared-cluster-to-unity">Transitioning from the Shared Cluster to Unity</a><ul>
+<li><a href="#account-information">Account Information</a><ul>
+<li><a href="#pi-faculty-accounts">PI &amp; Faculty Accounts</a></li>
+<li><a href="#student-postdoc-accounts">Student &amp; Postdoc Accounts</a></li>
+</ul>
+</li>
+<li><a href="#timeline-overview">Timeline Overview</a><ul>
+<li><a href="#migrating-data-to-unity-deadline-may-15-2023">Migrating Data to Unity (deadline: May 15, 2023)</a></li>
+<li><a href="#shared-cluster-shutdown-read-only-may-1-2023-final-shutdown-june-1-2023">Shared Cluster Shutdown (read-only: May 1, 2023, final shutdown: June 1, 2023)</a></li>
+</ul>
+</li>
+<li><a href="#onboarding-live-sessions">Onboarding Live Sessions</a><ul>
+<li><a href="#unity-onboarding-workshop-part-1-access-and-data-storage-march-31-2023">Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)</a></li>
+<li><a href="#unity-onboarding-workshop-part-2-running-jobs-april-14-2023">Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)</a></li>
+</ul>
+</li>
+<li><a href="#technical-information">Technical Information</a><ul>
+<li><a href="#data-transfer">Data Transfer</a></li>
+<li><a href="#job-scheduler">Job Scheduler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="account-information">Account Information<a class="headerlink" href="#account-information" title="Permanent link">&para;</a></h2>
+<h3 id="pi-faculty-accounts">PI &amp; Faculty Accounts<a class="headerlink" href="#pi-faculty-accounts" title="Permanent link">&para;</a></h3>
+<p>PIs and faculty can request Unity cluster PI accounts in the
+<a href="https://unity.rc.umass.edu/">Unity Portal</a>. On the left side bar, select “Login / Request Account” and log
+in with your UMass Lowell credentials. Once logged in, under “Account Settings,”
+click the “Request PI Account” button. The Unity team will review your
+request and approve your PI account.</p>
+<h3 id="student-postdoc-accounts">Student &amp; Postdoc Accounts<a class="headerlink" href="#student-postdoc-accounts" title="Permanent link">&para;</a></h3>
+<p>Students request access to PI groups by logging into the
+<a href="https://unity.rc.umass.edu/">Unity Portal</a>,
+navigating to “My PIs,” and clicking the “plus” button to search for your group.
+Students and postdocs can’t access Unity without an associated PI, so please ensure
+the PI account is created and approved before requesting an account.</p>
+<h2 id="timeline-overview">Timeline Overview<a class="headerlink" href="#timeline-overview" title="Permanent link">&para;</a></h2>
+<h3 id="migrating-data-to-unity-deadline-may-15-2023">Migrating Data to Unity (deadline: May 15, 2023)<a class="headerlink" href="#migrating-data-to-unity-deadline-may-15-2023" title="Permanent link">&para;</a></h3>
+<p>All data must be migrated to Unity by May 15, 2023. PIs will temporarily receive
+sufficient storage in the /project directory to move as much data from the shared
+cluster as desired. However, storage quotas will be enforced starting January 2024.
+Users may purchase additional storage at that time.</p>
+<h3 id="shared-cluster-shutdown-read-only-may-1-2023-final-shutdown-june-1-2023">Shared Cluster Shutdown (read-only: May 1, 2023, final shutdown: June 1, 2023)<a class="headerlink" href="#shared-cluster-shutdown-read-only-may-1-2023-final-shutdown-june-1-2023" title="Permanent link">&para;</a></h3>
+<p>The Shared Cluster will be turned off permanently on June 1, 2023. However, the cluster
+will become read-only ahead of the shutdown on May 1, 2023. While you will be able to
+continue transferring data, you will no longer be able to run jobs or create new files.</p>
+<h2 id="onboarding-live-sessions">Onboarding Live Sessions<a class="headerlink" href="#onboarding-live-sessions" title="Permanent link">&para;</a></h2>
+<p>To ensure a smooth transition from the Shared Cluster to Unity, we held two online
+workshops on accessing Unity, data transfer and storage, and running jobs. Links to the recordings and slides follow each workshop description.</p>
+<h3 id="unity-onboarding-workshop-part-1-access-and-data-storage-march-31-2023">Unity Onboarding Workshop Part 1: Access and Data Storage (March 31, 2023)<a class="headerlink" href="#unity-onboarding-workshop-part-1-access-and-data-storage-march-31-2023" title="Permanent link">&para;</a></h3>
+<p><em>Friday, March 31, 2023, 2:00 pm to 3:00 pm (time for questions following)</em>
+We provided an overview of Unity in comparison to the Shared cluster, explained the account
+request process for PIs/faculty and students/postdocs, and discussed storage on Unity and data
+transfer options.</p>
+<p><a href="https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESGBqTjFg99Bjj5VQ0pG17ABtmvwDozDw1L85Utu2Rmpig"><strong>Recording link</strong></a>
+<a href="https://bit.ly/ghpcc-to-unity"><strong>Slides link</strong></a></p>
+<h3 id="unity-onboarding-workshop-part-2-running-jobs-april-14-2023">Unity Onboarding Workshop Part 2: Running Jobs (April 14, 2023)<a class="headerlink" href="#unity-onboarding-workshop-part-2-running-jobs-april-14-2023" title="Permanent link">&para;</a></h3>
+<p><em>Friday, April 14, 2023, 2:00 pm to 3:00 pm (time for questions following)</em>
+We discussed the differences between the Shared Cluster’s LSF scheduler and Unity’s Slurm
+scheduler, introduced Unity’s partition layout, showed example Slurm jobs, and demonstrated Unity’s
+Open OnDemand portal.</p>
+<p><a href="https://umass-my.sharepoint.com/:v:/g/personal/gstuart_umass_edu/ESOfR4VMB0BEiJlqwtRMnxoBmUugUD4YUl5qkBvt0mEilQ"><strong>Recording link</strong></a>
+<a href="https://bit.ly/ghpcc-to-unity-2"><strong>Slides link</strong></a></p>
+<h2 id="technical-information">Technical Information<a class="headerlink" href="#technical-information" title="Permanent link">&para;</a></h2>
+<h3 id="data-transfer">Data Transfer<a class="headerlink" href="#data-transfer" title="Permanent link">&para;</a></h3>
+<p>For information about moving data to Unity, see our
+<a href="managing-files/intro.html">file transfer documentation</a>.
+Please give yourself ample time to move your data ahead of the
+May 1, 2023 read-only freeze.</p>
+<h3 id="job-scheduler">Job Scheduler<a class="headerlink" href="#job-scheduler" title="Permanent link">&para;</a></h3>
+<p>While the Shared Cluster uses LSF to allocate resources, Unity uses the
+<a href="slurm/index.html">Slurm scheduler</a>. See
+<a href="https://scicomp.ethz.ch/wiki/LSF_to_Slurm_quick_reference">this quick reference page</a>
+for a comparison between LSF and Slurm options.</p>
+<p>A full list of Slurm commands and their equivalents can be found
+<a href="https://slurm.schedmd.com/rosetta.pdf">in this PDF</a>.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy;2023 UMass Amherst
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>

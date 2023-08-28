@@ -1,0 +1,1644 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.2.5">
+    
+    
+      
+        <title>ColabFold - Unity Cluster Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0e669242.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#colabfold-1-is-a-software-developed-to-accelerate-the-prediction-of-protein-3d-structures-and-protein-complexes-by-integrating-the-fast-search-algorithm-mmseqs2-with-alphafold2-2-or-rosettafold" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Unity Cluster Documentation" class="md-header__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="../res/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Unity Cluster Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ColabFold
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Unity Cluster Documentation" class="md-nav__button md-logo" aria-label="Unity Cluster Documentation" data-md-component="logo">
+      
+  <img src="../res/logo.png" alt="logo">
+
+    </a>
+    Unity Cluster Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/UMass-RC/unity-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Getting Started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Connecting
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Connecting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/ssh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SSH
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connecting/jupyter.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Web - JupyterHub
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Managing Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Managing Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/cli.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Console - SCP/Rsync
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/globus.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Globus
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/filezilla.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FileZilla
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../managing-files/hpc-workspace.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HPC Workspace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Job Scheduling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Job Scheduling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/srun.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SRUN Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/sbatch.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SBATCH Jobs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/mpi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MPI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/arrays.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Job Arrays
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Software
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Software
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" >
+        
+          <label class="md-nav__link" for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Environment Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Environment Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-intro.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-usage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/module-hierarchy.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hierarchy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/conda.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Conda
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/ood.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GUI Apps via OnDemand
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/apptainer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Containers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/GPU.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tools/ColabFold.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ColabFold
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jargon.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common Terms
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cluster Information
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cluster Information
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/nodelist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Node List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/partitionlist.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Partition List
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../technical/storage.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Storage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transfers/transfers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Transfers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../updates/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cluster Updates
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transition.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shared Cluster Transition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#colabfold-1-is-a-software-developed-to-accelerate-the-prediction-of-protein-3d-structures-and-protein-complexes-by-integrating-the-fast-search-algorithm-mmseqs2-with-alphafold2-2-or-rosettafold" class="md-nav__link">
+    ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colabfold-is-available-on-unity-by-using-a-jupyter-notebook-or-a-batch-script-both-methods-make-use-of-one-graphics-processing-unit-gpu-and-the-alphafold2-ai-tool-the-output-includes-the-predicted-protein-structure-in-a-pdb-format-text-file-along-with-files-to-evaluate-the-results" class="md-nav__link">
+    ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results.
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-notebook-is-designed-to-run-colabfold-with-one-protein-sequence-while-the-batch-script-can-be-used-to-make-predictions-for-multiple-protein-sequences-at-once" class="md-nav__link">
+    The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.
+  </a>
+  
+    <nav class="md-nav" aria-label="The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colabfold-on-unity-is-currently-available-in-a-beta-version-for-questions-please-send-an-email-to-hpcumassedu" class="md-nav__link">
+    ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-jupyter-notebook-to-access-colabfold" class="md-nav__link">
+    Using a Jupyter notebook to access ColabFold
+  </a>
+  
+    <nav class="md-nav" aria-label="Using a Jupyter notebook to access ColabFold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-batch-script-to-run-colabfold" class="md-nav__link">
+    Using a batch script to run ColabFold
+  </a>
+  
+    <nav class="md-nav" aria-label="Using a batch script to run ColabFold">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#colabfold-on-unity-has-3-main-components" class="md-nav__link">
+    ColabFold on Unity has 3 main components:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    Getting started
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#search-against-the-colabfold-databases" class="md-nav__link">
+    Search against the ColabFold databases
+  </a>
+  
+    <nav class="md-nav" aria-label="Search against the ColabFold databases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes_1" class="md-nav__link">
+    Notes:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#train-models-and-make-predictions-with-colabfold-using-a-batch-script" class="md-nav__link">
+    Train models and make predictions with ColabFold using a batch script
+  </a>
+  
+    <nav class="md-nav" aria-label="Train models and make predictions with ColabFold using a batch script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notes_2" class="md-nav__link">
+    Notes:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#full-list-of-parameters-for-colabfold_search-and-colabfold_batch" class="md-nav__link">
+    Full list of parameters for colabfold_search and colabfold_batch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h3 id="colabfold-1-is-a-software-developed-to-accelerate-the-prediction-of-protein-3d-structures-and-protein-complexes-by-integrating-the-fast-search-algorithm-mmseqs2-with-alphafold2-2-or-rosettafold">ColabFold [1] is a software developed to accelerate the prediction of protein 3D structures and protein complexes by integrating the fast search algorithm MMSeqs2 with AlphaFold2 [2] or RoseTTAFold.<a class="headerlink" href="#colabfold-1-is-a-software-developed-to-accelerate-the-prediction-of-protein-3d-structures-and-protein-complexes-by-integrating-the-fast-search-algorithm-mmseqs2-with-alphafold2-2-or-rosettafold" title="Permanent link">&para;</a></h3>
+<h3 id="colabfold-is-available-on-unity-by-using-a-jupyter-notebook-or-a-batch-script-both-methods-make-use-of-one-graphics-processing-unit-gpu-and-the-alphafold2-ai-tool-the-output-includes-the-predicted-protein-structure-in-a-pdb-format-text-file-along-with-files-to-evaluate-the-results">ColabFold is available on Unity by using a Jupyter notebook or a batch script. Both methods make use of one graphics processing unit (GPU) and the AlphaFold2 AI tool. The output includes the predicted protein structure in a PDB format text file along with files to evaluate the results.<a class="headerlink" href="#colabfold-is-available-on-unity-by-using-a-jupyter-notebook-or-a-batch-script-both-methods-make-use-of-one-graphics-processing-unit-gpu-and-the-alphafold2-ai-tool-the-output-includes-the-predicted-protein-structure-in-a-pdb-format-text-file-along-with-files-to-evaluate-the-results" title="Permanent link">&para;</a></h3>
+<h3 id="the-notebook-is-designed-to-run-colabfold-with-one-protein-sequence-while-the-batch-script-can-be-used-to-make-predictions-for-multiple-protein-sequences-at-once">The notebook is designed to run ColabFold with one protein sequence while the batch script can be used to make predictions for multiple protein sequences at once.<a class="headerlink" href="#the-notebook-is-designed-to-run-colabfold-with-one-protein-sequence-while-the-batch-script-can-be-used-to-make-predictions-for-multiple-protein-sequences-at-once" title="Permanent link">&para;</a></h3>
+<h4 id="colabfold-on-unity-is-currently-available-in-a-beta-version-for-questions-please-send-an-email-to-hpcumassedu">ColabFold on Unity is currently available in a beta version. For questions, please send an email to hpc@umass.edu.<a class="headerlink" href="#colabfold-on-unity-is-currently-available-in-a-beta-version-for-questions-please-send-an-email-to-hpcumassedu" title="Permanent link">&para;</a></h4>
+<h1 id="using-a-jupyter-notebook-to-access-colabfold">Using a Jupyter notebook to access ColabFold<a class="headerlink" href="#using-a-jupyter-notebook-to-access-colabfold" title="Permanent link">&para;</a></h1>
+<p>Start by accessing JupyterLab using the Unity OnDemand interface:</p>
+<p><a href="https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new">https://ood.unity.rc.umass.edu/pun/sys/dashboard/batch_connect/sys/jupyterlab/session_contexts/new</a></p>
+<p>Click on the JupyterLab interactive app and fill out the following fields:</p>
+<ol>
+<li>The <code>Partition</code> field indicates the type of compute nodes to run your interactive session on. One of the gpu partitions should be selected to run ColabFold Jupyter notebook (gpu, gpu-long, uri-gpu or gpu-preempt).</li>
+<li>The <code>Maximum job duration</code> field defines how long the interactive session with JupyterLab should run for. This field can be left with the default value of one hour (1:00:00) for short protein sequences but should be increased to make predictions on larger protein sequences.</li>
+<li>The <code>Memory (in GB)</code> field defines the amount of memory in gigabytes allocated to your interactive session. To give you an idea of how much memory you may need, 8GB is enough for a protein of 59 amino acids but 50 GB is required for a large protein of 2894 amino acids.</li>
+<li>The <code>GPU count</code> field is the number of GPUs allocated to your interactive session. It should be set to 1 since ColabFold only runs on a single GPU.</li>
+<li>The <code>Modules</code> field corresponds to a list of modules to load. The two following modules should be added (separated only by a space) to this field in order to use the GPU: cudnn/cuda11-8.4.1.50 cuda/11.4.0</li>
+</ol>
+<p>The fields <code>CPU thread count</code> and <code>Extra arguments for Slurm</code> can be left blank.</p>
+<p>Inside JupyterLab:
+1. Open the ColabFold.ipynb notebook.
+2. Choose Python (colabfold) for the kernel.
+3. Insert your protein sequence next to query_sequence and execute the code in the cell (press SHIFT+ENTER or press the play button in the toolbar above).
+4. Run the code in the remaining cells in order to predict the protein structure with the default parameters (see Notes section below) and output plots and a visualization of the 3D structure.
+5. The output directory containing the results will be located in the folder where you put the ColabFold.ipynb notebook.</p>
+<h4 id="notes">Notes:<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ColabFold's notebook is setup to run with the following parameters that can be adjusted by the user:<ul>
+<li>No templates</li>
+<li>Number of models: 5</li>
+<li>Stop predictions at score 100</li>
+<li>Msa mode: mmseqs2_uniref_env</li>
+<li>Model type: alphafold2_ptm</li>
+</ul>
+</li>
+<li>The Jupyter notebook made available here is a modified version of the AlphaFold2_mmseqs2 notebook [3].</li>
+</ul>
+<h1 id="using-a-batch-script-to-run-colabfold">Using a batch script to run ColabFold<a class="headerlink" href="#using-a-batch-script-to-run-colabfold" title="Permanent link">&para;</a></h1>
+<p>The example of batch scripts provided below should be considered for users dealing with a large number of protein sequences.</p>
+<h2 id="colabfold-on-unity-has-3-main-components">ColabFold on Unity has 3 main components:<a class="headerlink" href="#colabfold-on-unity-has-3-main-components" title="Permanent link">&para;</a></h2>
+<ol>
+<li>A script <strong>colabfold_search</strong> that searches the ColabFold databases of proteins using MMseqs2 to build diverse multiple sequence alignments in A3M format.</li>
+<li>A script <strong>colabfold_batch</strong> designed to predict protein structures.</li>
+<li>A set of protein databases:<ul>
+<li><strong>UniRef30</strong>: database containing 30% sequence identity clustered proteins based on UniRef100 non-redundant protein sequence database. </li>
+<li><strong>Environmental database</strong> (also called ColabFoldDB): combination of<strong> </strong>the<strong> </strong>Big Fantastic Database (BFD) and the MGnify database with redundancy reduced in addition to metagenomic protein catalogs containing eukaryotic proteins, phage catalogs and an updated version of MetaClust.</li>
+<li><strong>Templates database</strong> (PDB70): database containing 70% sequence identity clustered proteins from the<strong> </strong>Protein Data Bank (PDB) database.</li>
+</ul>
+</li>
+</ol>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
+<h3 id="search-against-the-colabfold-databases">Search against the ColabFold databases<a class="headerlink" href="#search-against-the-colabfold-databases" title="Permanent link">&para;</a></h3>
+<p>Finding homologous proteins using MMSeqs2 can be done by running a batch script using the SBATCH command: <code>sbatch &lt;path to batch script file&gt;</code></p>
+<p>The code below is an example of a batch script to run MMSeqs2. The top of the script contains the instruction to use bash to execute the commands (<code>#!/bin/bash</code>) and the SBATCH parameters (<code>#SBATCH &lt;parameter&gt;</code>) followed by the different modules required to run MMSeqs2 through ColabFold.</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=cpu
+#SBATCH --nodes=1
+#SBATCH --cpus-per-task=32
+#SBATCH --mem=200G
+#SBATCH -t 05:00:00
+#SBATCH -o slurm-%j.out
+#SBATCH -e slurm-%j.err
+
+module load uri
+module load MMseqs2/14-7e284-gompi-2021b
+module load miniconda
+source ~/.bashrc
+conda activate colabfold
+</code></pre>
+<p>The command colabfold_search shown below is added after activating the conda environment <code>colabfold-v1.5.0</code>. In this case, protein sequences contained in a fasta file are aligned against the UniRef30 (<code>--db1 uniref30_2202/uniref30_2202_db</code>) and environmental (<code>--db3 colabfold_envdb_202108/colabfold_envdb_202108_db</code>) databases. UniRef30 is the default database used to search proteins. In order to use the environmental database, the parameter <code>--use-env</code>has to be set to 1 in addition to providing the path (<code>--db3 colabfold_envdb_202108/colabfold_envdb_202108_db</code>).</p>
+<pre><code>colabfold_search &lt;path to fasta file&gt; /datasets/bio/colabfold &lt;path to output directory&gt; --db1 uniref30_2202/uniref30_2202_db --db3 colabfold_envdb_202108/colabfold_envdb_202108_db --use-env 1 --use-templates 0
+</code></pre>
+<p>To use the PDB70 templates database, the parameter <code>--use-templates</code> should be set to 1 and the path to the database should be provided with <code>--db2 pdb</code>.</p>
+<h4 id="notes_1">Notes:<a class="headerlink" href="#notes_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>&lt;path to fasta file&gt;</code> is the full path to a fasta file containing protein sequence(s) of interest.</li>
+<li><code>&lt;path to output directory&gt;</code> is the full path to an existing directory used to store the multiple sequence alignments (MSAs).</li>
+<li>
+<blockquote>
+<p>Note that it is recommended to request at least 200G using <code>#SBATCH --mem=200G</code> in order to load the protein databases.</p>
+</blockquote>
+</li>
+<li>Running colabfold_search with 1,762 proteins, the UniRef30 and environmental databases and the highest mmseqs sensitivity (s = 8) on a gpu A100 node with 64 threads takes approximately 3h.</li>
+</ul>
+<h3 id="train-models-and-make-predictions-with-colabfold-using-a-batch-script">Train models and make predictions with ColabFold using a batch script<a class="headerlink" href="#train-models-and-make-predictions-with-colabfold-using-a-batch-script" title="Permanent link">&para;</a></h3>
+<p>A batch script can be used to train models and make predictions with ColabFold. It should be noted that predictions on proteins longer than 1000bp should be run on a GPU node with at least 40GB VRAM and that the whole process can be expedited on a large set of input protein sequences by submitting the batch script as an array job.</p>
+<p>The code below provides an example on how to make predictions using <code>colabfold_batch</code> in a batch script:</p>
+<p>The parameter --stop-at-score is used to stop generating models until the predicted confidence metric (pLDDT or predicted local distance difference test) is reached.</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=uri-gpu
+#SBATCH --nodes=1
+#SBATCH --cpus-per-gpu=16
+#SBATCH -mem-per-gpu=80
+#SBATCH -t 05:00:00
+#SBATCH -o slurm-%j.out
+#SBATCH -e slurm-%j.err
+
+module load cudnn/cuda11-8.4.1.50
+module load cuda/11.4.0
+module load miniconda
+source ~/.bashrc
+
+conda activate colabfold
+
+colabfold_batch &lt;path to directory containing MSAs&gt; &lt;path to output directory&gt; --stop-at-score 85 --msa-mode 'MMseqs2 (UniRef+Environmental)'
+</code></pre>
+<p>The <code>colabfold_batch</code> command above will create the following files in the provided output directory for each input protein sequence:</p>
+<ul>
+<li>
+<p><code>{*}_PAE.png</code> → 2D plot of the Predicted Aligned Error (PAE) for each of the 5 trained models.</p>
+</li>
+<li>
+<p><code>{*}_coverage.png</code> → plot of the coverage of protein sequences to the query protein.</p>
+</li>
+<li>
+<p><code>{*}_plddt.png</code> → plot of the pLDDT (predicted local distance difference test) scores for each residue and the 5 trained models.</p>
+</li>
+<li>
+<p><code>{*}_predicted_aligned_error_v1.json</code> → raw data with PAE for all residue pairs for each of the 5 trained models.</p>
+</li>
+</ul>
+<p>The next 2 files are generated for the 5 trained models:</p>
+<ul>
+<li><code>{*}_unrelaxed_rank_1_model_1.pdb</code> → PDB format text file containing the predicted structure obtained from model 1.</li>
+<li><code>{*}_unrelaxed_rank_1_model_1_scores.json</code> → raw data with the pLDDT scores for each residue of the protein structure obtained from model 1.</li>
+</ul>
+<h4 id="notes_2">Notes:<a class="headerlink" href="#notes_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>&lt;path to directory containing MSAs&gt;</code> is the same as <code>&lt;path to the output directory&gt;</code> used with the <code>colabfold_search</code> command.</li>
+<li><code>&lt;path to output directory&gt;</code> is the full path to an existing directory used to store the results.</li>
+</ul>
+<h1 id="full-list-of-parameters-for-colabfold_search-and-colabfold_batch">Full list of parameters for colabfold_search and colabfold_batch<a class="headerlink" href="#full-list-of-parameters-for-colabfold_search-and-colabfold_batch" title="Permanent link">&para;</a></h1>
+<pre><code>colabfold_search [-h] [-s S] [--db1 DB1] [--db2 DB2] [--db3 DB3]
+                        [--use-env {0,1}] [--use-templates {0,1}]
+                        [--filter {0,1}] [--mmseqs MMSEQS]
+                        [--expand-eval EXPAND_EVAL] [--align-eval ALIGN_EVAL]
+                        [--diff DIFF] [--qsc QSC] [--max-accept MAX_ACCEPT]
+                        [--db-load-mode DB_LOAD_MODE] [--threads THREADS]
+                        query dbbase base
+
+  query                 fasta files with the queries.
+  dbbase                The path to the database and indices you downloaded
+                        and created with setup_databases.sh
+  base                  Directory for the results (and intermediate files)
+  -s S                  mmseqs sensitivity (1-8). Lowering this will result in a
+                        much faster search but possibly sparser msas → default = 8
+  --db1 DB1             path to a UniRef database on Unity
+  --db2 DB2             path to the Templates database on Unity
+  --db3 DB3             path to the Environmental database on Unity
+  --use-env {0,1}
+  --use-templates {0,1}
+  --filter {0,1}
+  --mmseqs MMSEQS       Location of the mmseqs binary
+  --expand-eval EXPAND_EVAL
+  --align-eval ALIGN_EVAL
+  --diff DIFF
+  --qsc QSC
+  --max-accept MAX_ACCEPT
+  --db-load-mode DB_LOAD_MODE → default = 0 (batch searches)
+  --threads THREADS
+</code></pre>
+<pre><code>colabfold_batch [-h]   [--stop-at-score STOP_AT_SCORE]
+                       [--stop-at-score-below STOP_AT_SCORE_BELOW]
+                       [--num-recycle NUM_RECYCLE]
+                       [--num-ensemble NUM_ENSEMBLE]
+                       [--random-seed RANDOM_SEED] [--num-models {1,2,3,4,5}]
+                       [--recompile-padding RECOMPILE_PADDING]
+                       [--model-order MODEL_ORDER] [--host-url HOST_URL]
+                       [--data DATA]
+                       [--msa-mode {MMseqs2 UniRef+Environmental),MMseqs2 (UniRef only,single_sequence}]
+                       [--model-type {auto,AlphaFold2-ptm,AlphaFold2-multimer-v1,AlphaFold2-multimer-v2}]
+                       [--amber] [--templates]
+                       [--custom-template-path CUSTOM_TEMPLATE_PATH] [--env]
+                       [--cpu] [--rank {auto,plddt,ptmscore,multimer}]
+                       [--pair-mode {unpaired,paired,unpaired+paired}]
+                       [--recompile-all-models]
+                       [--sort-queries-by {none,length,random}]
+                       [--save-single-representations]
+                       [--save-pair-representations] [--training]
+                       [--max-msa           {512:5120,512:1024,256:512,128:256,64:128,32:64,16:32}]
+                       [--zip] [--use-gpu-relax]
+                       [--overwrite-existing-results]
+                       input results
+
+--stop-at-score STOP_AT_SCORE
+                        Compute models until plddt (single chain) or ptmscore
+                        (complex) &gt; threshold is reached. This can make
+                        colabfold much faster by only running the first model
+                        for easy queries.
+--stop-at-score-below STOP_AT_SCORE_BELOW → default = 0
+                        Stop to compute structures if plddt (single chain) or
+                        ptmscore (complex) &lt; threshold. This can make
+                        colabfold much faster by skipping sequences that do
+                        not generate good scores.
+--num-recycle NUM_RECYCLE &lt;strong&gt;→ default = 3&lt;/strong&gt;
+                        Number of prediction cycles.Increasing recycles can
+                        improve the quality but slows down the prediction.
+--num-ensemble NUM_ENSEMBLE &lt;strong&gt;→ default = 1&lt;/strong&gt;
+                        Number of ensembles.The trunk of the network is run
+                        multiple times with different random choices for the
+                        MSA cluster centers.
+--random-seed RANDOM_SEED &lt;strong&gt;→ default = 0&lt;/strong&gt;
+                        Changing the seed for the random number generator can
+                        result in different structure predictions.
+--num-models {1,2,3,4,5} &lt;strong&gt;→ default = 5&lt;/strong&gt;
+--recompile-padding RECOMPILE_PADDING &lt;strong&gt;→ default = 1.1&lt;/strong&gt;
+                        Whenever the input length changes, the model needs to
+                        be recompiled, which is slow. We pad sequences by this
+                        factor, so we can e.g. compute sequence from length
+                        100 to 110 without recompiling. The prediction will
+                        become marginally slower for the longer input, but
+                        overall performance increases due to not recompiling.
+                        Set to 1 to disable.
+--model-order MODEL_ORDER
+--host-url HOST_URL &lt;strong&gt;→ default = https://api.colabfold.com&lt;/strong&gt;
+--data DATA
+--msa-mode {MMseqs2 (UniRef+Environmental),MMseqs2 (UniRef only),single_sequence}
+                        Using an a3m file as input overwrites this option
+--model-type {auto,AlphaFold2-ptm,AlphaFold2-multimer-v1,AlphaFold2-multimer-v2}
+                        predict structure/complex using the following
+                        model.Auto will pick &quot;AlphaFold2&quot; (ptm) for structure
+                        predictions and &quot;AlphaFold2-multimer-v2&quot; for
+                        Complexes. &lt;strong&gt;→ default = AlphaFold2-ptm&lt;/strong&gt;
+--amber               Use amber for structure refinement
+--templates           Use templates from pdb
+--custom-template-path CUSTOM_TEMPLATE_PATH
+                        Directory with pdb files to be used as input&lt;/code&gt;
+--env
+--cpu                 Allow running on the cpu, which is very slow
+--rank {auto,plddt,ptmscore,multimer} → default = plddt
+                        rank models by auto, plddt or ptmscore
+--pair-mode {unpaired,paired,unpaired+paired} → default =  unpaired+paired
+                        rank models by auto, unpaired, paired, unpaired+paired
+--recompile-all-models → default = false
+                        recompile all models instead of just model 1 and 3
+--sort-queries-by {none,length,random}
+                        sort queries by: none, length, random
+--save-single-representations
+                        saves the single representation embeddings of all
+                        models
+--save-pair-representations
+                        saves the pair representation embeddings of all models
+--training            turn on training mode of the model to activate drop
+                        Outs → default = false
+--max-msa {512:5120,512:1024,256:512,128:256,64:128,32:64,16:32} → default = null
+                        defines: `max_msa_clusters:max_extra_msa` number of
+                        sequences to use
+--zip                 zip all results into one &lt;jobname&gt;.result.zip and
+                        delete the original files
+--use-gpu-relax       run amber on GPU instead of CPU
+--overwrite-existing-results → default = false
+</code></pre>
+<h1 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h1>
+<ol>
+<li>Mirdita, M., Schütze, K., Moriwaki, Y. et al. ColabFold: making protein folding accessible to all. Nat Methods 19, 679–682 (2022). https://doi.org/10.1038/s41592-022-01488-1</li>
+<li>Jumper, J., Evans, R., Pritzel, A. et al. Highly accurate protein structure prediction with AlphaFold. Nature 596, 583–589 (2021). https://doi.org/10.1038/s41586-021-03819-2</li>
+<li>https://github.com/sokrypton/ColabFold#running-locally</li>
+</ol>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy;2023 UMass Amherst
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.78eede0e.min.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../javascripts/tablesort.js"></script>
+      
+    
+  </body>
+</html>
