@@ -1,4 +1,7 @@
 # Unity Cluster User Documentation
+
+## ATTENTION: This repo is now defunct, instead use https://gitlab.rc.umass.edu/unity/education/documentation/unity-website
+
 User Documentation for Unity Cluster at UMass Amherst
 
 ### Contributing
