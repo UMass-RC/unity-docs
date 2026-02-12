@@ -26,7 +26,7 @@ You must save your public key on Unity by adding it in your [account settings](h
     It's recommended that you also add a password to this file using the following command:
 
     ```
-    ssh-keygen -p -f ~/.ssh/unity-privkey.rsa
+    ssh-keygen -p -f ~/.ssh/unity-privkey.key
     ```
 
 ### Connection Details ###
